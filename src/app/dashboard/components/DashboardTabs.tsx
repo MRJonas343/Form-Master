@@ -29,6 +29,7 @@ export const DashboardTabs: FC<DashboardTabsProps> = ({
 		>
 			<Tab key="my-forms" title={t("myForms")} />
 			<Tab key="my-answers" title={t("myAnswers")} />
+			<Tab key="join-us" title={t("joinUs")} />
 		</Tabs>
 	);
 };

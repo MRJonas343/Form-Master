@@ -8,6 +8,7 @@ export * from "./formTags";
 export * from "./likeSchema";
 export * from "./optionsSchema";
 export * from "./questionSchema";
+export * from "./salesForceTokens";
 export * from "./sessionsSchema";
 export * from "./tagsSchema";
 export * from "./userSchema";

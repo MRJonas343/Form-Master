@@ -67,7 +67,8 @@
 	},
 	"dashboardTabs": {
 		"myForms": "My Forms",
-		"myAnswers": "My Answers"
+		"myAnswers": "My Answers",
+		"joinUs": "Join Us"
 	},
 	"myFormsTable": {
 		"formName": "Form",
@@ -159,5 +160,30 @@
 		"email": "Email",
 		"role": "Role",
 		"status": "Status"
+	},
+	"joinUs": {
+		"title": "Join Our Clients in Salesforce 💖",
+		"invalidName": "Invalid name",
+		"invalidPhone": "Invalid phone",
+		"invalidCountry": "Invalid country",
+		"invalidState": "Invalid state",
+		"invalidPostalCode": "Invalid postal code",
+		"invalidCity": "Invalid city",
+		"invalidStreet": "Invalid street",
+		"invalidIndustry": "Invalid industry",
+		"name": "Name",
+		"phone": "Phone",
+		"street": "Street",
+		"city": "City",
+		"state": "State",
+		"postalCode": "Postal Code",
+		"country": "Country",
+		"industry": "Industry",
+		"join": "Join Us 😎",
+		"invalidEmail": "Invalid email",
+		"welcome": "Welcome to FormMaster clients 💖",
+		"error": "Ups, something went wrong, try again later",
+		"offer": "You will recived special offers and discounts",
+		"AlreadyRegistered": "You are already registered with us in Salesforce 🎉"
 	}
 }

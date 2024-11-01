@@ -2,14 +2,21 @@
 
 import { DashboardTabs, MyFormsTable, MyFilledForm } from ".";
 import type { FilledForm, UserForms } from "@/interfaces";
+import { JoinUsTab } from "./JoinUsTab";
 import { useState } from "react";
+import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
 
 interface DashboardProps {
 	userForms: UserForms[];
 	filledForms: FilledForm[];
+	contacts: SalesForceUser;
 }
 
-export const Dashboard = ({ userForms, filledForms }: DashboardProps) => {
+export const Dashboard = ({
+	userForms,
+	filledForms,
+	contacts,
+}: DashboardProps) => {
 	const [tab, setTab] = useState("my-forms");
 
 	const changeTab = (tab: string) => setTab(tab);
@@ -23,6 +30,10 @@ export const Dashboard = ({ userForms, filledForms }: DashboardProps) => {
 				<>
 					{" "}
 					<MyFormsTable forms={userForms} />{" "}
+				</>
+			) : tab === "join-us" ? (
+				<>
+					<JoinUsTab data={contacts} />
 				</>
 			) : (
 				<>

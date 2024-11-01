@@ -12,6 +12,7 @@ import {
 	options,
 	formTags,
 	tags,
+	salesForceTokens,
 } from "./schemas";
 
 export const tablesSchemas = {
@@ -28,4 +29,5 @@ export const tablesSchemas = {
 	formPermissions,
 	formTags,
 	tags,
+	salesForceTokens,
 };

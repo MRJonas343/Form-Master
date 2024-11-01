@@ -68,7 +68,8 @@
 	},
 	"dashboardTabs": {
 		"myForms": "Mis Formularios",
-		"myAnswers": "Mis Respuestas"
+		"myAnswers": "Mis Respuestas",
+		"joinUs": "Únete a nosotros"
 	},
 	"myFormsTable": {
 		"formName": "Nombre",
@@ -160,5 +161,30 @@
 		"email": "Email",
 		"role": "Rol",
 		"status": "Estado"
+	},
+	"joinUs": {
+		"title": "Únete a nuestros clientes en Salesforce 💖",
+		"invalidName": "Nombre no válido",
+		"invalidPhone": "Teléfono no válido",
+		"invalidCountry": "País no válido",
+		"invalidState": "Estado no válido",
+		"invalidPostalCode": "Código Postal no válido",
+		"invalidCity": "Ciudad no válida",
+		"invalidStreet": "Calle no válida",
+		"invalidIndustry": "Industria no válida",
+		"name": "Nombre",
+		"phone": "Teléfono",
+		"street": "Calle",
+		"city": "Ciudad",
+		"state": "Estado",
+		"postalCode": "Código Postal",
+		"country": "País",
+		"industry": "Industria",
+		"join": "Únete a nosotros 😎",
+		"invalidEmail": "Email no válido",
+		"welcome": "Bienvenido a nuestros clientes FormMaster 💖",
+		"error": "Ups, algo salió mal, inténtalo de nuevo más tarde",
+		"offer": "Recibirás ofertas y descuentos especiales",
+		"AlreadyRegistered": "Ya estás registrado con nosotros en Salesforce 🎉"
 	}
 }

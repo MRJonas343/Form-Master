@@ -7,4 +7,5 @@ export * from "./forms/questionsRepository";
 export * from "./permissions/permissionRepository";
 export * from "./resultsRepository/resultRepository";
 export * from "./tags/tagsRepository";
+export * from "./tokens/tokenRepository";
 export * from "./user/userRepository";

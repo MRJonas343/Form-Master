@@ -17,6 +17,7 @@ export default defineConfig({
 		"./src/db/schemas/formPermissions.ts",
 		"./src/db/schemas/tagsSchema.ts",
 		"./src/db/schemas/formTags.ts",
+		"./src/db/schemas/salesForceTokens.ts",
 	],
 	dialect: "mysql",
 	dbCredentials: {

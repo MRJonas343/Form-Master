@@ -25,10 +25,6 @@ export const createAccount = async (
 
 	const account = {
 		Phone: data.phone,
-		BillingStreet: data.street,
-		BillingCity: data.city,
-		BillingState: data.state,
-		BillingPostalCode: data.postalCode,
 		BillingCountry: data.country,
 		Name: user.name,
 		Site: "https://formmaster.site",

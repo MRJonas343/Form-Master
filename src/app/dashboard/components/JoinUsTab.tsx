@@ -13,10 +13,13 @@ import { useState } from "react";
 
 export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
-	const isFormDisabled = Boolean(data.AccountId);
+
 	const { data: session } = useSession();
 	const t = useTranslations("joinUs");
 	const router = useRouter();
+	let isFormDisabled = false;
+
+	if (data) isFormDisabled = true;
 
 	const {
 		register,

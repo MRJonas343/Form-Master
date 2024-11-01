@@ -27,6 +27,8 @@ export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
 
 	const { data: session } = useSession();
 
+	const t = useTranslations("joinUs");
+
 	const onSubmit = async (data: SalesForceAccount) => {
 		setIsSubmitting(true);
 		const status = await createAccount(session?.user?.id ?? "", data);
@@ -36,8 +38,6 @@ export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
 		setIsSubmitting(false);
 		reset();
 	};
-
-	const t = useTranslations("joinUs");
 
 	return (
 		<section className="flex flex-col max-w-[600px] w-[95%] mx-auto md:mt-7">

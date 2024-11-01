@@ -1,3 +1,5 @@
+"use client";
+
 import { Tabs, Tab } from "@nextui-org/react";
 import type { FC } from "react";
 import { useTranslations } from "next-intl";

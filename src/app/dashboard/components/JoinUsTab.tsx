@@ -12,7 +12,11 @@ import toast from "react-hot-toast";
 import { useState } from "react";
 
 export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
+	const [isSubmitting, setIsSubmitting] = useState(false);
 	const isFormDisabled = Boolean(data.AccountId);
+	const { data: session } = useSession();
+	const t = useTranslations("joinUs");
+	const router = useRouter();
 
 	const {
 		register,
@@ -20,14 +24,6 @@ export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
 		handleSubmit,
 		reset,
 	} = useForm<SalesForceAccount>();
-
-	const [isSubmitting, setIsSubmitting] = useState(false);
-
-	const router = useRouter();
-
-	const { data: session } = useSession();
-
-	const t = useTranslations("joinUs");
 
 	const onSubmit = async (data: SalesForceAccount) => {
 		setIsSubmitting(true);

@@ -21,7 +21,7 @@ export const Issues = ({ tickets }: IssuesProps) => {
 	return (
 		<>
 			<h1 className="text-center text-2xl font-bold mt-4">{t("title")}</h1>
-			<section className="grid place-items-center gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-[95%] mx-auto md:mt-7 mt-3">
+			<section className="grid place-items-center gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-[95%] mx-auto md:mt-7 mt-3 max-w-[1300px]">
 				{tickets.issues.length > 0 ? (
 					tickets.issues.map((issue) => (
 						<Card key={issue.id} className="w-[400px]">

@@ -69,7 +69,8 @@
 	"dashboardTabs": {
 		"myForms": "Mis Formularios",
 		"myAnswers": "Mis Respuestas",
-		"joinUs": "Únete a nosotros"
+		"joinUs": "Únete a nosotros",
+		"issues": "Issues"
 	},
 	"myFormsTable": {
 		"formName": "Nombre",

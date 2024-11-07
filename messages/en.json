@@ -204,5 +204,10 @@
 		"cancel": "Cancel",
 		"invalidSummary": "Summary is required",
 		"invalidDescription": "Description is required"
+	},
+	"IssuePage": {
+		"visit": "Visit Issue in Jira",
+		"title": "Issues",
+		"noIssues": "You haven't reported any issue"
 	}
 }

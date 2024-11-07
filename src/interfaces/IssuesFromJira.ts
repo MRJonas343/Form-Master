@@ -16,8 +16,25 @@ export interface Issue {
 
 export interface Fields {
 	summary: string;
+	description: Description;
 	priority: Priority;
 	status: Status;
+}
+
+export interface Description {
+	type: string;
+	version: number;
+	content: DescriptionContent[];
+}
+
+export interface DescriptionContent {
+	type: string;
+	content: ContentContent[];
+}
+
+export interface ContentContent {
+	type: string;
+	text: string;
 }
 
 export interface Priority {

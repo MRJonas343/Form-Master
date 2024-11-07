@@ -10,7 +10,7 @@ export const getTicketsByUserId = async (userId: number) => {
 	const encodedCredentials = Buffer.from(credentials).toString("base64");
 
 	const response = await fetch(
-		`${process.env.JIRA_DOMAIN}/rest/api/3/search?jql=reporter="${account?.jiraAccountId}"&fields=summary,status,priority`,
+		`${process.env.JIRA_DOMAIN}/rest/api/3/search?jql=reporter="${account?.jiraAccountId}"&fields=summary,description,status,priority`,
 		{
 			method: "GET",
 			headers: {

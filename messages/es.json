@@ -203,5 +203,10 @@
 		"cancel": "Cancelar",
 		"invalidSummary": "El resumen es obligatorio",
 		"invalidDescription": "La descripción es obligatoria"
+	},
+	"IssuePage": {
+		"visit": "Visitar Problema en Jira",
+		"title": "Problemas",
+		"noIssues": "No tienes ningún problema reportado"
 	}
 }

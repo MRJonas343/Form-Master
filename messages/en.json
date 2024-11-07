@@ -185,5 +185,23 @@
 		"error": "Ups, something went wrong, try again later",
 		"offer": "You will recived special offers and discounts",
 		"AlreadyRegistered": "You are already registered with us in Salesforce 🎉"
+	},
+	"issueModal": {
+		"title": "Issue Report",
+		"description": "Describe the issue",
+		"priority": "Priority",
+		"High": "High",
+		"Average": "Average",
+		"Low": "Low",
+		"form": "Form, is applicable",
+		"invalidPriority": "Priority is required",
+		"invalidForm": "Form is required",
+		"error": "Ups, something went wrong, try again later",
+		"success": "Thank you for your report",
+		"summary": "Summary",
+		"submit": "Report",
+		"cancel": "Cancel",
+		"invalidSummary": "Summary is required",
+		"invalidDescription": "Description is required"
 	}
 }

@@ -18,6 +18,7 @@ export default defineConfig({
 		"./src/db/schemas/tagsSchema.ts",
 		"./src/db/schemas/formTags.ts",
 		"./src/db/schemas/salesForceTokens.ts",
+		"./src/db/schemas/jiraAccounts.ts",
 	],
 	dialect: "mysql",
 	dbCredentials: {

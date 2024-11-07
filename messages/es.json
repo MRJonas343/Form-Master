@@ -186,5 +186,21 @@
 		"error": "Ups, algo salió mal, inténtalo de nuevo más tarde",
 		"offer": "Recibirás ofertas y descuentos especiales",
 		"AlreadyRegistered": "Ya estás registrado con nosotros en Salesforce 🎉"
+	},
+	"issueModal": {
+		"title": "Reportar Problema",
+		"description": "Describe el problema",
+		"summary": "Problema",
+		"priority": "Prioridad",
+		"High": "Alta",
+		"Average": "Media",
+		"Low": "Baja",
+		"form": "Formulario, si es aplicable",
+		"invalidPriority": "La prioridad es obligatoria",
+		"invalidForm": "El formulario es obligatorio",
+		"submit": "Reportar",
+		"cancel": "Cancelar",
+		"invalidSummary": "El resumen es obligatorio",
+		"invalidDescription": "La descripción es obligatoria"
 	}
 }

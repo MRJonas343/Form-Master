@@ -5,6 +5,7 @@ export * from "./filledFormSchema";
 export * from "./formPermissions";
 export * from "./formSchema";
 export * from "./formTags";
+export * from "./jiraAccounts";
 export * from "./likeSchema";
 export * from "./optionsSchema";
 export * from "./questionSchema";

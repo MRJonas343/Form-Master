@@ -4,6 +4,7 @@ export * from "./edit-form/editFormRepository";
 export * from "./filledForms/filledFormsRepository";
 export * from "./forms/formRepository";
 export * from "./forms/questionsRepository";
+export * from "./jira/jiraRepository";
 export * from "./permissions/permissionRepository";
 export * from "./resultsRepository/resultRepository";
 export * from "./tags/tagsRepository";

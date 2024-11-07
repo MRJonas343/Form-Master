@@ -13,6 +13,7 @@ import {
 	formTags,
 	tags,
 	salesForceTokens,
+	jiraAccounts,
 } from "./schemas";
 
 export const tablesSchemas = {
@@ -30,4 +31,5 @@ export const tablesSchemas = {
 	formTags,
 	tags,
 	salesForceTokens,
+	jiraAccounts,
 };

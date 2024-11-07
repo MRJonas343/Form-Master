@@ -42,7 +42,7 @@ export const Issues = ({ tickets }: IssuesProps) => {
 								<Link
 									isExternal
 									showAnchorIcon
-									href={`${process.env.JIRA_DOMAIN}/browse/${issue.key}`}
+									href={`${process.env.NEXT_PUBLIC_JIRA_DOMAIN}/browse/${issue.key}`}
 								>
 									{t("visit")}
 								</Link>

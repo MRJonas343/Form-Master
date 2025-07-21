@@ -61,10 +61,15 @@ export const formQuestionsReducer = (
 		}
 		case "UPDATE_QUESTION_OPTIONS": {
 			const { id, options } = action.payload;
+			const formattedOptions = options.map((optionText, index) => ({
+				id: index + 1,
+				questionId: Number.parseInt(id),
+				optionText: optionText,
+			}));
 			return {
 				...state,
 				questionsState: state.questionsState.map((question) =>
-					question.id === id ? { ...question, options } : question,
+					question.id === id ? { ...question, options: formattedOptions } : question,
 				),
 			};
 		}

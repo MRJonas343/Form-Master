@@ -1,9 +1,9 @@
-import { int, mysqlTable, text } from "drizzle-orm/mysql-core";
+import { int, bigint, mysqlTable, text } from "drizzle-orm/mysql-core";
 import { users, forms } from ".";
 
 export const comments = mysqlTable("comments", {
 	id: int("id").primaryKey().autoincrement(),
-	user_id: int("user_id")
+	user_id: bigint("user_id", { mode: "number" })
 		.notNull()
 		.references(() => users.id, { onDelete: "cascade" }),
 	form_id: int("form_id")

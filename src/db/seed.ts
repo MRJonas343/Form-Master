@@ -1106,8 +1106,11 @@ const answersToSeed = [
 const seed = async () => {
 	const usersToInsert = await Promise.all(
 		usersToSeed.map(async (user) => ({
-			...user,
+			name: user.name,
+			email: user.email,
 			password: await hashPassword(user.password),
+			role: user.role,
+			status: user.status,
 		})),
 	);
 

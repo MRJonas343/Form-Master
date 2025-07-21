@@ -15,7 +15,7 @@ export default async function page(props: { params: Promise<{ id: string }> }) {
 	if (session.user.role === "user") {
 		const isTheAhtor = await checkFormOwnership(
 			Number.parseInt(params.id),
-			Number.parseInt(session.user?.id ?? ""),
+			session.user?.id ?? "",
 		);
 
 		if (!isTheAhtor) return redirect("/");
@@ -31,6 +31,12 @@ export default async function page(props: { params: Promise<{ id: string }> }) {
 	const formatedQuestions = questions.map((question) => ({
 		...question,
 		id: String(question.id),
+		formId: Number.parseInt(params.id),
+		options: 'options' in question ? question.options?.map((optionText: string, index: number) => ({
+			id: index + 1,
+			questionId: question.id,
+			optionText: optionText,
+		})) || [] : [],
 	}));
 
 	return (

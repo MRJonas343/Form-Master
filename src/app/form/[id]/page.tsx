@@ -48,7 +48,7 @@ export default async function FormPage(props: {
 		isReadOnly = true;
 	} else {
 		const isFormFilled = await isFormAlreadyFill(
-			Number(session.user.id),
+			session.user.id ?? "",
 			formId,
 		);
 		if (isFormFilled)
@@ -59,7 +59,7 @@ export default async function FormPage(props: {
 		} else {
 			const hasPermission = await checkPermission(
 				formId,
-				Number(session.user.id),
+				session.user.id ?? "",
 			);
 			if (!hasPermission) isReadOnly = true;
 		}

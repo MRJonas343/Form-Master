@@ -18,7 +18,7 @@ export const submitGeneralSettings = async (
 
 	const formData = new FormData();
 	if (state.image) formData.append("image", state.image);
-	const userId = Number.parseInt(session?.user?.id ?? "");
+	const userId = session?.user?.id ?? "";
 
 	const formId = await createForm(data, userId, state.selectedUsers, formData);
 

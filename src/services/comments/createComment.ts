@@ -5,7 +5,7 @@ import { revalidatePath } from "next/cache";
 
 export const createComment = async (
 	formId: number,
-	userId: number,
+	userId: string,
 	comment: string,
 ) => {
 	const result = await commentsRepository.createComment(

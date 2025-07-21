@@ -2,7 +2,7 @@ import { getUserById } from "@/services/users/getUserById";
 import type { Action, initialState } from "../store/generalSettingsState";
 
 export const selectUser = async (
-	id: number,
+	id: string,
 	state: typeof initialState,
 	dispatch: (value: Action) => void,
 ) => {
@@ -17,7 +17,7 @@ export const selectUser = async (
 };
 
 export const deleteSelectedUser = (
-	id: number,
+	id: string,
 	state: typeof initialState,
 	dispatch: (value: Action) => void,
 ) => {

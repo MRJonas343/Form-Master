@@ -11,23 +11,23 @@ const page = async (props: {
 	const session = await auth();
 
 	if (!session) return redirect("/login");
-	const userId = Number.parseInt(session.user?.id ?? "");
+	const userId = session.user?.id ?? "";
 
 	const form = await getFilledForm(
 		Number.parseInt(params.formId),
-		Number.parseInt(params.userId),
+		params.userId,
 	);
 
 	if (session.user.role === "user") {
 		if (form.form?.author_id !== userId) {
-			if (userId !== Number.parseInt(params.userId)) return redirect("/");
+			if (userId !== params.userId) return redirect("/");
 		}
 	}
 
 	return (
 		<>
 			<NavBar />
-			<FilledForm data={form} />
+			<FilledForm data={{ ...form, commentsResult: form.comments }} />
 		</>
 	);
 };

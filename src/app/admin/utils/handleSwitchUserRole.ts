@@ -20,7 +20,7 @@ export const handleSwitchUserRole = async (
 		);
 		return;
 	}
-	const ids = [...selectedIds].map((id) => Number.parseInt(id as string));
+	const ids = [...selectedIds].map((id) => id as string);
 	if (ids.length === 0) return toast.error("No users selected");
 
 	//case some users change role

@@ -53,7 +53,7 @@ export const submitForm = async (
 		form: questionsToUpdate,
 		isFormLiked: state.isFormLiked,
 		shouldSendCopy: state.shouldSendCopy,
-		userId: Number.parseInt(session?.user?.id ?? ""),
+		userId: session?.user?.id ?? "",
 		formId: formGeneralData.id,
 		userEmail: session?.user?.email,
 		userName: session?.user?.name,
@@ -76,7 +76,7 @@ export const uploadComment = async (
 	if (!state.comment) return;
 	await createComment(
 		formGeneralData.id,
-		Number.parseInt(session?.user?.id ?? ""),
+		session?.user?.id ?? "",
 		state.comment,
 	);
 

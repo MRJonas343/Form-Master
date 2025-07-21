@@ -2,7 +2,7 @@ import type { FormSettingsAction, FormSettingsState } from "../store/state";
 import { getUserById } from "@/services/users/getUserById";
 
 export const selectUser = async (
-	id: number,
+	id: string,
 	state: FormSettingsState,
 	dispatch: (value: FormSettingsAction) => void,
 ) => {
@@ -17,7 +17,7 @@ export const selectUser = async (
 };
 
 export const deleteSelectedUser = (
-	id: number,
+	id: string,
 	state: FormSettingsState,
 	dispatch: (value: FormSettingsAction) => void,
 ) => {

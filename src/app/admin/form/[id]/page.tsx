@@ -11,7 +11,7 @@ export default async function page({ params }: { params: { id: string } }) {
 
 	if (session.user.role !== "admin") return redirect("/");
 
-	const forms = await getAllFormsByUserId(Number.parseInt(params.id));
+	const forms = await getAllFormsByUserId(params.id);
 
 	return (
 		<>

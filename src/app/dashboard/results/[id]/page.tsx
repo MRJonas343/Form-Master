@@ -15,7 +15,7 @@ const page = async ({ params }: { params: { id: string } }) => {
 
 	if (!form) return redirect("/");
 
-	if (form.author_id !== Number(session.user.id)) return redirect("/");
+	if (form.author_id !== session.user.id) return redirect("/");
 
 	const responses = (await getFormResults(
 		Number.parseInt(params.id),

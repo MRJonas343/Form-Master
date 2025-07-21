@@ -19,7 +19,7 @@ export const createAccount = async (
 	return "SUCCESS";
 
 	/* ORIGINAL CODE TEMPORARILY DISABLED
-	const user = await userRepository.findUserById(Number.parseInt(userId));
+	const user = await userRepository.findUserById(userId);
 
 	if (!user) return console.error("User not found");
 

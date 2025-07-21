@@ -6,15 +6,15 @@ import { deleteQuestion } from "@/services/edit-form/deleteQuestion";
 import type { Dispatch } from "react";
 
 export const deleteControlledQuestion = async (
-	questonId: number,
+	questonId: string,
 	formId: number,
 	state: FormQuestionsState,
 	dispatch: Dispatch<FormQuestionsAction>,
 ) => {
-	await deleteQuestion(formId, questonId);
+	await deleteQuestion(formId, Number.parseInt(questonId));
 
 	const updatedQuestions = state.questionsState.filter(
-		(question) => Number.parseInt(question.id) !== questonId,
+		(question) => question.id !== questonId,
 	);
 
 	dispatch({

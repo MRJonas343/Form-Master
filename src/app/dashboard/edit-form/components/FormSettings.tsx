@@ -232,7 +232,7 @@ const FormSettings = ({ data }: { data: FormGeneralData }) => {
 							variant="bordered"
 							inputValue={state.textSearchValue}
 							onSelectionChange={(value) =>
-								selectUser(value as number, state, dispatch)
+								selectUser(value as string, state, dispatch)
 							}
 							onInputChange={(value) => handleSearchInputChange(value)}
 						>

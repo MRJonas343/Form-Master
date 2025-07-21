@@ -15,10 +15,10 @@ const page = async () => {
 	if (!session) return redirect("/login");
 
 	const [userForms, filledForms, contacts] = await Promise.all([
-		getUserForms(Number.parseInt(session?.user?.id ?? "")),
-		getFilledFormsByUser(Number.parseInt(session?.user?.id ?? "")),
+		getUserForms(session?.user?.id ?? ""),
+		getFilledFormsByUser(session?.user?.id ?? ""),
 		searchContactByEmail(session?.user?.email ?? ""), // RE-ENABLED (now mocked)
-		// getTicketsByUserId(Number.parseInt(session?.user?.id ?? "")), // TEMPORARILY DISABLED
+		// getTicketsByUserId(session?.user?.id ?? ""), // TEMPORARILY DISABLED
 	]);
 
 	// Temporarily provide empty tickets structure until Jira integration is fixed

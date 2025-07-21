@@ -16,7 +16,7 @@ export const createControlledInput = async (
 		type: "short" as QuestionType,
 		description: "",
 		order: questionsState.length + 1,
-
+		formId: formId,
 		displayInTable: false,
 	};
 

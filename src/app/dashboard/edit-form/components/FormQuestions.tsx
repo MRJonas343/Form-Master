@@ -54,9 +54,9 @@ const FormQuestions = ({
 		onOpen();
 	};
 
-	const isExistingQuestion = (questionId: number) => {
+	const isExistingQuestion = (questionId: string) => {
 		return initialData.current.some(
-			(q) => Number.parseInt(q.id) === questionId,
+			(q) => q.id === questionId,
 		);
 	};
 
@@ -79,7 +79,7 @@ const FormQuestions = ({
 								<QuestionContainer
 									key={question.id}
 									id={String(question.id)}
-									disableType={isExistingQuestion(Number.parseInt(question.id))}
+									disableType={isExistingQuestion(question.id)}
 									description={question.description ?? ""}
 									questionName={question.question}
 									onQuestionChange={(id, type, value) => {
@@ -90,7 +90,7 @@ const FormQuestions = ({
 									}}
 									questionType={question.type as QuestionType}
 									displayInTable={question.displayInTable}
-									options={question.options}
+									options={question.options?.map(option => option.optionText) || []}
 									onOptionsChange={(id, newOptions) => {
 										changeMultipleQuestionInputs(id, newOptions, dispatch);
 									}}
@@ -130,7 +130,7 @@ const FormQuestions = ({
 				onConfirm={() => {
 					if (state.questionToDelete) {
 						deleteControlledQuestion(
-							Number.parseInt(state.questionToDelete),
+							state.questionToDelete,
 							formId,
 							state,
 							dispatch,

@@ -8,7 +8,12 @@ import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import { db } from "@/db";
 import Discord from "next-auth/providers/discord";
-const adapter = DrizzleAdapter(db);
+import { accounts, sessions, users } from "@/db/schemas";
+const adapter = DrizzleAdapter(db, {
+	accountsTable: accounts,
+	usersTable: users,
+	sessionsTable: sessions,
+});
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	secret: process.env.AUTH_SECRET ?? "",

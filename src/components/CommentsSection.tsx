@@ -23,7 +23,7 @@ export const CommentsSection = ({ comments, formId }: CommentsSectionProps) => {
 		if (!comment) return;
 		await createComment(
 			formId ?? 0,
-			Number.parseInt(session?.user?.id ?? ""),
+			session?.user?.id ?? "",
 			comment,
 		);
 

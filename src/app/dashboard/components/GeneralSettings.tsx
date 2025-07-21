@@ -209,7 +209,7 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 							variant="bordered"
 							inputValue={state.inputValue}
 							onSelectionChange={(value) =>
-								selectUser(value as number, state, dispatch)
+								selectUser(value as string, state, dispatch)
 							}
 							onInputChange={(value) => handleSearchInputChange(value)}
 						>

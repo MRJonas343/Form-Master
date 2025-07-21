@@ -1,5 +1,5 @@
-import { R2 } from "@/config";
 import { DeleteObjectCommand } from "@aws-sdk/client-s3";
+import { R2 } from "@/config";
 
 export const deleteImage = async (imageKey: string) => {
 	const params = {

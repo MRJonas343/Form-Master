@@ -1,5 +1,6 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import type { FormSettingsToUpdate } from "@/interfaces";
 import {
 	editFormRepository,
@@ -8,7 +9,6 @@ import {
 } from "@/repositories";
 import { uploadImage } from "@/utils";
 import { deleteImage } from "@/utils/deleteImage";
-import { revalidatePath } from "next/cache";
 
 export const updateFormSetting = async (
 	formId: number,
@@ -81,10 +81,7 @@ export const updateFormSetting = async (
 	}
 
 	if (data.usersToRemove) {
-		await permissionRepository.deletePermissionsByFormId(
-			formId,
-			data.usersToRemove,
-		);
+		await permissionRepository.deletePermissions(formId, data.usersToRemove);
 	}
 
 	revalidatePath(`/dashboard/edit-form/${formId}`);

@@ -1,22 +1,34 @@
 "use client";
 
-import { Button, Navbar, NavbarBrand, NavbarContent } from "@nextui-org/react";
-import { SwitchTheme, LanguageSwitcher, FormMasterLogo } from "@/components";
-import { Popover, PopoverTrigger, PopoverContent } from "@nextui-org/react";
-import { NavbarMenuToggle, Link, NavbarItem } from "@nextui-org/react";
-import { NavbarMenu, NavbarMenuItem } from "@nextui-org/react";
-import { signOut, useSession } from "next-auth/react";
-import { IoSettingsOutline } from "react-icons/io5";
+import {
+	Button,
+	Link,
+	Navbar,
+	NavbarBrand,
+	NavbarContent,
+	NavbarItem,
+	NavbarMenu,
+	NavbarMenuItem,
+	NavbarMenuToggle,
+	Popover,
+	PopoverContent,
+	PopoverTrigger,
+	useDisclosure,
+} from "@nextui-org/react";
 import { usePathname } from "next/navigation";
+import { signOut, useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { useState, type FC } from "react";
+import { type FC, useState } from "react";
 import { FaBug } from "react-icons/fa";
+import { IoSettingsOutline } from "react-icons/io5";
+import { FormMasterLogo, LanguageSwitcher, SwitchTheme } from "@/components";
 import { IssueModal } from "./IssueModal";
-import { useDisclosure } from "@nextui-org/react";
 
 export const NavBar: FC = ({
 	position,
-}: { position?: "static" | "sticky" }) => {
+}: {
+	position?: "static" | "sticky";
+}) => {
 	const { isOpen, onOpen, onClose, onOpenChange } = useDisclosure();
 	const [isMenuOpen, setIsMenuOpen] = useState(false);
 	const pathname = usePathname();

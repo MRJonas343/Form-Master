@@ -1,15 +1,15 @@
 "use client";
 
 import { Button, Input, Link } from "@nextui-org/react";
-import type { UserCredentials } from "@/interfaces";
-import { FaEye, FaEyeSlash, FaDiscord } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa6";
+import { signIn } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { FaDiscord, FaEye, FaEyeSlash } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa6";
+import type { UserCredentials } from "@/interfaces";
 import { authorize } from "@/services/auth/authorize";
 import { handleStatus } from "@/utils";
-import { useState } from "react";
-import { signIn } from "next-auth/react";
 
 export const LoginForm = () => {
 	const [isSubmitting, setIsSubmitting] = useState(false);

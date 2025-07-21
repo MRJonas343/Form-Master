@@ -1,12 +1,12 @@
-import { checkPermission } from "@/services/permissions/checkPermission";
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { NavBar } from "@/components";
 import { getComments } from "@/services/comments/getComments";
-import { getFormById } from "@/services/forms/getFormById";
 import { getFormQuestions } from "@/services/filledForms/getFormQuestions";
 import { isFormAlreadyFill } from "@/services/filledForms/isFormAlreadyFill";
+import { getFormById } from "@/services/forms/getFormById";
+import { checkPermission } from "@/services/permissions/checkPermission";
 import { FormComponent } from "../components/FormComponent";
-import { redirect } from "next/navigation";
-import { NavBar } from "@/components";
-import { auth } from "@/auth";
 
 export default async function FormPage(props: {
 	params: Promise<{ id: string }>;
@@ -47,10 +47,7 @@ export default async function FormPage(props: {
 	if (isAuthor) {
 		isReadOnly = true;
 	} else {
-		const isFormFilled = await isFormAlreadyFill(
-			session.user.id ?? "",
-			formId,
-		);
+		const isFormFilled = await isFormAlreadyFill(session.user.id ?? "", formId);
 		if (isFormFilled)
 			return redirect(`/filled-form/${formId}/${session.user.id}`);
 

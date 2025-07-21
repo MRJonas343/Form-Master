@@ -1,6 +1,6 @@
-import { int, mysqlTable, timestamp, varchar } from "drizzle-orm/mysql-core";
 import { sql } from "drizzle-orm";
-import { users, forms } from ".";
+import { int, mysqlTable, timestamp, varchar } from "drizzle-orm/mysql-core";
+import { forms, users } from ".";
 
 export const filledForms = mysqlTable("filled_forms", {
 	id: int("id").primaryKey().autoincrement(),

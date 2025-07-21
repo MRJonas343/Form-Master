@@ -1,5 +1,5 @@
-import { useAsyncList } from "@react-stately/data";
 import type { SortDescriptor } from "@nextui-org/react";
+import { useAsyncList } from "@react-stately/data";
 import { useState } from "react";
 
 export type GenericItem = Record<string, unknown>;
@@ -24,7 +24,10 @@ export const useSortableList = <T extends GenericItem>({
 		async sort({
 			items,
 			sortDescriptor,
-		}: { items: T[]; sortDescriptor: SortDescriptor }) {
+		}: {
+			items: T[];
+			sortDescriptor: SortDescriptor;
+		}) {
 			const columnKey = sortDescriptor.column as keyof T;
 
 			return {

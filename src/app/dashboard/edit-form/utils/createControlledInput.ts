@@ -1,6 +1,6 @@
 import type { Dispatch } from "react";
-import type { QuestionType } from "@/interfaces";
 import { v4 as uuid } from "uuid";
+import type { QuestionType } from "@/interfaces";
 import type { Question } from "@/interfaces/formDataToUpdate";
 import { addQuestion } from "@/services/edit-form/addQuestion";
 import type { FormQuestionsAction } from "../store/stateEditQuestions";

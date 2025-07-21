@@ -1,7 +1,7 @@
 "use client";
 
-import { GeneralSettings, CreateFormTabs, SetQuestions } from ".";
 import { useState } from "react";
+import { CreateFormTabs, GeneralSettings, SetQuestions } from ".";
 
 export const NewForm = () => {
 	const [selectedTab, setSelectedTab] = useState("general-settings");

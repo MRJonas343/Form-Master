@@ -1,4 +1,6 @@
-import type { UsersSeed, QuestionsToSeed } from "@/interfaces";
+import { v4 as uuidv4 } from "uuid";
+import type { QuestionsToSeed, UsersSeed } from "@/interfaces";
+import { hashPassword } from "@/utils/password";
 import { db } from ".";
 import {
 	answers,
@@ -12,8 +14,6 @@ import {
 	tags,
 	users,
 } from "./schemas";
-import { hashPassword } from "@/utils/password";
-import { v4 as uuidv4 } from "uuid";
 import "dotenv/config";
 
 const usersToSeed: UsersSeed[] = [
@@ -1125,25 +1125,25 @@ const seed = async () => {
 	});
 
 	// Update forms to use UUID author_ids
-	const formsWithUuids = formsToSeed.map(form => ({
+	const formsWithUuids = formsToSeed.map((form) => ({
 		...form,
 		author_id: userIdMap[form.author_id],
 	}));
 
 	// Update likes to use UUID user_ids
-	const likesWithUuids = likesToSeed().map(like => ({
+	const likesWithUuids = likesToSeed().map((like) => ({
 		...like,
 		user_id: userIdMap[like.user_id],
 	}));
 
 	// Update comments to use UUID user_ids
-	const commentsWithUuids = commentsToSeed.map(comment => ({
+	const commentsWithUuids = commentsToSeed.map((comment) => ({
 		...comment,
 		user_id: userIdMap[comment.user_id],
 	}));
 
 	// Update filled forms to use UUID user_ids
-	const filledFormsWithUuids = filledFormsToSeed.map(filledForm => ({
+	const filledFormsWithUuids = filledFormsToSeed.map((filledForm) => ({
 		...filledForm,
 		user_id: userIdMap[filledForm.user_id],
 	}));

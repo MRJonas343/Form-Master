@@ -1,5 +1,5 @@
-import type { FormQuestionsAction } from "../store/stateEditQuestions";
 import type { Dispatch } from "react";
+import type { FormQuestionsAction } from "../store/stateEditQuestions";
 
 export const changeControlledInputs = (
 	id: string,

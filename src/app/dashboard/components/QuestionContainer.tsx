@@ -1,15 +1,22 @@
 "use client";
 
-import { Input, Textarea, Select, Checkbox } from "@nextui-org/react";
-import { Button, SelectItem, Card } from "@nextui-org/react";
-import { MdOutlineDragIndicator } from "react-icons/md";
-import type { QuestionElementProps } from "@/interfaces";
-import { IoMdAddCircleOutline } from "react-icons/io";
-import { FaTrash } from "react-icons/fa";
-import type { FC } from "react";
 import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
+import {
+	Button,
+	Card,
+	Checkbox,
+	Input,
+	Select,
+	SelectItem,
+	Textarea,
+} from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import type { FC } from "react";
+import { FaTrash } from "react-icons/fa";
+import { IoMdAddCircleOutline } from "react-icons/io";
+import { MdOutlineDragIndicator } from "react-icons/md";
+import type { QuestionElementProps } from "@/interfaces";
 
 export const QuestionContainer: FC<QuestionElementProps> = ({
 	id,

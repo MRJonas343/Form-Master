@@ -1,32 +1,32 @@
 "use client";
 
-import {
-	changeControlledInputs,
-	changeMultipleQuestionInputs,
-	deleteControlledQuestion,
-	createControlledInput,
-	changeQuestionsPositions,
-} from "../utils";
-import {
-	verticalListSortingStrategy,
-	SortableContext,
-} from "@dnd-kit/sortable";
+import { DndContext } from "@dnd-kit/core";
 import {
 	restrictToParentElement,
 	restrictToVerticalAxis,
 } from "@dnd-kit/modifiers";
-import type { SetQuestionsProps, NewQuestion } from "@/interfaces";
-import { QuestionContainer } from "./QuestionContainer";
-import { initialQuestion } from "@/constants";
-import { DndContext } from "@dnd-kit/core";
+import {
+	SortableContext,
+	verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 import { Button } from "@nextui-org/react";
-import { useState, type FC } from "react";
+import { useTranslations } from "next-intl";
+import { type FC, useState } from "react";
+import toast from "react-hot-toast";
+import { initialQuestion } from "@/constants";
 import { useDndSensors } from "@/hooks";
+import type { NewQuestion, SetQuestionsProps } from "@/interfaces";
 import { setNewFormQuestions } from "@/services/forms/setNewFormQuestions";
 import { handleStatus } from "@/utils/handleStatus";
-import { useTranslations } from "next-intl";
 import { validateQuestions } from "@/validators";
-import toast from "react-hot-toast";
+import {
+	changeControlledInputs,
+	changeMultipleQuestionInputs,
+	changeQuestionsPositions,
+	createControlledInput,
+	deleteControlledQuestion,
+} from "../utils";
+import { QuestionContainer } from "./QuestionContainer";
 
 export const SetQuestions: FC<SetQuestionsProps> = ({ formId }) => {
 	const [questions, setQuestions] = useState<NewQuestion[]>([initialQuestion]);

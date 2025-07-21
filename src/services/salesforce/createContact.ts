@@ -9,7 +9,7 @@ export const createContact = async (data: SalesForceContact) => {
 	console.log("🔧 MOCK: createContact called with data:", data);
 
 	// Simulate some processing time
-	await new Promise(resolve => setTimeout(resolve, 300));
+	await new Promise((resolve) => setTimeout(resolve, 300));
 
 	// Always return success for now
 	return "SUCCESS";

@@ -10,16 +10,18 @@ import {
 	TableHeader,
 	TableRow,
 } from "@nextui-org/react";
-import { useSortableList, type GenericItem } from "@/hooks/useSortableList";
-import { FilledFormsColumns } from "@/constants";
-import type { FilledForm } from "@/interfaces";
-import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { FilledFormsColumns } from "@/constants";
+import { type GenericItem, useSortableList } from "@/hooks/useSortableList";
+import type { FilledForm } from "@/interfaces";
 
 export const MyFilledForm = ({
 	filledForms,
-}: { filledForms: FilledForm[] }) => {
+}: {
+	filledForms: FilledForm[];
+}) => {
 	const { isLoading, list } = useSortableList({
 		items: filledForms as unknown as GenericItem[],
 	});

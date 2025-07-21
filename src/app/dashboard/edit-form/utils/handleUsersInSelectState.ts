@@ -1,5 +1,5 @@
-import type { FormSettingsAction, FormSettingsState } from "../store/state";
 import { getUserById } from "@/services/users/getUserById";
+import type { FormSettingsAction, FormSettingsState } from "../store/state";
 
 export const selectUser = async (
 	id: string,

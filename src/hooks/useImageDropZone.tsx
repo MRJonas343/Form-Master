@@ -1,6 +1,7 @@
-import type { Action } from "@/app/dashboard/store/generalSettingsState";
 import { useDropzone } from "react-dropzone";
 import type { FormSettingsAction } from "@/app/dashboard/edit-form/store/state";
+import type { Action } from "@/app/dashboard/store/generalSettingsState";
+
 interface UseImageDropzoneProps {
 	dispatch: (value: Action) => void;
 }

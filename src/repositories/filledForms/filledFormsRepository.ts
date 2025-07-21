@@ -1,3 +1,4 @@
+import { and, asc, desc, eq, inArray, sql } from "drizzle-orm";
 import { db } from "@/db";
 import {
 	answers,
@@ -9,7 +10,6 @@ import {
 	users,
 } from "@/db/schemas";
 import type { Question } from "@/interfaces";
-import { eq, and, inArray, asc, sql, desc } from "drizzle-orm";
 
 const getFormWithUserAnswers = async (userId: string, formId: number) => {
 	const [form, commentsResult, questionsResult] = await Promise.all([
@@ -131,10 +131,7 @@ const getFilledFormAnswers = async (userId: string, formId: number) => {
 		.from(answers)
 		.innerJoin(filledForms, eq(answers.filledFormID, filledForms.id))
 		.where(
-			and(
-				eq(filledForms.user_id, userId),
-				eq(filledForms.form_id, formId),
-			),
+			and(eq(filledForms.user_id, userId), eq(filledForms.form_id, formId)),
 		);
 
 	return result;

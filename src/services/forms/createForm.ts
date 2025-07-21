@@ -1,8 +1,8 @@
 "use server";
 
-import { setPermissions, getImageUrl } from "@/utils";
 import type { FormSettings, UserType } from "@/interfaces";
 import { formRepository } from "@/repositories";
+import { getImageUrl, setPermissions } from "@/utils";
 import { validateNewForm } from "@/validators";
 import "dotenv/config";
 

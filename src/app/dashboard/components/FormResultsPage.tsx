@@ -1,15 +1,15 @@
 "use client";
 
+import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { ScrollShadow } from "@nextui-org/react";
+import { BarChart } from "@/components/BarChart";
+import { DonutChart } from "@/components/DonuChart";
+import type { FormeResults } from "@/interfaces";
 import {
 	formatDataForBarChart,
 	formatDataForNumericBarChart,
 	formatDataForPieChart,
 } from "../utils";
-import { BarChart } from "@/components/BarChart";
-import { DonutChart } from "@/components/DonuChart";
-import type { FormeResults } from "@/interfaces";
-import { ScrollShadow } from "@nextui-org/react";
-import { Accordion, AccordionItem } from "@nextui-org/accordion";
 
 export const FormResultsPage = ({ data }: { data: FormeResults[] }) => {
 	return (

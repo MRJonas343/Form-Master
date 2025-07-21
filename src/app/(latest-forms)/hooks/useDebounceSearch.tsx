@@ -1,8 +1,8 @@
-import { getFormsWithFullTextSearch } from "@/services/forms/getFormsWithFullTextSearch";
+import type { MutableRefObject } from "react";
 import { useDebouncedCallback } from "use-debounce";
 import type { FormCardProps } from "@/interfaces";
+import { getFormsWithFullTextSearch } from "@/services/forms/getFormsWithFullTextSearch";
 import type { Action } from "../store/state";
-import type { MutableRefObject } from "react";
 
 type ResetDataFunction = (
 	page: number,

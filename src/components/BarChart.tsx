@@ -3,8 +3,8 @@
 
 "use client";
 
-import React from "react";
 import { RiArrowLeftSLine, RiArrowRightSLine } from "@remixicon/react";
+import React from "react";
 import {
 	Bar,
 	CartesianGrid,
@@ -17,7 +17,7 @@ import {
 	YAxis,
 } from "recharts";
 import type { AxisDomain } from "recharts/types/util/types";
-
+import { useOnWindowResize } from "@/hooks";
 import {
 	AvailableChartColors,
 	type AvailableChartColorsKeys,
@@ -25,7 +25,6 @@ import {
 	getColorClassName,
 	getYAxisDomain,
 } from "@/lib/chartUtils";
-import { useOnWindowResize } from "@/hooks";
 import { cx } from "@/lib/utils";
 
 //#region Shape

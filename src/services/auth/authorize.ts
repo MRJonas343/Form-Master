@@ -1,8 +1,8 @@
 "use server";
 
-import { comparePassword } from "@/utils/password";
-import { userRepository } from "@/repositories";
 import { signIn } from "@/auth";
+import { userRepository } from "@/repositories";
+import { comparePassword } from "@/utils/password";
 
 export const authorize = async (email: string, password: string) => {
 	try {

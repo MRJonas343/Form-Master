@@ -1,6 +1,6 @@
-import { Tabs, Tab } from "@nextui-org/react";
-import type { FC } from "react";
+import { Tab, Tabs } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import type { FC } from "react";
 
 export interface EditFormTabsProps {
 	selectedKey: string;

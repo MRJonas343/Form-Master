@@ -1,10 +1,10 @@
 import {
-	mysqlTable,
-	varchar,
-	mysqlEnum,
-	uniqueIndex,
 	index,
+	mysqlEnum,
+	mysqlTable,
 	timestamp,
+	uniqueIndex,
+	varchar,
 } from "drizzle-orm/mysql-core";
 
 export const users = mysqlTable(

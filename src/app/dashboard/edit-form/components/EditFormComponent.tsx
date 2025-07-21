@@ -1,9 +1,9 @@
 "use client";
 
+import { type FC, useState } from "react";
 import type { FormDataToUpdate } from "@/interfaces/formDataToUpdate";
 import { EditFormTabs } from "./EditFormTabs";
 import FormQuestions from "./FormQuestions";
-import { type FC, useState } from "react";
 import FormSettings from "./FormSettings";
 
 export interface EditFormProps {

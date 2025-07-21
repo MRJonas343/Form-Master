@@ -1,7 +1,7 @@
-import type { Users } from "@/interfaces";
-import { unBlockUser } from "@/services/users/unBlockUser";
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
+import type { Users } from "@/interfaces";
+import { unBlockUser } from "@/services/users/unBlockUser";
 
 export const handleUnlockUser = async (
 	selectedIds: Set<Key> | "all",

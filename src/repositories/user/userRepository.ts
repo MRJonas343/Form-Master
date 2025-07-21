@@ -1,8 +1,8 @@
-import type { User } from "@/interfaces";
-import { users } from "@/db/schemas";
-import { db } from "@/db";
-import { like, eq, inArray } from "drizzle-orm";
+import { eq, inArray, like } from "drizzle-orm";
 import { v4 as uuidv4 } from "uuid";
+import { db } from "@/db";
+import { users } from "@/db/schemas";
+import type { User } from "@/interfaces";
 
 const createUser = async (user: User) => {
 	const userId = uuidv4();

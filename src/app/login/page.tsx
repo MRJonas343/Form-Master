@@ -1,9 +1,9 @@
-import { getTranslations } from "next-intl/server";
 import { redirect } from "next/navigation";
-import { LoginForm } from "./components";
-import { loginMetaData } from "@/meta";
-import { NavBar } from "@/components";
+import { getTranslations } from "next-intl/server";
 import { auth } from "@/auth";
+import { NavBar } from "@/components";
+import { loginMetaData } from "@/meta";
+import { LoginForm } from "./components";
 
 export const metadata = loginMetaData;
 

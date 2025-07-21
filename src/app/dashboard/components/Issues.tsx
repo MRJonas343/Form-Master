@@ -1,6 +1,5 @@
 "use client";
 
-import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
 import {
 	Card,
 	CardBody,
@@ -10,6 +9,7 @@ import {
 	Link,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
+import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
 
 interface IssuesProps {
 	tickets: IssuesFromJira;

@@ -10,10 +10,15 @@ export const createAccount = async (
 	data: SalesForceAccount,
 ) => {
 	// TEMPORARILY MOCKED - Salesforce integration disabled
-	console.log("🔧 MOCK: createAccount called for userId:", userId, "data:", data);
+	console.log(
+		"🔧 MOCK: createAccount called for userId:",
+		userId,
+		"data:",
+		data,
+	);
 
 	// Simulate some processing time
-	await new Promise(resolve => setTimeout(resolve, 500));
+	await new Promise((resolve) => setTimeout(resolve, 500));
 
 	// Always return success for now
 	return "SUCCESS";

@@ -1,12 +1,19 @@
 "use client";
 
-import { Button, Table, TableBody, TableCell } from "@nextui-org/react";
-import { TableHeader, TableColumn, TableRow } from "@nextui-org/react";
+import {
+	Button,
+	Table,
+	TableBody,
+	TableCell,
+	TableColumn,
+	TableHeader,
+	TableRow,
+} from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import type { FC } from "react";
 import { PopularFormsColumns } from "@/constants";
 import type { PopularForms } from "@/interfaces";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import type { FC } from "react";
 
 export const PopularFormsTable: FC<PopularForms> = ({ popularForms }) => {
 	const router = useRouter();

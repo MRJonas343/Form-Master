@@ -1,8 +1,8 @@
-import { getLocale, getMessages } from "next-intl/server";
-import { NextIntlClientProvider } from "next-intl";
 import { SessionProvider } from "next-auth/react";
-import { poppinsFont } from "@/fonts/font";
+import { NextIntlClientProvider } from "next-intl";
+import { getLocale, getMessages } from "next-intl/server";
 import { Snackbar } from "@/components";
+import { poppinsFont } from "@/fonts/font";
 import { Providers } from "./providers";
 import "./globals.css";
 

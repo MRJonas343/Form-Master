@@ -1,7 +1,7 @@
 "use server";
 
-import { userRepository } from "@/repositories";
 import { revalidatePath } from "next/cache";
+import { userRepository } from "@/repositories";
 
 export const blockUser = async (usersIds: string[] | "all") => {
 	if (usersIds === "all") {

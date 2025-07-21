@@ -1,6 +1,6 @@
-import type { NewFilledForm } from "@/interfaces";
-import { EmailTemplate } from "@/components";
 import { Resend } from "resend";
+import { EmailTemplate } from "@/components";
+import type { NewFilledForm } from "@/interfaces";
 import "dotenv/config";
 
 export const sendCopyOfAnswers = async (formData: NewFilledForm) => {

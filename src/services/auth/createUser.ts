@@ -1,9 +1,9 @@
 "use server";
 
-import { validateNewUserData } from "@/validators";
-import { hashPassword } from "@/utils/password";
-import { userRepository } from "@/repositories";
 import { signIn } from "@/auth";
+import { userRepository } from "@/repositories";
+import { hashPassword } from "@/utils/password";
+import { validateNewUserData } from "@/validators";
 
 export const createUser = async (
 	name: string,

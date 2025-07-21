@@ -1,23 +1,23 @@
 "use client";
 
 import {
+	getKeyValue,
 	Modal,
+	ModalBody,
 	ModalContent,
 	ModalHeader,
-	ModalBody,
 	Spinner,
 	Table,
-	TableHeader,
-	TableColumn,
 	TableBody,
-	TableRow,
 	TableCell,
-	getKeyValue,
+	TableColumn,
+	TableHeader,
+	TableRow,
 } from "@nextui-org/react";
-import type { FilledForms, ModalWithFillFormsProps } from "@/interfaces";
-import { useEffect, useState, type FC } from "react";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { type FC, useEffect, useState } from "react";
+import type { FilledForms, ModalWithFillFormsProps } from "@/interfaces";
 import { getFilledForms } from "@/services/filledForms/getFilledForms";
 
 export const ModalWithFillForms: FC<ModalWithFillFormsProps> = ({

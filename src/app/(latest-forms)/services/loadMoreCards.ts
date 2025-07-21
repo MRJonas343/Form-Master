@@ -1,6 +1,6 @@
-import type { Action, initialState } from "../store/state";
-import type { FormCardProps } from "@/interfaces";
 import type { MutableRefObject } from "react";
+import type { FormCardProps } from "@/interfaces";
+import type { Action, initialState } from "../store/state";
 
 type FetchDataFunction = (
 	page: number,

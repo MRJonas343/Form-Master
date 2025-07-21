@@ -1,5 +1,5 @@
-import type { Question } from "@/interfaces/formDataToUpdate";
 import { arrayMove } from "@dnd-kit/sortable";
+import type { Question } from "@/interfaces/formDataToUpdate";
 
 export type FormQuestionsAction =
 	| { type: "SET_QUESTION_TO_DELETE"; payload: string | null }
@@ -69,7 +69,9 @@ export const formQuestionsReducer = (
 			return {
 				...state,
 				questionsState: state.questionsState.map((question) =>
-					question.id === id ? { ...question, options: formattedOptions } : question,
+					question.id === id
+						? { ...question, options: formattedOptions }
+						: question,
 				),
 			};
 		}

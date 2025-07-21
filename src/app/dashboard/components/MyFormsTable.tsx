@@ -1,27 +1,29 @@
 "use client";
 
 import {
-	TableHeader,
-	TableColumn,
-	TableRow,
-	Spinner,
 	Button,
+	getKeyValue,
+	Spinner,
+	Table,
+	TableBody,
+	TableCell,
+	TableColumn,
+	TableHeader,
+	TableRow,
 	useDisclosure,
 } from "@nextui-org/react";
-import { Table, TableBody, TableCell, getKeyValue } from "@nextui-org/react";
-import type { MyFormsTableProps } from "@/interfaces";
-import { MyFormsColumns } from "@/constants";
-import { MdDelete, MdEdit } from "react-icons/md";
-import { useTranslations } from "next-intl";
-import { useRef, type FC } from "react";
-import { ModalWithFillForms } from "./ModalWithFillForms";
 import { useRouter } from "next/navigation";
-import { useSortableList, type GenericItem } from "@/hooks/useSortableList";
+import { useTranslations } from "next-intl";
+import { type FC, useRef } from "react";
 import toast from "react-hot-toast";
-import { deleteFormAction } from "@/services/forms/deleteForm";
-import { LuFileSpreadsheet } from "react-icons/lu";
 import { GoGraph } from "react-icons/go";
-import { MdAdd } from "react-icons/md";
+import { LuFileSpreadsheet } from "react-icons/lu";
+import { MdAdd, MdDelete, MdEdit } from "react-icons/md";
+import { MyFormsColumns } from "@/constants";
+import { type GenericItem, useSortableList } from "@/hooks/useSortableList";
+import type { MyFormsTableProps } from "@/interfaces";
+import { deleteFormAction } from "@/services/forms/deleteForm";
+import { ModalWithFillForms } from "./ModalWithFillForms";
 
 export const MyFormsTable: FC<MyFormsTableProps> = ({ forms }) => {
 	const { isOpen, onOpen, onOpenChange } = useDisclosure();

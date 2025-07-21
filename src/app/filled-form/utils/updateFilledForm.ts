@@ -1,6 +1,6 @@
-import type { Question } from "@/interfaces";
 import type { MutableRefObject } from "react";
 import toast from "react-hot-toast";
+import type { Question } from "@/interfaces";
 
 export const updateForm = async (
 	questionsState: Question[],

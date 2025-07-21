@@ -1,7 +1,7 @@
-import type { Users } from "@/interfaces";
-import { deleteUser } from "@/services/users/deleteUser";
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
+import type { Users } from "@/interfaces";
+import { deleteUser } from "@/services/users/deleteUser";
 
 export const handleDeleteUser = async (
 	selectedIds: Set<Key> | "all",

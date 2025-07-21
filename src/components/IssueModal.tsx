@@ -6,17 +6,17 @@ import {
 	Modal,
 	ModalContent,
 	ModalHeader,
+	Select,
 	SelectItem,
 } from "@nextui-org/react";
-import { useTranslations } from "next-intl";
-import type { Ticket } from "@/interfaces/Ticket";
-import { Select } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 // import { createJiraTicket } from "@/services/jira/jiraIntegration"; // TEMPORARILY DISABLED
 import { useSession } from "next-auth/react";
-import toast from "react-hot-toast";
-import { usePathname } from "next/navigation";
-import { useForm } from "react-hook-form";
+import { useTranslations } from "next-intl";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
+import type { Ticket } from "@/interfaces/Ticket";
 
 interface ModalConfirmProps {
 	isOpen: boolean;

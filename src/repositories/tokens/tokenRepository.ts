@@ -1,5 +1,5 @@
-import { salesForceTokens } from "@/db/schemas";
 import { db } from "@/db";
+import { salesForceTokens } from "@/db/schemas";
 
 const getToken = async () => {
 	const result = await db.query.salesForceTokens.findFirst();

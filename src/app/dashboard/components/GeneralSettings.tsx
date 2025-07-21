@@ -1,33 +1,33 @@
 "use client";
 
 import {
-	Button,
-	Input,
-	Select,
-	Textarea,
-	Checkbox,
-	Tooltip,
 	Autocomplete,
 	AutocompleteItem,
+	Button,
+	Checkbox,
+	Input,
+	Select,
+	SelectItem,
+	Textarea,
+	Tooltip,
 	User,
 } from "@nextui-org/react";
-import type { FormSettings, GeneralSettingsProps } from "@/interfaces";
-import { tabs, topics } from "@/constants";
-import { FaRegQuestionCircle, FaSearch } from "react-icons/fa";
-import { SelectItem } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
-import { useForm } from "react-hook-form";
-import { useReducer, type FC } from "react";
 import { useTranslations } from "next-intl";
+import { type FC, useReducer } from "react";
+import { useForm } from "react-hook-form";
+import { FaRegQuestionCircle, FaSearch } from "react-icons/fa";
 import { IoCloseCircleSharp } from "react-icons/io5";
-import { initialState, reducer } from "../store/generalSettingsState";
-import { submitGeneralSettings } from "../utils/submitGeneralSettings";
+import { tabs, topics } from "@/constants";
 import { useImageDropzone } from "@/hooks/useImageDropZone";
+import type { FormSettings, GeneralSettingsProps } from "@/interfaces";
 import { useDebouncedSearch } from "../hooks/useDebounceSearch";
+import { initialState, reducer } from "../store/generalSettingsState";
 import {
 	deleteSelectedUser,
 	selectUser,
 } from "../utils/handleUsersInSelectState";
+import { submitGeneralSettings } from "../utils/submitGeneralSettings";
 
 export const GeneralSettings: FC<GeneralSettingsProps> = ({
 	changeTab,

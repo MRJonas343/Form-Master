@@ -1,8 +1,8 @@
-import { NavBar } from "@/components";
-import { AdminTable } from "../components/AdminTable";
-import { getAllUsers } from "@/services/users/getAllUsers";
-import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { NavBar } from "@/components";
+import { getAllUsers } from "@/services/users/getAllUsers";
+import { AdminTable } from "../components/AdminTable";
 
 const page = async () => {
 	const session = await auth();

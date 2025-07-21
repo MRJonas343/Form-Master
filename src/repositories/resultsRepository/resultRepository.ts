@@ -1,7 +1,6 @@
-import { sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { db } from "@/db";
 import { answers, options, questions } from "@/db/schemas";
-import { eq } from "drizzle-orm";
 
 async function getFormResponses(formId: number) {
 	const questionsData = await db

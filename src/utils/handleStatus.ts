@@ -1,6 +1,6 @@
 import type { useTranslations } from "next-intl";
-import type { status } from "@/interfaces";
 import toast from "react-hot-toast";
+import type { status } from "@/interfaces";
 
 type TFunction = ReturnType<typeof useTranslations>;
 

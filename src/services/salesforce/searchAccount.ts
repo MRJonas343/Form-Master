@@ -4,12 +4,14 @@ import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
 // import { tokenRepository } from "@/repositories"; // TEMPORARILY DISABLED
 // import { getAccessToken } from "./getAccessToken"; // TEMPORARILY DISABLED
 
-export const searchContactByEmail = async (email: string): Promise<SalesForceUser[]> => {
+export const searchContactByEmail = async (
+	email: string,
+): Promise<SalesForceUser[]> => {
 	// TEMPORARILY MOCKED - Salesforce integration disabled
 	console.log("🔧 MOCK: searchContactByEmail called for email:", email);
 
 	// Simulate some processing time
-	await new Promise(resolve => setTimeout(resolve, 200));
+	await new Promise((resolve) => setTimeout(resolve, 200));
 
 	// Return mock user data structure (empty array means no existing contact)
 	// You can change this to return a mock user if you want to test the "already registered" flow

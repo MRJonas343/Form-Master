@@ -1,10 +1,10 @@
 "use client";
 
-import type { SearchInputProps } from "@/interfaces";
-import { useTranslations } from "next-intl";
 import { Input } from "@nextui-org/react";
-import { FaSearch } from "react-icons/fa";
+import { useTranslations } from "next-intl";
 import type { FC } from "react";
+import { FaSearch } from "react-icons/fa";
+import type { SearchInputProps } from "@/interfaces";
 
 export const SearchInput: FC<SearchInputProps> = ({
 	placeholder,

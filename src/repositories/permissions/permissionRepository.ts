@@ -1,6 +1,6 @@
+import { and, eq, inArray } from "drizzle-orm";
 import { db } from "@/db";
 import { formPermissions, users } from "@/db/schemas";
-import { and, eq, inArray } from "drizzle-orm";
 
 type Permission = {
 	form_id: number;

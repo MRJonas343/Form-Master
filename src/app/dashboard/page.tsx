@@ -1,12 +1,13 @@
+import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { NavBar } from "@/components";
+import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
+import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
 import { getFilledFormsByUser } from "@/services/forms/getFilledForms";
 import { getUserForms } from "@/services/forms/getUserForms";
 import { searchContactByEmail } from "@/services/salesforce/searchAccount";
-import { redirect } from "next/navigation";
 import { Dashboard } from "./components";
-import { NavBar } from "@/components";
-import { auth } from "@/auth";
-import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
-import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
+
 // import { getTicketsByUserId } from "@/services/jira/getTicketsByUserId"; // TEMPORARILY DISABLED
 
 const page = async () => {
@@ -27,7 +28,7 @@ const page = async () => {
 		startAt: 0,
 		maxResults: 0,
 		total: 0,
-		issues: []
+		issues: [],
 	};
 
 	// Provide fallback for contacts if array is empty (mocked returns empty array)

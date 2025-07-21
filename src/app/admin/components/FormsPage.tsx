@@ -1,7 +1,7 @@
 "use client";
 
-import type { FormCardProps } from "@/interfaces";
 import { CardsGrid } from "@/components";
+import type { FormCardProps } from "@/interfaces";
 
 export const FormsPage = ({ data }: { data: FormCardProps[] }) => {
 	return (

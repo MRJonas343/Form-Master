@@ -1,9 +1,9 @@
 "use client";
 
 import { Tab, Tabs } from "@nextui-org/react";
+import { usePathname } from "next/navigation";
 import { useTranslations } from "next-intl";
 import { tabs } from "@/constants";
-import { usePathname } from "next/navigation";
 
 export const CloudTags = () => {
 	const t = useTranslations("CloudTags");

@@ -1,11 +1,14 @@
-import { FaEnvira, FaBook, FaBriefcaseMedical } from "react-icons/fa";
-import { MdOutlineScience, MdSportsVolleyball } from "react-icons/md";
+import { FaBook, FaBriefcaseMedical, FaEnvira } from "react-icons/fa";
 import { FaMoneyBillTrendUp } from "react-icons/fa6";
+import { GrTechnology } from "react-icons/gr";
 import { LuFileSpreadsheet } from "react-icons/lu";
+import {
+	MdAttachMoney,
+	MdOutlineScience,
+	MdSportsVolleyball,
+} from "react-icons/md";
 import { RiFilePaperFill } from "react-icons/ri";
 import { SiAnimalplanet } from "react-icons/si";
-import { MdAttachMoney } from "react-icons/md";
-import { GrTechnology } from "react-icons/gr";
 import { TbMath } from "react-icons/tb";
 
 export const tabs = [

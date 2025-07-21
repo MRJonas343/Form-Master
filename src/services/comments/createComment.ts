@@ -1,7 +1,7 @@
 "use server";
 
-import { commentsRepository } from "@/repositories";
 import { revalidatePath } from "next/cache";
+import { commentsRepository } from "@/repositories";
 
 export const createComment = async (
 	formId: number,

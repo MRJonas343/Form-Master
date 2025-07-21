@@ -1,6 +1,5 @@
 "use client";
 
-import type { FilledQuestionProps, Question } from "@/interfaces";
 import {
 	Card,
 	CardBody,
@@ -12,8 +11,9 @@ import {
 	RadioGroup,
 	Textarea,
 } from "@nextui-org/react";
-import type { FC } from "react";
 import { useSession } from "next-auth/react";
+import type { FC } from "react";
+import type { FilledQuestionProps, Question } from "@/interfaces";
 
 const FilledQuestion: FC<FilledQuestionProps> = ({
 	id,

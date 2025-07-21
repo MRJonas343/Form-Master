@@ -1,6 +1,6 @@
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { comments, users } from "@/db/schemas";
-import { eq } from "drizzle-orm";
 
 const getComments = async (formId: number) => {
 	const result = await db

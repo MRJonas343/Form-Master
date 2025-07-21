@@ -1,12 +1,12 @@
 "use client";
 
 import { Button, Card, Input } from "@nextui-org/react";
-import type { Comment } from "@/interfaces";
-import { IoMdSend } from "react-icons/io";
-import { useState } from "react";
-import { createComment } from "@/services/comments/createComment";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
+import { useState } from "react";
+import { IoMdSend } from "react-icons/io";
+import type { Comment } from "@/interfaces";
+import { createComment } from "@/services/comments/createComment";
 
 interface CommentsSectionProps {
 	formId: number | undefined;
@@ -21,11 +21,7 @@ export const CommentsSection = ({ comments, formId }: CommentsSectionProps) => {
 
 	const uploadComment = async () => {
 		if (!comment) return;
-		await createComment(
-			formId ?? 0,
-			session?.user?.id ?? "",
-			comment,
-		);
+		await createComment(formId ?? 0, session?.user?.id ?? "", comment);
 
 		setComment("");
 	};

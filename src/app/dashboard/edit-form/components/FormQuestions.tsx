@@ -1,5 +1,6 @@
 "use client";
 
+import { DndContext } from "@dnd-kit/core";
 import {
 	restrictToParentElement,
 	restrictToVerticalAxis,
@@ -8,6 +9,15 @@ import {
 	SortableContext,
 	verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { Button, useDisclosure } from "@nextui-org/react";
+import { useTranslations } from "next-intl";
+import { useReducer, useRef } from "react";
+import toast from "react-hot-toast";
+import { useDndSensors } from "@/hooks";
+import type { QuestionType } from "@/interfaces";
+import type { Question } from "@/interfaces/formDataToUpdate";
+import { QuestionContainer } from "../../components";
+import { formQuestionsReducer, initializer } from "../store/stateEditQuestions";
 import {
 	changeControlledInputs,
 	changeMultipleQuestionInputs,
@@ -16,22 +26,15 @@ import {
 	deleteControlledQuestion,
 	updateForm,
 } from "../utils";
-import { formQuestionsReducer, initializer } from "../store/stateEditQuestions";
-import type { Question } from "@/interfaces/formDataToUpdate";
-import { Button, useDisclosure } from "@nextui-org/react";
-import { QuestionContainer } from "../../components";
-import type { QuestionType } from "@/interfaces";
-import { useTranslations } from "next-intl";
-import { DndContext } from "@dnd-kit/core";
 import ModalConfirm from "./ModalConfirm";
-import { useReducer, useRef } from "react";
-import { useDndSensors } from "@/hooks";
-import toast from "react-hot-toast";
 
 const FormQuestions = ({
 	data,
 	formId,
-}: { data: Question[]; formId: number }) => {
+}: {
+	data: Question[];
+	formId: number;
+}) => {
 	const [state, dispatch] = useReducer(formQuestionsReducer, data, initializer);
 
 	const { isOpen, onOpen, onOpenChange, onClose } = useDisclosure();
@@ -55,9 +58,7 @@ const FormQuestions = ({
 	};
 
 	const isExistingQuestion = (questionId: string) => {
-		return initialData.current.some(
-			(q) => q.id === questionId,
-		);
+		return initialData.current.some((q) => q.id === questionId);
 	};
 
 	return (
@@ -90,7 +91,9 @@ const FormQuestions = ({
 									}}
 									questionType={question.type as QuestionType}
 									displayInTable={question.displayInTable}
-									options={question.options?.map(option => option.optionText) || []}
+									options={
+										question.options?.map((option) => option.optionText) || []
+									}
 									onOptionsChange={(id, newOptions) => {
 										changeMultipleQuestionInputs(id, newOptions, dispatch);
 									}}

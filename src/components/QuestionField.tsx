@@ -1,4 +1,3 @@
-import type { AnswerProps } from "@/interfaces/question";
 import {
 	Card,
 	CardBody,
@@ -11,6 +10,7 @@ import {
 	Textarea,
 } from "@nextui-org/react";
 import type { FC } from "react";
+import type { AnswerProps } from "@/interfaces/question";
 
 interface QuestionFieldProps {
 	isDisabled: boolean;

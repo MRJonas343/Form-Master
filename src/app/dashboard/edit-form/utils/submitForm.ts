@@ -1,12 +1,12 @@
+import type { MutableRefObject } from "react";
+import toast from "react-hot-toast";
 import type { NewFormSettingsType, UserType } from "@/interfaces";
 import type {
 	FormGeneralData,
 	UsersWithPermission,
 } from "@/interfaces/formDataToUpdate";
-import type { MutableRefObject } from "react";
-import type { FormSettingsState } from "../store/state";
 import { updateFormSetting } from "@/services/edit-form/updateFormSetting";
-import toast from "react-hot-toast";
+import type { FormSettingsState } from "../store/state";
 
 export const onSubmit = async (
 	data: NewFormSettingsType,

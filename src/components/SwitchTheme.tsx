@@ -1,12 +1,12 @@
 "use client";
 
-import type { SwitchThemeProps } from "@/interfaces";
-import { MdDarkMode } from "react-icons/md";
-import { IoIosSunny } from "react-icons/io";
 import { Switch } from "@nextui-org/react";
-import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import type { FC } from "react";
+import { useEffect, useState } from "react";
+import { IoIosSunny } from "react-icons/io";
+import { MdDarkMode } from "react-icons/md";
+import type { SwitchThemeProps } from "@/interfaces";
 
 export const SwitchTheme: FC<SwitchThemeProps> = ({ size = "md" }) => {
 	const [mounted, setMounted] = useState(false);

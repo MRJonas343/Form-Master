@@ -1,14 +1,14 @@
 "use client";
 
-import { CardsGrid, CloudTags, SearchInput } from "@/components";
-import { useDebouncedSearch } from "../hooks/useDebounceSearch";
-import { reducer, initializeState } from "../store/state";
-import { loadMoreCards } from "../services/loadMoreCards";
-import { useInView } from "react-intersection-observer";
-import type { FormCardProps } from "@/interfaces";
 import { Spinner } from "@nextui-org/react";
-import { getLatestForms } from "@/services/forms/getLatestForms";
 import { useEffect, useReducer, useRef } from "react";
+import { useInView } from "react-intersection-observer";
+import { CardsGrid, CloudTags, SearchInput } from "@/components";
+import type { FormCardProps } from "@/interfaces";
+import { getLatestForms } from "@/services/forms/getLatestForms";
+import { useDebouncedSearch } from "../hooks/useDebounceSearch";
+import { loadMoreCards } from "../services/loadMoreCards";
+import { initializeState, reducer } from "../store/state";
 
 const MainPage = ({ cardsData }: { cardsData: FormCardProps[] }) => {
 	const [state, dispatch] = useReducer(reducer, cardsData, initializeState);

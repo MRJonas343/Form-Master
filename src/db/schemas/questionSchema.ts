@@ -1,9 +1,9 @@
 import {
 	boolean,
 	int,
+	mysqlEnum,
 	mysqlTable,
 	text,
-	mysqlEnum,
 } from "drizzle-orm/mysql-core";
 import { forms } from "./formSchema";
 

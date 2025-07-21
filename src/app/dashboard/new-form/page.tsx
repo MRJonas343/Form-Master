@@ -1,6 +1,6 @@
-import { NavBar } from "@/components";
-import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { NavBar } from "@/components";
 import { NewForm } from "../components";
 
 const page = async () => {

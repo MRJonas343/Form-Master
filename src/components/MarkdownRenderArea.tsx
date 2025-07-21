@@ -3,7 +3,9 @@ import ReactMarkdown from "react-markdown";
 
 export const MarkdownRenderArea = ({
 	children,
-}: { children: string | undefined }) => {
+}: {
+	children: string | undefined;
+}) => {
 	return (
 		<ReactMarkdown
 			components={{

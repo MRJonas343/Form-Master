@@ -1,6 +1,6 @@
+import type { Selection } from "@nextui-org/react";
 import type { UserType } from "@/interfaces";
 import type { FormGeneralData } from "@/interfaces/formDataToUpdate";
-import type { Selection } from "@nextui-org/react";
 
 export type FormSettingsAction =
 	| { type: "SET_IS_SUBMITTING"; payload: boolean }

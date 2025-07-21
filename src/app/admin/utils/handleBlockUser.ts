@@ -1,8 +1,7 @@
-import type { Users } from "@/interfaces";
-import { blockUser } from "@/services/users/blockUser";
-
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
+import type { Users } from "@/interfaces";
+import { blockUser } from "@/services/users/blockUser";
 
 export const handleBlockUser = async (
 	selectedIds: Set<Key> | "all",

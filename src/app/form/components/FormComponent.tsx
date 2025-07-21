@@ -1,28 +1,28 @@
 "use client";
 
 import {
-	Card,
-	CardHeader,
-	Divider,
-	CardBody,
-	Image,
 	Button,
+	Card,
+	CardBody,
+	CardHeader,
 	Checkbox,
+	Divider,
+	Image,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { useTranslations } from "next-intl";
+import { type FC, useEffect, useReducer } from "react";
+import toast from "react-hot-toast";
 import {
 	CommentsSection,
 	CustomHeartIcon,
 	MarkdownRenderArea,
 	QuestionField,
 } from "@/components";
-import { submitForm, updateValue } from "../utils/formComponentHandlers";
-import { formInitialState, formReducer } from "../store/state";
-import { useEffect, useReducer, type FC } from "react";
 import type { FormProps } from "@/interfaces";
-import { useSession } from "next-auth/react";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import toast from "react-hot-toast";
+import { formInitialState, formReducer } from "../store/state";
+import { submitForm, updateValue } from "../utils/formComponentHandlers";
 
 export const FormComponent: FC<FormProps> = ({
 	questions,

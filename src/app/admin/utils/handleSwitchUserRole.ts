@@ -1,7 +1,7 @@
-import type { Users } from "@/interfaces";
-import { switchUserRole } from "@/services/users/switchUserRole";
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
+import type { Users } from "@/interfaces";
+import { switchUserRole } from "@/services/users/switchUserRole";
 
 export const handleSwitchUserRole = async (
 	selectedIds: Set<Key> | "all",

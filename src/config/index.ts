@@ -1,1 +1,1 @@
-export * from './R2Config';
+export * from "./R2Config";

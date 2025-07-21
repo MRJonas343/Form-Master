@@ -1,8 +1,8 @@
+import { and, eq, or } from "drizzle-orm";
 import { db } from "@/db";
 import { forms, questions } from "@/db/schemas";
-import { and, eq, or } from "drizzle-orm";
-import type { Question } from "@/interfaces/formDataToUpdate";
 import type { QuestionType } from "@/interfaces";
+import type { Question } from "@/interfaces/formDataToUpdate";
 
 type FormUpdateData = {
 	title?: string;

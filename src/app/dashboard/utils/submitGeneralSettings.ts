@@ -1,8 +1,8 @@
-import type { Action, initialState } from "../store/generalSettingsState";
-import type { FormSettings } from "@/interfaces";
-import { createForm } from "@/services/forms/createForm";
 import type { Session } from "next-auth";
 import type { Dispatch } from "react";
+import type { FormSettings } from "@/interfaces";
+import { createForm } from "@/services/forms/createForm";
+import type { Action, initialState } from "../store/generalSettingsState";
 
 export const submitGeneralSettings = async (
 	data: FormSettings,

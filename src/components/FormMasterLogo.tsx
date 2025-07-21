@@ -1,6 +1,6 @@
-import type { FormMasterLogoProps } from "@/interfaces";
 import { Image } from "@nextui-org/react";
 import type { FC } from "react";
+import type { FormMasterLogoProps } from "@/interfaces";
 
 export const FormMasterLogo: FC<FormMasterLogoProps> = ({ className }) => {
 	return (

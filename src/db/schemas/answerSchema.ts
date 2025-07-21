@@ -1,5 +1,5 @@
 import { int, json, mysqlTable } from "drizzle-orm/mysql-core";
-import { questions, filledForms } from ".";
+import { filledForms, questions } from ".";
 
 export const answers = mysqlTable("answers", {
 	id: int("id").primaryKey().autoincrement(),

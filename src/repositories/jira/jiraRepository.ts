@@ -1,6 +1,6 @@
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { jiraAccounts } from "@/db/schemas";
-import { eq } from "drizzle-orm";
 
 const createJiraAccount = async (userId: string, jiraAccountId: string) => {
 	const result = await db.insert(jiraAccounts).values({

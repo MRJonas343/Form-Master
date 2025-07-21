@@ -1,6 +1,6 @@
 import { PutObjectCommand } from "@aws-sdk/client-s3";
-import { R2 } from "@/config";
 import { v4 as uuidv4 } from "uuid";
+import { R2 } from "@/config";
 import "dotenv/config";
 
 export const uploadImage = async (file: File) => {

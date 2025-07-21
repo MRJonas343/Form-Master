@@ -1,7 +1,7 @@
 "use server";
 
-import { permissionRepository } from "@/repositories";
 import type { UserType } from "@/interfaces";
+import { permissionRepository } from "@/repositories";
 
 export const setPermissions = async (formId: number, users: UserType[]) => {
 	const usersPermissions = users.map((user) => ({

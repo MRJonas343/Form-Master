@@ -3,29 +3,29 @@ import {
 	AutocompleteItem,
 	Button,
 	Checkbox,
+	Image,
 	Input,
 	Select,
 	SelectItem,
 	Textarea,
 	Tooltip,
 	User,
-	Image,
 } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useReducer, useRef } from "react";
-import { tabs, topics } from "@/constants";
-import { FaRegQuestionCircle, FaSearch } from "react-icons/fa";
-import type { FormGeneralData } from "@/interfaces/formDataToUpdate";
 import { useForm } from "react-hook-form";
-import type { FormSettingsType } from "@/interfaces";
+import { FaRegQuestionCircle, FaSearch } from "react-icons/fa";
 import { IoCloseCircleSharp } from "react-icons/io5";
+import { tabs, topics } from "@/constants";
 import { useImageDropzone2 } from "@/hooks/useImageDropZone";
+import type { FormSettingsType } from "@/interfaces";
+import type { FormGeneralData } from "@/interfaces/formDataToUpdate";
+import { useDebouncedSearch2 } from "../../hooks/useDebounceSearch";
 import { formSettingsReducer, initializer } from "../store/state";
 import {
 	deleteSelectedUser,
 	selectUser,
 } from "../utils/handleUsersInSelectState";
-import { useDebouncedSearch2 } from "../../hooks/useDebounceSearch";
 import { onSubmit } from "../utils/submitForm";
 
 const FormSettings = ({ data }: { data: FormGeneralData }) => {

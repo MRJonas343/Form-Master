@@ -1,11 +1,11 @@
 import { useDebouncedCallback } from "use-debounce";
-import { getUsersByName } from "@/services/users/getUsersByName";
 import { getUsersByEmail } from "@/services/users/getUsersByEmail";
-import type { Action, initialState } from "../store/generalSettingsState";
+import { getUsersByName } from "@/services/users/getUsersByName";
 import type {
 	FormSettingsAction,
 	FormSettingsState,
 } from "../edit-form/store/state";
+import type { Action, initialState } from "../store/generalSettingsState";
 
 export const useDebouncedSearch = (
 	state: typeof initialState,

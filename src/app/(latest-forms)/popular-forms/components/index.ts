@@ -1,1 +1,1 @@
-export * from './PopularFormsTable';
+export * from "./PopularFormsTable";

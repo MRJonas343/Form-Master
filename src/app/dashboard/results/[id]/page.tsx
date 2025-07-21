@@ -1,10 +1,10 @@
-import { auth } from "@/auth";
 import { redirect } from "next/navigation";
+import { auth } from "@/auth";
+import { NavBar } from "@/components";
+import type { FormeResults } from "@/interfaces";
 import { getFormById } from "@/services/forms/getFormById";
 import { getFormResults } from "@/services/forms/getFormResults";
 import { FormResultsPage } from "../../components";
-import type { FormeResults } from "@/interfaces";
-import { NavBar } from "@/components";
 
 const page = async ({ params }: { params: { id: string } }) => {
 	const session = await auth();

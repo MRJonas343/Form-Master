@@ -10,19 +10,19 @@ import {
 	TableHeader,
 	TableRow,
 } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
+import { useTranslations } from "next-intl";
+import { type Key, useRef, useState } from "react";
+import toast from "react-hot-toast";
+import { FaLock, FaUnlock } from "react-icons/fa";
+import { MdDelete } from "react-icons/md";
+import type { Users } from "@/interfaces";
 import {
 	handleBlockUser,
 	handleDeleteUser,
 	handleSwitchUserRole,
 	handleUnlockUser,
 } from "../utils";
-import { type Key, useRef, useState } from "react";
-import { FaUnlock, FaLock } from "react-icons/fa";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
-import { MdDelete } from "react-icons/md";
-import type { Users } from "@/interfaces";
-import toast from "react-hot-toast";
 
 export const AdminTable = ({ data }: { data: Users[] }) => {
 	const selectedIdsRef = useRef<Set<Key> | "all">(new Set<Key>());

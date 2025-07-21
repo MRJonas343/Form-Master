@@ -1,5 +1,4 @@
 import { sql } from "drizzle-orm";
-import { users } from "./userSchema";
 import {
 	boolean,
 	int,
@@ -8,6 +7,7 @@ import {
 	timestamp,
 	varchar,
 } from "drizzle-orm/mysql-core";
+import { users } from "./userSchema";
 
 export const forms = mysqlTable("forms", {
 	id: int("id").autoincrement().primaryKey(),

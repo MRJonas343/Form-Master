@@ -1,4 +1,4 @@
-import { mysqlTable, varchar, primaryKey, int } from "drizzle-orm/mysql-core";
+import { int, mysqlTable, primaryKey, varchar } from "drizzle-orm/mysql-core";
 import type { AdapterAccountType } from "next-auth/adapters";
 import { users } from ".";
 

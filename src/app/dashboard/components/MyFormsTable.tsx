@@ -18,7 +18,7 @@ import { ModalWithFillForms } from "./ModalWithFillForms";
 import { useRouter } from "next/navigation";
 import { useSortableList, type GenericItem } from "@/hooks/useSortableList";
 import toast from "react-hot-toast";
-import { deleteFormAction } from "@/services";
+import { deleteFormAction } from "@/services/forms/deleteForm";
 import { LuFileSpreadsheet } from "react-icons/lu";
 import { GoGraph } from "react-icons/go";
 import { MdAdd } from "react-icons/md";

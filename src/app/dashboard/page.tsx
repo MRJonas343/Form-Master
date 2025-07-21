@@ -1,25 +1,37 @@
-import {
-	getFilledFormsByUser,
-	getUserForms,
-	searchContactByEmail,
-} from "@/services";
+import { getFilledFormsByUser } from "@/services/forms/getFilledForms";
+import { getUserForms } from "@/services/forms/getUserForms";
+import { searchContactByEmail } from "@/services/salesforce/searchAccount";
 import { redirect } from "next/navigation";
 import { Dashboard } from "./components";
 import { NavBar } from "@/components";
 import { auth } from "@/auth";
-import { getTicketsByUserId } from "@/services/jira/getTicketsByUserId";
+import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
+import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
+// import { getTicketsByUserId } from "@/services/jira/getTicketsByUserId"; // TEMPORARILY DISABLED
 
 const page = async () => {
 	const session = await auth();
 
 	if (!session) return redirect("/login");
 
-	const [userForms, filledForms, contacts, tickets] = await Promise.all([
+	const [userForms, filledForms, contacts] = await Promise.all([
 		getUserForms(Number.parseInt(session?.user?.id ?? "")),
 		getFilledFormsByUser(Number.parseInt(session?.user?.id ?? "")),
-		searchContactByEmail(session?.user?.email ?? ""),
-		getTicketsByUserId(Number.parseInt(session?.user?.id ?? "")),
+		searchContactByEmail(session?.user?.email ?? ""), // RE-ENABLED (now mocked)
+		// getTicketsByUserId(Number.parseInt(session?.user?.id ?? "")), // TEMPORARILY DISABLED
 	]);
+
+	// Temporarily provide empty tickets structure until Jira integration is fixed
+	const tickets: IssuesFromJira = {
+		expand: "",
+		startAt: 0,
+		maxResults: 0,
+		total: 0,
+		issues: []
+	};
+
+	// Provide fallback for contacts if array is empty (mocked returns empty array)
+	const contactData = contacts[0] || null;
 
 	return (
 		<>
@@ -27,7 +39,7 @@ const page = async () => {
 			<Dashboard
 				userForms={userForms}
 				filledForms={filledForms}
-				contacts={contacts[0]}
+				contacts={contactData}
 				tickets={tickets}
 			/>
 		</>

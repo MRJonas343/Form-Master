@@ -1,6 +1,13 @@
 "use server";
 
 export const getAccessToken = async () => {
+	// TEMPORARILY MOCKED - Salesforce integration disabled
+	console.log("🔧 MOCK: getAccessToken called - returning mock token");
+
+	// Return mock token structure
+	return "mock_salesforce_access_token_12345";
+
+	/* ORIGINAL CODE TEMPORARILY DISABLED
 	const formData = new FormData();
 	formData.append("grant_type", process.env.SALESFORCE_GRANT_TYPE ?? "");
 	formData.append("client_id", process.env.SALESFORCE_ID ?? "");
@@ -21,4 +28,5 @@ export const getAccessToken = async () => {
 	const data = await response.json();
 
 	return data.access_token;
+	*/
 };

@@ -6,7 +6,7 @@ import { FaEye, FaEyeSlash, FaDiscord } from "react-icons/fa";
 import { FaGithub } from "react-icons/fa6";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
-import { authorize } from "@/services";
+import { authorize } from "@/services/auth/authorize";
 import { handleStatus } from "@/utils";
 import { useState } from "react";
 import { signIn } from "next-auth/react";

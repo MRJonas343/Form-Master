@@ -1,4 +1,4 @@
-import { getPopularForms } from "@/services";
+import { getPopularForms } from "@/services/forms/getPopularForms";
 import { PopularFormsTable } from "./components";
 
 const page = async () => {

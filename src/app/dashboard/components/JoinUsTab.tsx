@@ -6,12 +6,12 @@ import { Input, Button } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { createAccount } from "@/services";
+import { createAccount } from "@/services/salesforce/createAccount";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { useState } from "react";
 
-export const JoinUsTab = ({ data }: { data: SalesForceUser }) => {
+export const JoinUsTab = ({ data }: { data: SalesForceUser | null }) => {
 	const [isSubmitting, setIsSubmitting] = useState(false);
 
 	const { data: session } = useSession();

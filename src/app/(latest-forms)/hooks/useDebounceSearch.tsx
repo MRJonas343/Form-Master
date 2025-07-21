@@ -1,4 +1,4 @@
-import { getFormsWithFullTextSearch } from "@/services";
+import { getFormsWithFullTextSearch } from "@/services/forms/getFormsWithFullTextSearch";
 import { useDebouncedCallback } from "use-debounce";
 import type { FormCardProps } from "@/interfaces";
 import type { Action } from "../store/state";

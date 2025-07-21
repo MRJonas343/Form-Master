@@ -7,7 +7,7 @@ import { loadMoreCards } from "../services/loadMoreCards";
 import { useInView } from "react-intersection-observer";
 import type { FormCardProps } from "@/interfaces";
 import { Spinner } from "@nextui-org/react";
-import { getLatestForms } from "@/services";
+import { getLatestForms } from "@/services/forms/getLatestForms";
 import { useEffect, useReducer, useRef } from "react";
 
 const MainPage = ({ cardsData }: { cardsData: FormCardProps[] }) => {

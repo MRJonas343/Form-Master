@@ -1,8 +1,6 @@
-import {
-	getFormQuestions,
-	getFormToEdit,
-	checkFormOwnership,
-} from "@/services";
+import { getFormQuestions } from "@/services/filledForms/getFormQuestions";
+import { getFormToEdit } from "@/services/edit-form/getFormToEdit";
+import { checkFormOwnership } from "@/services/permissions/checkFormOwnership";
 import EditFormComponent from "../components/EditFormComponent";
 import { NavBar } from "@/components";
 import { redirect } from "next/navigation";

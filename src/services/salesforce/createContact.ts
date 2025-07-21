@@ -1,10 +1,20 @@
 "use server";
 
 import type { SalesForceContact } from "@/interfaces/SalesForceAccount";
-import { tokenRepository } from "@/repositories";
-import { getAccessToken } from "./getAccessToken";
+// import { tokenRepository } from "@/repositories"; // TEMPORARILY DISABLED
+// import { getAccessToken } from "./getAccessToken"; // TEMPORARILY DISABLED
 
 export const createContact = async (data: SalesForceContact) => {
+	// TEMPORARILY MOCKED - Salesforce integration disabled
+	console.log("🔧 MOCK: createContact called with data:", data);
+
+	// Simulate some processing time
+	await new Promise(resolve => setTimeout(resolve, 300));
+
+	// Always return success for now
+	return "SUCCESS";
+
+	/* ORIGINAL CODE TEMPORARILY DISABLED
 	let token = await tokenRepository.getToken();
 
 	if (!token) {
@@ -47,4 +57,5 @@ export const createContact = async (data: SalesForceContact) => {
 	}
 
 	return "SUCCESS";
+	*/
 };

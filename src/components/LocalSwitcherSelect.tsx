@@ -2,7 +2,7 @@
 
 import type { LocalSwitcherSelectProps } from "@/interfaces";
 import { Select, SelectItem } from "@nextui-org/react";
-import { setUserLocale } from "@/services";
+import { setUserLocale } from "@/services/lang/local";
 import { useTransition } from "react";
 import type { Locale } from "@/i18n";
 

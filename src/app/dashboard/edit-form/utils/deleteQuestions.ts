@@ -2,7 +2,7 @@ import type {
 	FormQuestionsAction,
 	FormQuestionsState,
 } from "../store/stateEditQuestions";
-import { deleteQuestion } from "@/services";
+import { deleteQuestion } from "@/services/edit-form/deleteQuestion";
 import type { Dispatch } from "react";
 
 export const deleteControlledQuestion = async (

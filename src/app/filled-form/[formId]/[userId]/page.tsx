@@ -1,6 +1,6 @@
 import { FilledForm } from "../../components/FilledForm";
 import { NavBar } from "@/components";
-import { getFilledForm } from "@/services";
+import { getFilledForm } from "@/services/filledForms/getFilledForm";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 

@@ -1,6 +1,6 @@
 import { NavBar } from "@/components";
 import { AdminTable } from "../components/AdminTable";
-import { getAllUsers } from "@/services";
+import { getAllUsers } from "@/services/users/getAllUsers";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 

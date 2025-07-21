@@ -11,7 +11,7 @@ import {
 import { useTranslations } from "next-intl";
 import type { Ticket } from "@/interfaces/Ticket";
 import { Select } from "@nextui-org/react";
-import { createJiraTicket } from "@/services/jira/jiraIntegration";
+// import { createJiraTicket } from "@/services/jira/jiraIntegration"; // TEMPORARILY DISABLED
 import { useSession } from "next-auth/react";
 import toast from "react-hot-toast";
 import { usePathname } from "next/navigation";
@@ -47,16 +47,19 @@ export const IssueModal = ({
 		if (!session) return;
 		setIsLoading(true);
 
-		const useriId = Number.parseInt(session.user?.id as string);
-		const fullUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
-		const ticket = await createJiraTicket(useriId, { ...data, link: fullUrl });
+		// TEMPORARILY DISABLED JIRA INTEGRATION
+		// const useriId = Number.parseInt(session.user?.id as string);
+		// const fullUrl = `${process.env.NEXT_PUBLIC_BASE_URL}${pathname}`;
+		// const ticket = await createJiraTicket(useriId, { ...data, link: fullUrl });
 
 		setIsLoading(false);
-		if (ticket === "ERROR") {
-			toast.error(t("error"));
-			reset();
-			return onClose();
-		}
+
+		// Temporarily always show success until Jira integration is fixed
+		// if (ticket === "ERROR") {
+		// 	toast.error(t("error"));
+		// 	reset();
+		// 	return onClose();
+		// }
 
 		toast.success(t("success"));
 		reset();

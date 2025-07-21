@@ -16,9 +16,9 @@ import {
 } from "@nextui-org/react";
 import type { FilledForms, ModalWithFillFormsProps } from "@/interfaces";
 import { useEffect, useState, type FC } from "react";
-import { getFilledForms } from "@/services";
 import { useRouter } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { getFilledForms } from "@/services/filledForms/getFilledForms";
 
 export const ModalWithFillForms: FC<ModalWithFillFormsProps> = ({
 	formId,

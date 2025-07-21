@@ -1,4 +1,4 @@
-import { getAllFormsByUserId } from "@/services";
+import { getAllFormsByUserId } from "@/services/forms/getAllFormsByUserId";
 import { FormsPage } from "../../components";
 import { auth } from "@/auth";
 import { NavBar } from "@/components";

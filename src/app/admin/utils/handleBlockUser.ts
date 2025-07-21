@@ -1,5 +1,5 @@
 import type { Users } from "@/interfaces";
-import { blockUser } from "@/services";
+import { blockUser } from "@/services/users/blockUser";
 
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";

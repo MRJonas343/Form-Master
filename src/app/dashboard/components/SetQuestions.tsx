@@ -22,7 +22,7 @@ import { DndContext } from "@dnd-kit/core";
 import { Button } from "@nextui-org/react";
 import { useState, type FC } from "react";
 import { useDndSensors } from "@/hooks";
-import { setNewFormQuestions } from "@/services";
+import { setNewFormQuestions } from "@/services/forms/setNewFormQuestions";
 import { handleStatus } from "@/utils/handleStatus";
 import { useTranslations } from "next-intl";
 import { validateQuestions } from "@/validators";

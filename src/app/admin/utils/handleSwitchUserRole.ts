@@ -1,5 +1,5 @@
 import type { Users } from "@/interfaces";
-import { switchUserRole } from "@/services";
+import { switchUserRole } from "@/services/users/switchUserRole";
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
 

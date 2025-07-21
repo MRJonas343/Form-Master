@@ -1,9 +1,7 @@
-import {
-	checkPermission,
-	getComments,
-	getFormById,
-	getFormQuestions,
-} from "@/services";
+import { checkPermission } from "@/services/permissions/checkPermission";
+import { getComments } from "@/services/comments/getComments";
+import { getFormById } from "@/services/forms/getFormById";
+import { getFormQuestions } from "@/services/filledForms/getFormQuestions";
 import { isFormAlreadyFill } from "@/services/filledForms/isFormAlreadyFill";
 import { FormComponent } from "../components/FormComponent";
 import { redirect } from "next/navigation";

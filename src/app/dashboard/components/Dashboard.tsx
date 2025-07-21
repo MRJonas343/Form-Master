@@ -11,7 +11,7 @@ import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
 interface DashboardProps {
 	userForms: UserForms[];
 	filledForms: FilledForm[];
-	contacts: SalesForceUser;
+	contacts: SalesForceUser | null; // Made nullable for mocked integration
 	tickets: IssuesFromJira;
 }
 

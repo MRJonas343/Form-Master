@@ -5,7 +5,7 @@ import { Button, Input, Link } from "@nextui-org/react";
 import { FaDiscord, FaEye, FaEyeSlash, FaGithub } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
-import { createUser } from "@/services";
+import { createUser } from "@/services/auth/createUser";
 import { handleStatus } from "@/utils";
 import { useState } from "react";
 import { signIn } from "next-auth/react";

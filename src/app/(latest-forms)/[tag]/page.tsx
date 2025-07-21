@@ -1,4 +1,4 @@
-import { getFormsByTag } from "@/services";
+import { getFormsByTag } from "@/services/forms/getFormsByTag";
 import { TagPage } from "../components/TagPage";
 
 const Page = async (props: { params: Promise<{ tag: string }> }) => {

@@ -1,4 +1,4 @@
-import { getUserById } from "@/services";
+import { getUserById } from "@/services/users/getUserById";
 import type { Action, initialState } from "../store/generalSettingsState";
 
 export const selectUser = async (

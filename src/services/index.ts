@@ -1,3 +1,17 @@
+// ⚠️ BARREL EXPORTS DISABLED FOR SERVER ACTIONS
+//
+// This barrel export file has been disabled because Next.js server actions
+// (functions with "use server") create conflicting $$ACTION_0 identifiers
+// when re-exported through barrel files.
+//
+// All imports must now be direct imports from individual service files:
+// ❌ import { createForm } from "@/services";
+// ✅ import { createForm } from "@/services/forms/createForm";
+//
+// This is a known Next.js limitation with server actions and barrel exports.
+
+/* ORIGINAL EXPORTS - COMMENTED OUT TO PREVENT $$ACTION_0 CONFLICTS
+
 export * from "./auth/authorize";
 export * from "./auth/createUser";
 export * from "./auth/signInWithGithub";
@@ -39,7 +53,5 @@ export * from "./users/chekUserStatus";
 export * from "./users/deleteUser";
 export * from "./users/getAllUsers";
 export * from "./users/getUserById";
-export * from "./users/getUsersByEmail";
-export * from "./users/getUsersByName";
-export * from "./users/switchUserRole";
-export * from "./users/unBlockUser";
+
+*/

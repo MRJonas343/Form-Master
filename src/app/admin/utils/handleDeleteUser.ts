@@ -1,5 +1,5 @@
 import type { Users } from "@/interfaces";
-import { deleteUser } from "@/services";
+import { deleteUser } from "@/services/users/deleteUser";
 import type { Key, SetStateAction } from "react";
 import toast from "react-hot-toast";
 

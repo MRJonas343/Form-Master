@@ -2,13 +2,23 @@
 
 import type { SalesForceAccount } from "@/interfaces/SalesForceAccount";
 import { tokenRepository, userRepository } from "@/repositories";
-import { createContact } from "./createContact";
-import { getAccessToken } from "./getAccessToken";
+// import { createContact } from "./createContact"; // TEMPORARILY DISABLED
+// import { getAccessToken } from "./getAccessToken"; // TEMPORARILY DISABLED
 
 export const createAccount = async (
 	userId: string,
 	data: SalesForceAccount,
 ) => {
+	// TEMPORARILY MOCKED - Salesforce integration disabled
+	console.log("🔧 MOCK: createAccount called for userId:", userId, "data:", data);
+
+	// Simulate some processing time
+	await new Promise(resolve => setTimeout(resolve, 500));
+
+	// Always return success for now
+	return "SUCCESS";
+
+	/* ORIGINAL CODE TEMPORARILY DISABLED
 	const user = await userRepository.findUserById(Number.parseInt(userId));
 
 	if (!user) return console.error("User not found");
@@ -75,4 +85,5 @@ export const createAccount = async (
 	const contactResult = await createContact(contactData);
 
 	return "SUCCESS";
+	*/
 };

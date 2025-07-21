@@ -5,7 +5,7 @@ import type {
 } from "@/interfaces/formDataToUpdate";
 import type { MutableRefObject } from "react";
 import type { FormSettingsState } from "../store/state";
-import { updateFormSetting } from "@/services";
+import { updateFormSetting } from "@/services/edit-form/updateFormSetting";
 import toast from "react-hot-toast";
 
 export const onSubmit = async (

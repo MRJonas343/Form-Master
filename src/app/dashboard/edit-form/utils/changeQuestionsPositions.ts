@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from "react";
 import type { DragEndEvent } from "@dnd-kit/core";
 import { arrayMove } from "@dnd-kit/sortable";
 import type { Question } from "@/interfaces/formDataToUpdate";
-import { swapQuestions } from "@/services";
+import { swapQuestions } from "@/services/edit-form/swapQuestions";
 import type {
 	FormQuestionsAction,
 	FormQuestionsState,

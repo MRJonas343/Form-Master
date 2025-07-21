@@ -1,6 +1,7 @@
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
-import { getFormById, getFormResults } from "@/services";
+import { getFormById } from "@/services/forms/getFormById";
+import { getFormResults } from "@/services/forms/getFormResults";
 import { FormResultsPage } from "../../components";
 import type { FormeResults } from "@/interfaces";
 import { NavBar } from "@/components";

@@ -1,5 +1,6 @@
 import { useDebouncedCallback } from "use-debounce";
-import { getUsersByName, getUsersByEmail } from "@/services";
+import { getUsersByName } from "@/services/users/getUsersByName";
+import { getUsersByEmail } from "@/services/users/getUsersByEmail";
 import type { Action, initialState } from "../store/generalSettingsState";
 import type {
 	FormSettingsAction,

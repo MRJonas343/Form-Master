@@ -8,7 +8,7 @@ import { useInView } from "react-intersection-observer";
 import type { FormCardProps } from "@/interfaces";
 import { Spinner } from "@nextui-org/react";
 import { useEffect, useReducer, useRef } from "react";
-import { getFormsByTag } from "@/services";
+import { getFormsByTag } from "@/services/forms/getFormsByTag";
 
 export const TagPage = ({
 	cardsData,

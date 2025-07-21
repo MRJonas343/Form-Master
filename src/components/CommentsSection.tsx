@@ -4,7 +4,7 @@ import { Button, Card, Input } from "@nextui-org/react";
 import type { Comment } from "@/interfaces";
 import { IoMdSend } from "react-icons/io";
 import { useState } from "react";
-import { createComment } from "@/services";
+import { createComment } from "@/services/comments/createComment";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
 

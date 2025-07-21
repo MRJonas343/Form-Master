@@ -1,6 +1,6 @@
 import type { Action, initialState } from "../store/generalSettingsState";
 import type { FormSettings } from "@/interfaces";
-import { createForm } from "@/services";
+import { createForm } from "@/services/forms/createForm";
 import type { Session } from "next-auth";
 import type { Dispatch } from "react";
 

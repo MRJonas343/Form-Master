@@ -4,34 +4,35 @@ import { and, eq, inArray } from "drizzle-orm";
 
 type Permission = {
 	form_id: number;
-	user_id: number;
+	user_id: string;
 };
 
 const createPermissions = async (permissions: Permission[]) => {
-	for (const permission of permissions) {
-		const exists = await db
-			.select()
-			.from(formPermissions)
-			.where(
-				and(
-					eq(formPermissions.form_id, permission.form_id),
-					eq(formPermissions.user_id, permission.user_id),
-				),
-			)
-			.limit(1);
-		if (exists.length === 0) {
-			await db.insert(formPermissions).values(permission);
-		}
-	}
+	const result = await db.insert(formPermissions).values(permissions);
+
+	return result;
 };
 
-const getPermission = async (formId: number, userId: number) => {
+const getPermission = async (formId: number, userId: string) => {
 	const result = await db.query.formPermissions.findFirst({
 		where: and(
 			eq(formPermissions.form_id, formId),
 			eq(formPermissions.user_id, userId),
 		),
 	});
+
+	return result;
+};
+
+const deletePermissions = async (formId: number, usersIds: string[]) => {
+	const result = await db
+		.delete(formPermissions)
+		.where(
+			and(
+				eq(formPermissions.form_id, formId),
+				inArray(formPermissions.user_id, usersIds),
+			),
+		);
 
 	return result;
 };
@@ -50,25 +51,9 @@ const getUsersWithPermissions = async (formId: number) => {
 	return result;
 };
 
-const deletePermissionsByFormId = async (
-	formId: number,
-	usersIds: number[],
-) => {
-	const result = await db
-		.delete(formPermissions)
-		.where(
-			and(
-				eq(formPermissions.form_id, formId),
-				inArray(formPermissions.user_id, usersIds),
-			),
-		);
-
-	return result;
-};
-
 export const permissionRepository = {
-	getUsersWithPermissions,
-	getPermission,
 	createPermissions,
-	deletePermissionsByFormId,
+	getPermission,
+	deletePermissions,
+	getUsersWithPermissions,
 };

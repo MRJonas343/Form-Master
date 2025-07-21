@@ -11,7 +11,7 @@ import {
 import type { Question } from "@/interfaces";
 import { eq, and, inArray, asc, sql, desc } from "drizzle-orm";
 
-const getFormWithUserAnswers = async (userId: number, formId: number) => {
+const getFormWithUserAnswers = async (userId: string, formId: number) => {
 	const [form, commentsResult, questionsResult] = await Promise.all([
 		db.query.forms.findFirst({
 			where: eq(forms.id, formId),
@@ -59,7 +59,7 @@ const getFormWithUserAnswers = async (userId: number, formId: number) => {
 	let optionsMap: { [key: number]: string[] } = {};
 
 	if (multipleQuestions.length > 0) {
-		const multipleQuestionIds = multipleQuestions.map((q) => q.id);
+		const questionIds = multipleQuestions.map((q) => q.id);
 
 		const optionsResult = await db
 			.select({
@@ -67,7 +67,7 @@ const getFormWithUserAnswers = async (userId: number, formId: number) => {
 				optionText: options.optionText,
 			})
 			.from(options)
-			.where(inArray(options.questionId, multipleQuestionIds));
+			.where(inArray(options.questionId, questionIds));
 
 		optionsMap = optionsResult.reduce(
 			(acc, option) => {
@@ -81,17 +81,16 @@ const getFormWithUserAnswers = async (userId: number, formId: number) => {
 		);
 	}
 
-	const questionsWithOptions = questionsResult.map((question) => {
-		if (question.type === "multiple") {
-			return {
-				...question,
-				options: optionsMap[question.id] || [],
-			};
-		}
-		return question;
-	});
+	const questionsWithOptions: Question[] = questionsResult.map((question) => ({
+		...question,
+		options: optionsMap[question.id] || [],
+	}));
 
-	return { form, commentsResult, questions: questionsWithOptions };
+	return {
+		form,
+		questions: questionsWithOptions,
+		comments: commentsResult,
+	};
 };
 
 const getFilledFormsByFormId = async (formId: number) => {
@@ -110,7 +109,7 @@ const getFilledFormsByFormId = async (formId: number) => {
 	return result;
 };
 
-const getFilledFormsByUserId = async (userId: number, formId: number) => {
+const getFilledFormsByUserId = async (userId: string, formId: number) => {
 	const result = await db.query.filledForms.findFirst({
 		where: and(
 			eq(filledForms.user_id, userId),
@@ -121,25 +120,29 @@ const getFilledFormsByUserId = async (userId: number, formId: number) => {
 	return result;
 };
 
-const updateFilledForm = async (answersToUpdate: Question[]) => {
-	for (const answer of answersToUpdate) {
-		if (!answer.filledFormID) continue;
+const getFilledFormAnswers = async (userId: string, formId: number) => {
+	const result = await db
+		.select({
+			id: answers.id,
+			questionId: answers.questionID,
+			value: answers.value,
+			filledFormId: answers.filledFormID,
+		})
+		.from(answers)
+		.innerJoin(filledForms, eq(answers.filledFormID, filledForms.id))
+		.where(
+			and(
+				eq(filledForms.user_id, userId),
+				eq(filledForms.form_id, formId),
+			),
+		);
 
-		const result = await db
-			.update(answers)
-			.set({ value: answer.answer })
-			.where(
-				and(
-					eq(answers.id, answer.filledFormID),
-					eq(answers.questionID, answer.id),
-				),
-			);
-	}
+	return result;
 };
 
 export const filledFormsRepository = {
 	getFormWithUserAnswers,
 	getFilledFormsByFormId,
 	getFilledFormsByUserId,
-	updateFilledForm,
+	getFilledFormAnswers,
 };

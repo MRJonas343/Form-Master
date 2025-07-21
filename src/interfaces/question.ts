@@ -22,7 +22,7 @@ export interface QuestionProps {
 }
 export interface formGeneralData {
 	id: number;
-	author_id: number;
+	author_id: string;
 	created_at: Date | null;
 	title: string;
 	topic: string;

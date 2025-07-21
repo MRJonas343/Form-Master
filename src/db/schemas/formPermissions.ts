@@ -1,4 +1,4 @@
-import { int, bigint, mysqlTable } from "drizzle-orm/mysql-core";
+import { int, mysqlTable, varchar } from "drizzle-orm/mysql-core";
 import { forms, users } from ".";
 
 export const formPermissions = mysqlTable("form_permissions", {
@@ -6,7 +6,7 @@ export const formPermissions = mysqlTable("form_permissions", {
 	form_id: int("form_id")
 		.notNull()
 		.references(() => forms.id, { onDelete: "cascade" }),
-	user_id: bigint("user_id", { mode: "number" })
+	user_id: varchar("user_id", { length: 255 })
 		.notNull()
 		.references(() => users.id, { onDelete: "cascade" }),
 });

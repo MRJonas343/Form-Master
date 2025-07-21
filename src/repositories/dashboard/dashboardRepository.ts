@@ -1,9 +1,8 @@
 import { filledForms, forms, likes, questions, users } from "@/db/schemas";
 import { eq, and, desc, count } from "drizzle-orm";
 import { db } from "@/db";
-import { image } from "@nextui-org/react";
 
-const getUserForms = async (userId: number) => {
+const getUserForms = async (userId: string) => {
 	const formsResult = await db
 		.select({
 			formId: forms.id,
@@ -42,7 +41,7 @@ const getUserForms = async (userId: number) => {
 	return formWithQuestions;
 };
 
-const getUserFilledForms = async (userId: number) => {
+const getUserFilledForms = async (userId: string) => {
 	const result = await db
 		.select({
 			formId: forms.id,
@@ -59,7 +58,7 @@ const getUserFilledForms = async (userId: number) => {
 	return result;
 };
 
-const getAllUserFormsByUserId = async (userId: number) => {
+const getAllUserFormsByUserId = async (userId: string) => {
 	const result = db
 		.select({
 			id: forms.id,

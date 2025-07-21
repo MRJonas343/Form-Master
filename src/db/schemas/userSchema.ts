@@ -1,5 +1,4 @@
 import {
-	bigint,
 	mysqlTable,
 	varchar,
 	mysqlEnum,
@@ -11,7 +10,7 @@ import {
 export const users = mysqlTable(
 	"user",
 	{
-		id: bigint("id", { mode: "number" }).autoincrement().primaryKey(),
+		id: varchar("id", { length: 255 }).primaryKey(),
 		name: varchar("name", { length: 50 }).notNull(),
 		email: varchar("email", { length: 50 }).unique().notNull(),
 		password: varchar("password", { length: 255 }),

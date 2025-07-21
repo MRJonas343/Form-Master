@@ -13,6 +13,7 @@ import {
 	users,
 } from "./schemas";
 import { hashPassword } from "@/utils/password";
+import { v4 as uuidv4 } from "uuid";
 import "dotenv/config";
 
 const usersToSeed: UsersSeed[] = [
@@ -1105,7 +1106,8 @@ const answersToSeed = [
 
 const seed = async () => {
 	const usersToInsert = await Promise.all(
-		usersToSeed.map(async (user) => ({
+		usersToSeed.map(async (user, index) => ({
+			id: uuidv4(),
 			name: user.name,
 			email: user.email,
 			password: await hashPassword(user.password),
@@ -1115,13 +1117,44 @@ const seed = async () => {
 	);
 
 	await db.insert(users).values(usersToInsert);
-	await db.insert(forms).values(formsToSeed);
+
+	// Create a mapping from old numeric IDs to new UUIDs
+	const userIdMap: { [key: number]: string } = {};
+	usersToInsert.forEach((user, index) => {
+		userIdMap[index + 1] = user.id; // index + 1 because seed data uses 1-based indexing
+	});
+
+	// Update forms to use UUID author_ids
+	const formsWithUuids = formsToSeed.map(form => ({
+		...form,
+		author_id: userIdMap[form.author_id],
+	}));
+
+	// Update likes to use UUID user_ids
+	const likesWithUuids = likesToSeed().map(like => ({
+		...like,
+		user_id: userIdMap[like.user_id],
+	}));
+
+	// Update comments to use UUID user_ids
+	const commentsWithUuids = commentsToSeed.map(comment => ({
+		...comment,
+		user_id: userIdMap[comment.user_id],
+	}));
+
+	// Update filled forms to use UUID user_ids
+	const filledFormsWithUuids = filledFormsToSeed.map(filledForm => ({
+		...filledForm,
+		user_id: userIdMap[filledForm.user_id],
+	}));
+
+	await db.insert(forms).values(formsWithUuids);
 	await db.insert(questions).values(questionsToSeed);
 	await db.insert(tags).values(tagsToSeed);
 	await db.insert(formTags).values(formTagsToSeed);
-	await db.insert(likes).values(likesToSeed());
-	await db.insert(comments).values(commentsToSeed);
-	await db.insert(filledForms).values(filledFormsToSeed);
+	await db.insert(likes).values(likesWithUuids);
+	await db.insert(comments).values(commentsWithUuids);
+	await db.insert(filledForms).values(filledFormsWithUuids);
 	await db.insert(options).values(optionsToSeed);
 	await db.insert(answers).values(answersToSeed);
 

@@ -6,7 +6,7 @@ export interface ModalWithFillFormsProps {
 }
 
 export interface FilledForms {
-	userId: number;
+	userId: string;
 	userName: string;
 	filledAt: string;
 }

@@ -3,7 +3,7 @@
 import { userRepository } from "@/repositories";
 import { revalidatePath } from "next/cache";
 
-export const unBlockUser = async (usersIds: number[] | "all") => {
+export const unBlockUser = async (usersIds: string[] | "all") => {
 	if (usersIds === "all") {
 		await userRepository.unblockAllUsers();
 		revalidatePath("/admin/panel");

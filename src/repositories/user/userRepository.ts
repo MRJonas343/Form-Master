@@ -2,9 +2,12 @@ import type { User } from "@/interfaces";
 import { users } from "@/db/schemas";
 import { db } from "@/db";
 import { like, eq, inArray } from "drizzle-orm";
+import { v4 as uuidv4 } from "uuid";
 
 const createUser = async (user: User) => {
+	const userId = uuidv4();
 	const result = await db.insert(users).values({
+		id: userId,
 		name: user.name,
 		email: user.email,
 		password: user.hashedPassword,
@@ -12,7 +15,7 @@ const createUser = async (user: User) => {
 		status: "active",
 	});
 
-	return result;
+	return { ...result, userId };
 };
 
 const findUserByEmail = async (email: string) => {
@@ -23,7 +26,7 @@ const findUserByEmail = async (email: string) => {
 	return result;
 };
 
-const findUserById = async (id: number) => {
+const findUserById = async (id: string) => {
 	const result = await db.query.users.findFirst({
 		where: eq(users.id, id),
 	});
@@ -31,7 +34,7 @@ const findUserById = async (id: number) => {
 	return result;
 };
 
-const checkUserStatus = async (userId: number) => {
+const checkUserStatus = async (userId: string) => {
 	const result = await db
 		.select({
 			status: users.status,
@@ -50,7 +53,7 @@ const findUserByName = async (name: string) => {
 	return result;
 };
 
-const deleteUserById = async (id: number) => {
+const deleteUserById = async (id: string) => {
 	const result = await db.delete(users).where(eq(users.id, id));
 
 	return result;
@@ -98,7 +101,7 @@ const findAllUsers = async () => {
 	return result;
 };
 
-const switchUserRole = async (usersId: number) => {
+const switchUserRole = async (usersId: string) => {
 	await db.transaction(async (tx) => {
 		const user = await tx.query.users.findFirst({
 			where: eq(users.id, usersId),
@@ -119,7 +122,7 @@ const switchUserRole = async (usersId: number) => {
 	return "SUCCESS";
 };
 
-const switchSomeUsersRole = async (usersIds: number[]) => {
+const switchSomeUsersRole = async (usersIds: string[]) => {
 	await db.transaction(async (tx) => {
 		const usersData = await tx.query.users.findMany({
 			where: inArray(users.id, usersIds),
@@ -163,7 +166,7 @@ const switchAllUsersRole = async () => {
 	});
 };
 
-const blockUser = async (userId: number) => {
+const blockUser = async (userId: string) => {
 	await db.transaction(async (tx) => {
 		const user = await tx.query.users.findFirst({
 			where: eq(users.id, userId),
@@ -180,7 +183,7 @@ const blockUser = async (userId: number) => {
 	return "SUCCESS";
 };
 
-const blockSomeUsers = async (usersIds: number[]) => {
+const blockSomeUsers = async (usersIds: string[]) => {
 	await db.transaction(async (tx) => {
 		const usersData = await tx.query.users.findMany({
 			where: inArray(users.id, usersIds),
@@ -210,7 +213,7 @@ const blockAllUsers = async () => {
 	});
 };
 
-const unblockUser = async (userId: number) => {
+const unblockUser = async (userId: string) => {
 	await db.transaction(async (tx) => {
 		const user = await tx.query.users.findFirst({
 			where: eq(users.id, userId),
@@ -227,7 +230,7 @@ const unblockUser = async (userId: number) => {
 	return "SUCCESS";
 };
 
-const unblockSomeUsers = async (usersIds: number[]) => {
+const unblockSomeUsers = async (usersIds: string[]) => {
 	await db.transaction(async (tx) => {
 		const usersData = await tx.query.users.findMany({
 			where: inArray(users.id, usersIds),
@@ -257,7 +260,7 @@ const unblockAllUsers = async () => {
 	});
 };
 
-const deleteUser = async (userId: number) => {
+const deleteUser = async (userId: string) => {
 	await db.transaction(async (tx) => {
 		const user = await tx.query.users.findFirst({
 			where: eq(users.id, userId),
@@ -271,7 +274,7 @@ const deleteUser = async (userId: number) => {
 	return "SUCCESS";
 };
 
-const deleteSomeUsers = async (usersIds: number[]) => {
+const deleteSomeUsers = async (usersIds: string[]) => {
 	await db.transaction(async (tx) => {
 		const usersData = await tx.query.users.findMany({
 			where: inArray(users.id, usersIds),

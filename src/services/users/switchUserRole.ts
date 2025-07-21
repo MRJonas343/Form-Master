@@ -3,7 +3,7 @@
 import { userRepository } from "@/repositories";
 import { revalidatePath } from "next/cache";
 
-export const switchUserRole = async (usersIds: number[] | "all") => {
+export const switchUserRole = async (usersIds: string[] | "all") => {
 	if (usersIds === "all") {
 		await userRepository.switchAllUsersRole();
 		revalidatePath("/admin/panel");

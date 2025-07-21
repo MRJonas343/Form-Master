@@ -3,7 +3,7 @@
 import { userRepository } from "@/repositories";
 import { revalidatePath } from "next/cache";
 
-export const deleteUser = async (usersIds: number[] | "all") => {
+export const deleteUser = async (usersIds: string[] | "all") => {
 	if (usersIds === "all") {
 		await userRepository.deleteAllUsers();
 		revalidatePath("/admin/panel");

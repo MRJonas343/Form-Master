@@ -2,7 +2,7 @@
 
 import { userRepository } from "@/repositories";
 
-export const getUserById = async (id: number) => {
+export const getUserById = async (id: string) => {
 	const result = await userRepository.findUserById(id);
 
 	if (!result) return;

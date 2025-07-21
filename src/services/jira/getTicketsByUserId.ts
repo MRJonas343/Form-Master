@@ -2,7 +2,7 @@
 
 import { jiraRepository } from "@/repositories";
 
-export const getTicketsByUserId = async (userId: number) => {
+export const getTicketsByUserId = async (userId: string) => {
 	const account = await jiraRepository.getJiraAccount(userId);
 
 	const credentials = `${process.env.JIRA_USERNAME}:${process.env.JIRA_TOKEN}`;

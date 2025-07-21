@@ -25,16 +25,17 @@ export const createUser = async (
 
 		const hashedPassword = await hashPassword(password);
 
-		const user = await userRepository.createUser({
+		const result = await userRepository.createUser({
 			name,
 			email,
 			hashedPassword,
 		});
 
-		if (user[0].affectedRows === 0) return "ERROR";
+		if (result[0].affectedRows === 0) return "ERROR";
 
+		// Use the generated UUID instead of insertId
 		await signIn("credentials", {
-			id: user[0].insertId.toString(),
+			id: result.userId,
 			name,
 			email,
 			role: "user",

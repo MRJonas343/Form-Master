@@ -14,7 +14,7 @@ import { desc } from "drizzle-orm";
 
 const createForm = async (
 	data: FormSettings,
-	userId: number,
+	userId: string,
 	imageUrl: string,
 ) => {
 	const result = await db.insert(forms).values({
@@ -183,7 +183,7 @@ const insertLike = async (data: NewFilledForm) => {
 	await db.insert(likes).values({ form_id: data.formId, user_id: data.userId });
 };
 
-const haveTheUserFilledTheForm = async (formId: number, userId: number) => {
+const haveTheUserFilledTheForm = async (formId: number, userId: string) => {
 	const result = await db
 		.select({
 			id: filledForms.id,

@@ -8,7 +8,7 @@ import "dotenv/config";
 
 export const createForm = async (
 	data: FormSettings,
-	userId: number,
+	userId: string,
 	users: UserType[],
 	imageInForm?: FormData,
 ) => {

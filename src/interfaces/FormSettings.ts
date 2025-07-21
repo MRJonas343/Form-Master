@@ -37,6 +37,6 @@ export interface FormSettingsToUpdate {
 	otherTopic?: string;
 	tagsToAdd?: number[];
 	tagsToDelete?: number[];
-	usersToAdd?: number[];
-	usersToRemove?: number[];
+	usersToAdd?: string[];
+	usersToRemove?: string[];
 }

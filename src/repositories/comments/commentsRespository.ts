@@ -17,7 +17,7 @@ const getComments = async (formId: number) => {
 };
 
 const createComment = async (
-	userId: number,
+	userId: string,
 	formId: number,
 	comment: string,
 ) => {

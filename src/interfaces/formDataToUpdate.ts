@@ -10,7 +10,7 @@ export interface FormGeneralData {
 
 export interface Form {
 	id: number;
-	author_id: number;
+	author_id: string;
 	created_at: Date;
 	title: string;
 	topic: string;
@@ -25,17 +25,24 @@ export interface Tags {
 }
 
 export interface UsersWithPermission {
-	id: number;
+	id: string;
 	name: string;
 	email: string;
 }
 
 export interface Question {
-	id: string;
+	id: number;
 	question: string;
 	description: string | null;
 	displayInTable: boolean;
 	order: number;
 	type: string;
-	options?: string[];
+	formId: number;
+	options?: Option[];
+}
+
+export interface Option {
+	id: number;
+	questionId: number;
+	optionText: string;
 }

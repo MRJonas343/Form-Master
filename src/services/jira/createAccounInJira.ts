@@ -2,7 +2,7 @@
 
 import { jiraRepository, userRepository } from "@/repositories";
 
-export const createAccountInJira = async (userId: number) => {
+export const createAccountInJira = async (userId: string) => {
 	const user = await userRepository.findUserById(userId);
 
 	if (!user) return "ERROR";

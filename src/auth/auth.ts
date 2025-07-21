@@ -8,7 +8,6 @@ import NextAuth from "next-auth";
 import GitHub from "next-auth/providers/github";
 import { db } from "@/db";
 import Discord from "next-auth/providers/discord";
-
 const adapter = DrizzleAdapter(db);
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
@@ -61,9 +60,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 			return token;
 		},
 		async session({ session }) {
-			const user = await userRepository.findUserById(
-				Number.parseInt(session.user.id),
-			);
+			const user = await userRepository.findUserById(session.user.id);
 
 			Object.assign(session.user, {
 				role: user?.role,

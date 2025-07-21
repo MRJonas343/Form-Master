@@ -3,7 +3,6 @@ import { users } from "./userSchema";
 import {
 	boolean,
 	int,
-	bigint,
 	mysqlTable,
 	text,
 	timestamp,
@@ -12,7 +11,7 @@ import {
 
 export const forms = mysqlTable("forms", {
 	id: int("id").autoincrement().primaryKey(),
-	author_id: bigint("author_id", { mode: "number" })
+	author_id: varchar("author_id", { length: 255 })
 		.notNull()
 		.references(() => users.id, { onDelete: "cascade" }),
 	created_at: timestamp().default(sql`(CURRENT_TIMESTAMP)`).notNull(),

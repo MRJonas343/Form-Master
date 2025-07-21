@@ -11,7 +11,7 @@ export interface jiraTicket {
 	form?: string;
 }
 
-export const createJiraTicket = async (userId: number, data: jiraTicket) => {
+export const createJiraTicket = async (userId: string, data: jiraTicket) => {
 	const jiraAccount = await jiraRepository.getJiraAccount(userId);
 
 	const credentials = `${process.env.JIRA_USERNAME}:${process.env.JIRA_TOKEN}`;

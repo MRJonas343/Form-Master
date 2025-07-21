@@ -14,7 +14,7 @@ export interface CommentsResult {
 
 export interface Form {
 	id: number;
-	author_id: number;
+	author_id: string;
 	created_at: Date;
 	title: string;
 	topic: string;

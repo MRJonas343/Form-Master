@@ -104,6 +104,7 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 				</Select>
 				{
 					<Input
+						//@ts-expect-error
 						className={`mt-3 w-full md:mt-0 ${!state.topicsState.has("Other") && "hidden"}`}
 						errorMessage={t("fieldRequired")}
 						isInvalid={Boolean(errors.otherTopic)}
@@ -155,7 +156,7 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 				{...getRootProps({ className: "dropzone" })}
 				className="cursor-pointer rounded-md border-2 border-default-200 p-3"
 			>
-				<label className="text-default-500">{t("addImage")}</label>
+				<p className="text-default-500">{t("addImage")}</p>
 				<input className="w-full" type="file" {...getInputProps()} />
 
 				<p className="text-default-500">

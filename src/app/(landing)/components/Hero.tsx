@@ -1,8 +1,10 @@
 import { Button, Link } from "@nextui-org/react";
 import { ArrowRight, Sparkles, UserPlus } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { ImageContainer } from "./ImageContainer";
 
 export const Hero = () => {
+	const t = useTranslations("landingPage.hero");
 	return (
 		<section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/20 to-primary/5 pt-20 pb-16">
 			{/* Background Pattern */}
@@ -16,25 +18,23 @@ export const Hero = () => {
 							{/* Badge */}
 							<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 font-medium text-primary text-sm shadow-soft">
 								<Sparkles className="h-4 w-4" />
-								Google Forms with Superpowers 💪
+								{t("badge")}
 							</div>
 
 							{/* Main Headline */}
 							<h1 className="mb-6 font-bold text-4xl text-foreground leading-tight sm:text-5xl lg:text-6xl">
-								Create Powerful
+								{t("title")}
 								<span className="bg-blue-600 bg-clip-text text-transparent">
 									{" "}
-									Forms
+									{t("titleHighlight")}
 								</span>
 								<br />
-								That Actually Work
+								{t("titleEnd")}
 							</h1>
 
 							{/* Subheadline */}
 							<p className="mx-auto mb-8 max-w-xl text-muted-foreground text-xl leading-relaxed lg:mx-0">
-								Build reusable form templates, get real-time analytics, and
-								manage responses with enterprise-grade features. The modern form
-								builder for teams that ship.
+								{t("subtitle")}
 							</p>
 
 							{/* CTA Buttons */}
@@ -48,7 +48,7 @@ export const Hero = () => {
 									variant="shadow"
 								>
 									<UserPlus className="h-5 w-5" />
-									Start building
+									{t("ctaButton")}
 									<ArrowRight className="h-5 w-5" />
 								</Button>
 							</div>
@@ -57,15 +57,15 @@ export const Hero = () => {
 							<div className="flex items-center justify-center gap-6 text-muted-foreground text-sm lg:justify-start">
 								<div className="flex items-center gap-2">
 									<div className="h-2 w-2 animate-pulse rounded-full bg-success" />
-									No complex setup
+									{t("socialProof.noSetup")}
 								</div>
 								<div className="flex items-center gap-2">
 									<div className="h-2 w-2 animate-pulse rounded-full bg-success" />
-									Enterprise-ready
+									{t("socialProof.enterpriseReady")}
 								</div>
 								<div className="flex items-center gap-2">
 									<div className="h-2 w-2 animate-pulse rounded-full bg-success" />
-									Multi-language
+									{t("socialProof.multiLanguage")}
 								</div>
 							</div>
 						</div>
@@ -79,7 +79,7 @@ export const Hero = () => {
 
 							{/* Floating Elements */}
 							<div className="-top-4 -right-4 absolute z-10 animate-bounce rounded-full bg-success px-4 py-2 font-semibold text-sm text-success-foreground shadow-large">
-								Powerful form builder
+								{t("floatingElement")}
 							</div>
 						</div>
 					</div>

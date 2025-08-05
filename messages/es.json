@@ -1,212 +1,312 @@
 {
-	"NavBar": {
-		"login": "Iniciar sesión",
-		"join": "Únete ahora",
-		"latest": "Últimos",
-		"popular": "Popular",
-		"logOut": "Cerrar sesión",
-		"welcome": "Bienvenido",
-		"myForms": "Mis Formularios"
-	},
-	"LocaleSwitcher": {
-		"es": "Español",
-		"en": "Inglés",
-		"label": "Language"
-	},
-	"SearchBar": {
-		"search": "Buscar Formularios"
-	},
-	"CloudTags": {
-		"education": "Educación",
-		"technology": "Tecnología",
-		"enviroment": "Medio Ambiente",
-		"science": "Ciencia",
-		"literature": "Literatura",
-		"health": "Salud",
-		"business": "Negocios",
-		"finance": "Finanzas",
-		"maths": "Matemáticas",
-		"history": "Historia",
-		"animals": "Animales",
-		"sports": "Deportes",
-		"noKey": "No hay etiquetas"
-	},
+  "NavBar": {
+    "login": "Iniciar sesión",
+    "join": "Únete ahora",
+    "latest": "Últimos",
+    "popular": "Popular",
+    "logOut": "Cerrar sesión",
+    "welcome": "Bienvenido",
+    "myForms": "Mis Formularios"
+  },
+  "LocaleSwitcher": {
+    "es": "Español",
+    "en": "Inglés",
+    "label": "Language"
+  },
+  "SearchBar": {
+    "search": "Buscar Formularios"
+  },
+  "CloudTags": {
+    "education": "Educación",
+    "technology": "Tecnología",
+    "enviroment": "Medio Ambiente",
+    "science": "Ciencia",
+    "literature": "Literatura",
+    "health": "Salud",
+    "business": "Negocios",
+    "finance": "Finanzas",
+    "maths": "Matemáticas",
+    "history": "Historia",
+    "animals": "Animales",
+    "sports": "Deportes",
+    "noKey": "No hay etiquetas"
+  },
 
-	"auth": {
-		"title": "Bienvenido de Nuevo Maestro 🫡",
-		"email": "Email",
-		"password": "Contraseña",
-		"login": "Iniciar sesión",
-		"notAccount": "¿No tienes una cuenta todavía?",
-		"getAccount": "Obtén una ahora",
-		"errorLogin": "Email o contraseña no válidos",
-		"serverError": "Ups, algo salió mal",
-		"join": "Únete a Form Master",
-		"name": "Nombre",
-		"register": "Registrarse",
-		"haveAccount": "¿Ya tienes una cuenta?",
-		"loginHere": "Inicia sesión aquí",
-		"invalidEmail": "Email no válido",
-		"invalidPassword": "La contraseña debe tener al menos 8 caracteres",
-		"invalidName": "Nombre no válido",
-		"passwordDoesNotMatch": "Contraseña incorrecta",
-		"userNotExists": "El usuario no existe",
-		"userAlreadyExists": "El email ya está en uso",
-		"passwordIsNotTheSame": "Las contraseñas no son iguales",
-		"userBlocked": "Su cuenta de free fire ha sido borrada",
-		"loginWithGithub": "GitHub",
-		"orLoginWith": "O inicia sesión con"
-	},
-	"createForm": {
-		"invalidQuestions": "Las preguntas no son válidas"
-	},
-	"formCard": {
-		"answer": "Responder",
-		"by": "Por",
-		"editForm": "Editar Formulario",
-		"seeAnswers": "Respuestas"
-	},
-	"dashboardTabs": {
-		"myForms": "Mis Formularios",
-		"myAnswers": "Mis Respuestas",
-		"joinUs": "Únete a nosotros",
-		"issues": "Issues"
-	},
-	"myFormsTable": {
-		"formName": "Nombre",
-		"topic": "Tema",
-		"questions": "Preguntas",
-		"likes": "Likes",
-		"totalAnswers": "Respuestas",
-		"newForm": "Nuevo",
-		"seeAnswers": "Respuestas"
-	},
-	"createFormTabs": {
-		"generalSettings": "Configuración",
-		"setQuestions": "Preguntas"
-	},
-	"generalSettings": {
-		"title": "Título",
-		"topic": "Tema",
-		"description": "Descripción",
-		"tags": "Etiquetas",
-		"addImage": "Añadir imagen",
-		"makeFormPublic": "Hacer público",
-		"searchBy": "Buscar por",
-		"assignedTo": "Asignado a",
-		"setQuestions": "Establecer preguntas",
-		"dropImage": "Arrastra una imagen o",
-		"clickHere": "haz clic aquí",
-		"toSelectFromYourDevice": "para seleccionarla de tu dispositivo(png, jpg, jpeg, webp)",
-		"name": "Nombre",
-		"email": "Email",
-		"searchUsers": "Buscar usuarios",
-		"selectUsers": "Selecciona usuarios",
-		"addTopic": "Añadir un tema",
-		"fieldRequired": "Este campo es requerido",
-		"searchPlaceholder": "Buscar usuarios",
-		"tooltip": "Este campo soporta markdown",
-		"changeImage": "Cambiar imagen",
-		"updateForm": "Actualizar Formulario"
-	},
-	"setQuestions": {
-		"addQuestion": "Añadir pregunta",
-		"updateQuestions": "Actualizar Preguntas",
-		"createForm": "Crear Formulario",
-		"questionName": "Nombre de la pregunta",
-		"questionType": "Tipo de pregunta",
-		"description": "Descripción",
-		"options": "Opciones",
-		"addOption": "Añadir opción",
-		"displayInTable": "Mostrar en tu tabla de formularios",
-		"short": "Corta",
-		"long": "Larga",
-		"numeric": "Numérica",
-		"single": "Individual",
-		"multiple": "Múltiple",
-		"option": "Opción"
-	},
-	"modalFilledForms": {
-		"title": "Respuestas",
-		"userName": "Usuario",
-		"filledAt": "Fecha de respuesta"
-	},
-	"myFilledFormsTable": {
-		"formName": "Nombre",
-		"topic": "Tema",
-		"filledAt": "Fecha"
-	},
-	"popularFormsTable": {
-		"answers": "Respuestas",
-		"by": "Por",
-		"answer": "Responder"
-	},
-	"updateFormButton": {
-		"updateForm": "Actualizar Formulario"
-	},
-	"commentsSection": {
-		"comments": "Comentarios",
-		"addComment": "Añadir Comentario"
-	},
-	"formSection": {
-		"sendCopy": "Enviame una copia de mis respuestas",
-		"likeForm": "Me gusta este formulario",
-		"submitForm": "Enviar Formulario"
-	},
-	"adminPanel": {
-		"adminTable": "Tabla de Administrador",
-		"switchRole": "Cambiar Rol",
-		"forms": "Formularios",
-		"id": "ID",
-		"name": "Nombre",
-		"email": "Email",
-		"role": "Rol",
-		"status": "Estado"
-	},
-	"joinUs": {
-		"title": "Únete a nuestros clientes en Salesforce 💖",
-		"invalidName": "Nombre no válido",
-		"invalidPhone": "Teléfono no válido",
-		"invalidCountry": "País no válido",
-		"invalidState": "Estado no válido",
-		"invalidPostalCode": "Código Postal no válido",
-		"invalidCity": "Ciudad no válida",
-		"invalidStreet": "Calle no válida",
-		"invalidIndustry": "Industria no válida",
-		"name": "Nombre",
-		"phone": "Teléfono",
-		"street": "Calle",
-		"city": "Ciudad",
-		"state": "Estado",
-		"postalCode": "Código Postal",
-		"country": "País",
-		"industry": "Industria",
-		"join": "Únete a nosotros 😎",
-		"invalidEmail": "Email no válido",
-		"welcome": "Bienvenido a nuestros clientes FormMaster 💖",
-		"error": "Ups, algo salió mal, inténtalo de nuevo más tarde",
-		"offer": "Recibirás ofertas y descuentos especiales",
-		"AlreadyRegistered": "Ya estás registrado con nosotros en Salesforce 🎉"
-	},
-	"issueModal": {
-		"title": "Reportar Problema",
-		"description": "Describe el problema",
-		"summary": "Problema",
-		"priority": "Prioridad",
-		"High": "Alta",
-		"Average": "Media",
-		"Low": "Baja",
-		"form": "Formulario, si es aplicable",
-		"invalidPriority": "La prioridad es obligatoria",
-		"invalidForm": "El formulario es obligatorio",
-		"submit": "Reportar",
-		"cancel": "Cancelar",
-		"invalidSummary": "El resumen es obligatorio",
-		"invalidDescription": "La descripción es obligatoria"
-	},
-	"IssuePage": {
-		"visit": "Visitar Problema en Jira",
-		"title": "Problemas",
-		"noIssues": "No tienes ningún problema reportado"
-	}
+  "auth": {
+    "title": "Bienvenido de Nuevo Maestro 🫡",
+    "email": "Email",
+    "password": "Contraseña",
+    "login": "Iniciar sesión",
+    "notAccount": "¿No tienes una cuenta todavía?",
+    "getAccount": "Obtén una ahora",
+    "errorLogin": "Email o contraseña no válidos",
+    "serverError": "Ups, algo salió mal",
+    "join": "Únete a Form Master",
+    "name": "Nombre",
+    "register": "Registrarse",
+    "haveAccount": "¿Ya tienes una cuenta?",
+    "loginHere": "Inicia sesión aquí",
+    "invalidEmail": "Email no válido",
+    "invalidPassword": "La contraseña debe tener al menos 8 caracteres",
+    "invalidName": "Nombre no válido",
+    "passwordDoesNotMatch": "Contraseña incorrecta",
+    "userNotExists": "El usuario no existe",
+    "userAlreadyExists": "El email ya está en uso",
+    "passwordIsNotTheSame": "Las contraseñas no son iguales",
+    "userBlocked": "Su cuenta de free fire ha sido borrada",
+    "loginWithGithub": "GitHub",
+    "orLoginWith": "O inicia sesión con"
+  },
+  "createForm": {
+    "invalidQuestions": "Las preguntas no son válidas"
+  },
+  "formCard": {
+    "answer": "Responder",
+    "by": "Por",
+    "editForm": "Editar Formulario",
+    "seeAnswers": "Respuestas"
+  },
+  "dashboardTabs": {
+    "myForms": "Mis Formularios",
+    "myAnswers": "Mis Respuestas",
+    "joinUs": "Únete a nosotros",
+    "issues": "Issues"
+  },
+  "myFormsTable": {
+    "formName": "Nombre",
+    "topic": "Tema",
+    "questions": "Preguntas",
+    "likes": "Likes",
+    "totalAnswers": "Respuestas",
+    "newForm": "Nuevo",
+    "seeAnswers": "Respuestas"
+  },
+  "createFormTabs": {
+    "generalSettings": "Configuración",
+    "setQuestions": "Preguntas"
+  },
+  "generalSettings": {
+    "title": "Título",
+    "topic": "Tema",
+    "description": "Descripción",
+    "tags": "Etiquetas",
+    "addImage": "Añadir imagen",
+    "makeFormPublic": "Hacer público",
+    "searchBy": "Buscar por",
+    "assignedTo": "Asignado a",
+    "setQuestions": "Establecer preguntas",
+    "dropImage": "Arrastra una imagen o",
+    "clickHere": "haz clic aquí",
+    "toSelectFromYourDevice": "para seleccionarla de tu dispositivo(png, jpg, jpeg, webp)",
+    "name": "Nombre",
+    "email": "Email",
+    "searchUsers": "Buscar usuarios",
+    "selectUsers": "Selecciona usuarios",
+    "addTopic": "Añadir un tema",
+    "fieldRequired": "Este campo es requerido",
+    "searchPlaceholder": "Buscar usuarios",
+    "tooltip": "Este campo soporta markdown",
+    "changeImage": "Cambiar imagen",
+    "updateForm": "Actualizar Formulario"
+  },
+  "setQuestions": {
+    "addQuestion": "Añadir pregunta",
+    "updateQuestions": "Actualizar Preguntas",
+    "createForm": "Crear Formulario",
+    "questionName": "Nombre de la pregunta",
+    "questionType": "Tipo de pregunta",
+    "description": "Descripción",
+    "options": "Opciones",
+    "addOption": "Añadir opción",
+    "displayInTable": "Mostrar en tu tabla de formularios",
+    "short": "Corta",
+    "long": "Larga",
+    "numeric": "Numérica",
+    "single": "Individual",
+    "multiple": "Múltiple",
+    "option": "Opción"
+  },
+  "modalFilledForms": {
+    "title": "Respuestas",
+    "userName": "Usuario",
+    "filledAt": "Fecha de respuesta"
+  },
+  "myFilledFormsTable": {
+    "formName": "Nombre",
+    "topic": "Tema",
+    "filledAt": "Fecha"
+  },
+  "popularFormsTable": {
+    "answers": "Respuestas",
+    "by": "Por",
+    "answer": "Responder"
+  },
+  "updateFormButton": {
+    "updateForm": "Actualizar Formulario"
+  },
+  "commentsSection": {
+    "comments": "Comentarios",
+    "addComment": "Añadir Comentario"
+  },
+  "formSection": {
+    "sendCopy": "Enviame una copia de mis respuestas",
+    "likeForm": "Me gusta este formulario",
+    "submitForm": "Enviar Formulario"
+  },
+  "adminPanel": {
+    "adminTable": "Tabla de Administrador",
+    "switchRole": "Cambiar Rol",
+    "forms": "Formularios",
+    "id": "ID",
+    "name": "Nombre",
+    "email": "Email",
+    "role": "Rol",
+    "status": "Estado"
+  },
+  "joinUs": {
+    "title": "Únete a nuestros clientes en Salesforce 💖",
+    "invalidName": "Nombre no válido",
+    "invalidPhone": "Teléfono no válido",
+    "invalidCountry": "País no válido",
+    "invalidState": "Estado no válido",
+    "invalidPostalCode": "Código Postal no válido",
+    "invalidCity": "Ciudad no válida",
+    "invalidStreet": "Calle no válida",
+    "invalidIndustry": "Industria no válida",
+    "name": "Nombre",
+    "phone": "Teléfono",
+    "street": "Calle",
+    "city": "Ciudad",
+    "state": "Estado",
+    "postalCode": "Código Postal",
+    "country": "País",
+    "industry": "Industria",
+    "join": "Únete a nosotros 😎",
+    "invalidEmail": "Email no válido",
+    "welcome": "Bienvenido a nuestros clientes FormMaster 💖",
+    "error": "Ups, algo salió mal, inténtalo de nuevo más tarde",
+    "offer": "Recibirás ofertas y descuentos especiales",
+    "AlreadyRegistered": "Ya estás registrado con nosotros en Salesforce 🎉"
+  },
+  "issueModal": {
+    "title": "Reportar Problema",
+    "description": "Describe el problema",
+    "summary": "Problema",
+    "priority": "Prioridad",
+    "High": "Alta",
+    "Average": "Media",
+    "Low": "Baja",
+    "form": "Formulario, si es aplicable",
+    "invalidPriority": "La prioridad es obligatoria",
+    "invalidForm": "El formulario es obligatorio",
+    "submit": "Reportar",
+    "cancel": "Cancelar",
+    "invalidSummary": "El resumen es obligatorio",
+    "invalidDescription": "La descripción es obligatoria"
+  },
+  "IssuePage": {
+    "visit": "Visitar Problema en Jira",
+    "title": "Problemas",
+    "noIssues": "No tienes ningún problema reportado"
+  },
+  "landingPage": {
+    "hero": {
+      "badge": "Google Forms con Superpoderes 💪",
+      "title": "Crea",
+      "titleHighlight": "Formularios",
+      "titleEnd": "Poderosos Que Realmente Funcionan",
+      "subtitle": "Construye plantillas de formularios reutilizables, obtén análisis en tiempo real y gestiona respuestas con características de nivel empresarial. El constructor de formularios moderno para equipos que entregan.",
+      "ctaButton": "Comenzar a construir",
+      "socialProof": {
+        "noSetup": "Sin configuración compleja",
+        "enterpriseReady": "Listo para empresas",
+        "multiLanguage": "Multi-idioma"
+      },
+      "floatingElement": "Poderosos formularios"
+    },
+    "features": {
+      "badge": "Características Poderosas",
+      "title": "Todo lo que necesitas para construir",
+      "titleHighlight": "formularios increíbles",
+      "subtitle": "Desde encuestas simples hasta recolección de datos complejos, FormMaster proporciona características de nivel empresarial en un paquete intuitivo que los equipos aman usar.",
+      "cta": {
+        "text": "¿Listo para experimentar la siguiente generación de constructores de formularios?",
+        "button": "Comenzar a Construir Formularios"
+      },
+      "items": {
+        "templates": {
+          "title": "Sistema Basado en Plantillas",
+          "description": "Crea plantillas de preguntas reutilizables con múltiples tipos de entrada: texto, números, casillas de verificación y opción múltiple."
+        },
+        "analytics": {
+          "title": "Análisis en Tiempo Real",
+          "description": "Obtén información instantánea con gráficos hermosos, resultados agregados y visualización de datos integral."
+        },
+        "accessControl": {
+          "title": "Control de Acceso Avanzado",
+          "description": "Gestiona permisos con formularios públicos, acceso restringido y controles administrativos integrales."
+        },
+        "search": {
+          "title": "Búsqueda de Texto Completo",
+          "description": "Encuentra cualquier formulario instantáneamente por contenido, etiquetas, autores o cualquier texto dentro de tus formularios y respuestas."
+        },
+        "dragDrop": {
+          "title": "Interfaz Arrastrar y Soltar",
+          "description": "Reordena preguntas visualmente con una interfaz intuitiva que hace que construir formularios sea sin esfuerzo."
+        },
+        "i18n": {
+          "title": "Internacionalización",
+          "description": "Soporte integrado para inglés y español con localización fácil para equipos globales."
+        },
+        "email": {
+          "title": "Notificaciones por Email",
+          "description": "Copias automáticas por email de respuestas enviadas a usuarios, manteniendo a todos informados."
+        },
+        "social": {
+          "title": "Características Sociales",
+          "description": "Comentarios, me gusta e interacciones sociales hacen que los formularios sean más atractivos y colaborativos."
+        },
+        "mobile": {
+          "title": "Responsivo para Móviles",
+          "description": "Experiencia perfecta en todos los dispositivos - optimizado para escritorio, tablet y móvil."
+        },
+        "auth": {
+          "title": "Autenticación GitHub y Discord",
+          "description": "Autenticación social sin problemas - sin registros complejos, solo conecta y comienza a construir."
+        },
+        "performance": {
+          "title": "Súper Rápido",
+          "description": "Construido con stack tecnológico moderno para rendimiento ultrarrápido y carga instantánea."
+        },
+        "enterprise": {
+          "title": "Listo para Empresas",
+          "description": "Arquitectura escalable con MySQL, Cloudflare R2 e infraestructura AWS."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "Cómo Funciona",
+      "title": "De la idea a los insights en",
+      "titleHighlight": "3 simples pasos",
+      "subtitle": "FormMaster hace increíblemente fácil ir del concepto a recolectar datos valiosos. No se requieren habilidades técnicas, solo tu creatividad.",
+      "demo": {
+        "title": "Prueba el Constructor de Formularios",
+        "subtitle": "Experimenta nuestro constructor de formularios intuitivo de arrastrar y soltar. Agrega preguntas, personaliza tipos y ve qué fácil es crear formularios profesionales."
+      },
+      "steps": {
+        "create": {
+          "title": "Crea Tu Plantilla",
+          "description": "Comienza con nuestro constructor de arrastrar y soltar. Agrega preguntas, personaliza el estilo y configura reglas de validación. Guarda como plantilla reutilizable."
+        },
+        "share": {
+          "title": "Comparte y Recolecta",
+          "description": "Comparte tu formulario via enlace o incrustación. Configura controles de acceso, habilita autenticación social y observa las respuestas llegar en tiempo real."
+        },
+        "analyze": {
+          "title": "Analiza y Obtén Insights",
+          "description": "Obtén análisis instantáneos con gráficos hermosos. Exporta datos, rastrea tendencias y toma decisiones basadas en datos sin esfuerzo."
+        }
+      }
+    }
+  }
 }

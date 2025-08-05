@@ -10,17 +10,17 @@ export const metadata = loginMetaData;
 const page = async () => {
 	const session = await auth();
 
-	if (session) return redirect("/");
+	if (session) return redirect("/latest-forms");
 
 	const t = await getTranslations("auth");
 
 	return (
-		<main className="overflow-x-hidden min-h-screen">
+		<main className="min-h-screen overflow-x-hidden">
 			<NavBar />
-			<h1 className="text-center mt-6 text-xl sm:text-2xl md:text-3xl font-semibold">
+			<h1 className="mt-6 text-center font-semibold text-xl sm:text-2xl md:text-3xl">
 				{t("title")}
 			</h1>
-			<section className="flex w-full mx-auto justify-center mt-6">
+			<section className="mx-auto mt-6 flex w-full justify-center">
 				<LoginForm />
 			</section>
 		</main>

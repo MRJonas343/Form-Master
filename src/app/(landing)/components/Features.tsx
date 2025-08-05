@@ -13,103 +13,93 @@ import {
 	Users,
 	Zap,
 } from "lucide-react";
+import { useTranslations } from "next-intl";
 import { Card } from "./Cards";
 
 export const Features = () => {
+	const t = useTranslations("landingPage.features");
 	const features = [
 		{
 			icon: Layout,
-			title: "Template-Based System",
-			description:
-				"Create reusable question templates with multiple input types - text, numbers, checkboxes, and multiple choice.",
+			title: t("items.templates.title"),
+			description: t("items.templates.description"),
 			color: "text-blue-600",
 			bgColor: "bg-blue-50",
 		},
 		{
 			icon: BarChart3,
-			title: "Real-time Analytics",
-			description:
-				"Get instant insights with beautiful charts, aggregated results, and comprehensive data visualization.",
+			title: t("items.analytics.title"),
+			description: t("items.analytics.description"),
 			color: "text-green-600",
 			bgColor: "bg-green-50",
 		},
 		{
 			icon: Shield,
-			title: "Advanced Access Control",
-			description:
-				"Manage permissions with public forms, restricted access, and comprehensive admin controls.",
+			title: t("items.accessControl.title"),
+			description: t("items.accessControl.description"),
 			color: "text-purple-600",
 			bgColor: "bg-purple-50",
 		},
 		{
 			icon: Search,
-			title: "Full-text Search",
-			description:
-				"Find any form instantly by content, tags, authors, or any text within your forms and responses.",
+			title: t("items.search.title"),
+			description: t("items.search.description"),
 			color: "text-orange-600",
 			bgColor: "bg-orange-50",
 		},
 		{
 			icon: MousePointer2,
-			title: "Drag & Drop Interface",
-			description:
-				"Reorder questions visually with an intuitive interface that makes form building effortless.",
+			title: t("items.dragDrop.title"),
+			description: t("items.dragDrop.description"),
 			color: "text-pink-600",
 			bgColor: "bg-pink-50",
 		},
 		{
 			icon: Globe,
-			title: "Internationalization",
-			description:
-				"Built-in support for English and Spanish with easy localization for global teams.",
+			title: t("items.i18n.title"),
+			description: t("items.i18n.description"),
 			color: "text-indigo-600",
 			bgColor: "bg-indigo-50",
 		},
 		{
 			icon: Mail,
-			title: "Email Notifications",
-			description:
-				"Automatic email copies of responses sent to users, keeping everyone in the loop.",
+			title: t("items.email.title"),
+			description: t("items.email.description"),
 			color: "text-cyan-600",
 			bgColor: "bg-cyan-50",
 		},
 		{
 			icon: Users,
-			title: "Social Features",
-			description:
-				"Comments, likes, and social interactions make forms more engaging and collaborative.",
+			title: t("items.social.title"),
+			description: t("items.social.description"),
 			color: "text-emerald-600",
 			bgColor: "bg-emerald-50",
 		},
 		{
 			icon: Smartphone,
-			title: "Mobile Responsive",
-			description:
-				"Perfect experience across all devices - desktop, tablet, and mobile optimized.",
+			title: t("items.mobile.title"),
+			description: t("items.mobile.description"),
 			color: "text-red-600",
 			bgColor: "bg-red-50",
 		},
 		{
 			icon: Lock,
-			title: "GitHub & Discord Auth",
-			description:
-				"Seamless social authentication - no complex signups, just connect and start building.",
+			title: t("items.auth.title"),
+			description: t("items.auth.description"),
 			color: "text-violet-600",
 			bgColor: "bg-violet-50",
 		},
 		{
 			icon: Zap,
-			title: "Lightning Fast",
-			description:
-				"Built with modern tech stack for blazing fast performance and instant loading.",
+			title: t("items.performance.title"),
+			description: t("items.performance.description"),
 			color: "text-yellow-600",
 			bgColor: "bg-yellow-50",
 		},
 		{
 			icon: Sparkles,
-			title: "Enterprise Ready",
-			description:
-				"Scalable architecture with MySQL, Cloudflare R2, and AWS infrastructure.",
+			title: t("items.enterprise.title"),
+			description: t("items.enterprise.description"),
 			color: "text-teal-600",
 			bgColor: "bg-teal-50",
 		},
@@ -123,16 +113,14 @@ export const Features = () => {
 					<div className="mb-16 animate-fade-in text-center">
 						<div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 font-medium text-primary text-sm">
 							<Sparkles className="h-4 w-4" />
-							Powerful Features
+							{t("badge")}
 						</div>
 						<h2 className="mb-6 font-bold text-3xl text-foreground sm:text-4xl lg:text-5xl">
-							Everything you need to build
-							<span className="text-blue-600"> amazing forms</span>
+							{t("title")}
+							<span className="text-blue-600"> {t("titleHighlight")}</span>
 						</h2>
 						<p className="mx-auto max-w-3xl text-muted-foreground text-xl">
-							From simple surveys to complex data collection, FormMaster
-							provides enterprise-grade features in an intuitive package that
-							teams love to use.
+							{t("subtitle")}
 						</p>
 					</div>
 

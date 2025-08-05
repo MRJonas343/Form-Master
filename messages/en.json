@@ -1,213 +1,313 @@
 {
-	"NavBar": {
-		"login": "Login",
-		"join": "Join Now",
-		"latest": "Latest",
-		"popular": "Popular",
-		"logOut": "Log Out",
-		"welcome": "Welcome",
-		"myForms": "My Forms"
-	},
-	"LocaleSwitcher": {
-		"es": "Spanish",
-		"en": "English",
-		"label": "Language"
-	},
-	"SearchBar": {
-		"search": "Search Forms"
-	},
-	"CloudTags": {
-		"education": "Education",
-		"technology": "Technology",
-		"enviroment": "Enviroment",
-		"science": "Science",
-		"literature": "Literature",
-		"health": "Health",
-		"business": "Business",
-		"finance": "Finance",
-		"maths": "Maths",
-		"history": "History",
-		"animals": "Animals",
-		"sports": "Sports",
-		"noKey": "No tags"
-	},
-	"auth": {
-		"title": "Welcome Back Master 🫡",
-		"email": "Email",
-		"password": "Password",
-		"login": "Login",
-		"notAccount": "Don't have an account yet?",
-		"getAccount": "Get one now",
-		"errorLogin": "Invalid email or password",
-		"serverError": "Ups, something went wrong",
-		"join": "Join Form Master",
-		"name": "Name",
-		"register": "Register",
-		"haveAccount": "Already have an account?",
-		"loginHere": "Login here",
-		"invalidEmail": "Invalid email",
-		"invalidPassword": "The the password should be at least 8 characters",
-		"invalidName": "Invalid name",
-		"passwordDoesNotMatch": "Incorrect password",
-		"userNotExists": "User does not exist",
-		"userAlreadyExists": "Email already in use",
-		"passwordIsNotTheSame": "Passwords do not match",
-		"userBlocked": "Sorry bro you are blocked",
-		"loginWithGithub": "GitHub",
-		"orLoginWith": "Or login with"
-	},
-	"createForm": {
-		"invalidQuestions": "Questions are not valid"
-	},
-	"formCard": {
-		"answer": "Answer",
-		"by": "By",
-		"editForm": "Edit Form",
-		"seeAnswers": "Answers"
-	},
-	"dashboardTabs": {
-		"myForms": "My Forms",
-		"myAnswers": "My Answers",
-		"joinUs": "Join Us",
-		"issues": "Issues"
-	},
-	"myFormsTable": {
-		"formName": "Form",
-		"topic": "Topic",
-		"questions": "Questions",
-		"likes": "Likes",
-		"totalAnswers": "Total Answers",
-		"newForm": "New",
-		"seeAnswers": "Answers"
-	},
-	"createFormTabs": {
-		"generalSettings": "General Settings",
-		"setQuestions": "Set Questions"
-	},
-	"generalSettings": {
-		"title": "Title",
-		"topic": "Topic",
-		"description": "Description",
-		"tags": "Tags",
-		"addImage": "Add image",
-		"makeFormPublic": "Make this form public",
-		"searchBy": "Search by",
-		"assignedTo": "Assigned to",
-		"setQuestions": "Set Questions",
-		"dropImage": "Drop an image or",
-		"clickHere": "click here",
-		"toSelectFromYourDevice": "to select from your device(png, jpg, jpeg, webp)",
-		"name": "Name",
-		"email": "Email",
-		"addTopic": "Add a topic",
-		"searchUsers": "Search Users",
-		"selectUsers": "Select Users",
-		"fieldRequired": "This field is required",
-		"searchPlaceholder": "Search Users",
-		"tooltip": "This field supports markdown",
-		"changeImage": "Change Image",
-		"updateForm": "Update Form"
-	},
-	"setQuestions": {
-		"addQuestion": "Add question",
-		"updateQuestions": "Update Questions",
-		"createForm": "Create Form",
-		"questionName": "Question Name",
-		"questionType": "Question Type",
-		"description": "Description",
-		"options": "Options",
-		"addOption": "Add Option",
-		"displayInTable": "Display in your form table",
-		"short": "Short",
-		"long": "Long",
-		"numeric": "Numeric",
-		"single": "Single",
-		"multiple": "Multiple",
-		"option": "Option"
-	},
-	"modalFilledForms": {
-		"title": "Filled Forms",
-		"userName": "User Name",
-		"filledAt": "Filled At"
-	},
-	"myFilledFormsTable": {
-		"formName": "Form Name",
-		"topic": "Topic",
-		"filledAt": "Filled At"
-	},
-	"popularFormsTable": {
-		"answers": "Answers",
-		"by": "By",
-		"answer": "Answer"
-	},
-	"updateFormButton": {
-		"updateForm": "Update Form"
-	},
-	"commentsSection": {
-		"comments": "Comments",
-		"addComment": "Add Comment"
-	},
-	"formSection": {
-		"sendCopy": "Send me a copy of my answers",
-		"likeForm": "Did you like this form?",
-		"submitForm": "Submit Form"
-	},
-	"adminPanel": {
-		"adminTable": "Admin Table",
-		"switchRole": "Switch Role",
-		"forms": "Forms",
-		"id": "ID",
-		"name": "Name",
-		"email": "Email",
-		"role": "Role",
-		"status": "Status"
-	},
-	"joinUs": {
-		"title": "Join Our Clients in Salesforce 💖",
-		"invalidName": "Invalid name",
-		"invalidPhone": "Invalid phone",
-		"invalidCountry": "Invalid country",
-		"invalidState": "Invalid state",
-		"invalidPostalCode": "Invalid postal code",
-		"invalidCity": "Invalid city",
-		"invalidStreet": "Invalid street",
-		"invalidIndustry": "Invalid industry",
-		"name": "Name",
-		"phone": "Phone",
-		"street": "Street",
-		"city": "City",
-		"state": "State",
-		"postalCode": "Postal Code",
-		"country": "Country",
-		"industry": "Industry",
-		"join": "Join Us 😎",
-		"invalidEmail": "Invalid email",
-		"welcome": "Welcome to FormMaster clients 💖",
-		"error": "Ups, something went wrong, try again later",
-		"offer": "You will recived special offers and discounts",
-		"AlreadyRegistered": "You are already registered with us in Salesforce 🎉"
-	},
-	"issueModal": {
-		"title": "Issue Report",
-		"description": "Describe the issue",
-		"priority": "Priority",
-		"High": "High",
-		"Average": "Average",
-		"Low": "Low",
-		"form": "Form, is applicable",
-		"invalidPriority": "Priority is required",
-		"invalidForm": "Form is required",
-		"error": "Ups, something went wrong, try again later",
-		"success": "Thank you for your report",
-		"summary": "Summary",
-		"submit": "Report",
-		"cancel": "Cancel",
-		"invalidSummary": "Summary is required",
-		"invalidDescription": "Description is required"
-	},
-	"IssuePage": {
-		"visit": "Visit Issue in Jira",
-		"title": "Issues",
-		"noIssues": "You haven't reported any issue"
-	}
+  "NavBar": {
+    "login": "Login",
+    "join": "Join Now",
+    "latest": "Latest",
+    "popular": "Popular",
+    "logOut": "Log Out",
+    "welcome": "Welcome",
+    "myForms": "My Forms"
+  },
+  "LocaleSwitcher": {
+    "es": "Spanish",
+    "en": "English",
+    "label": "Language"
+  },
+  "SearchBar": {
+    "search": "Search Forms"
+  },
+  "CloudTags": {
+    "education": "Education",
+    "technology": "Technology",
+    "enviroment": "Enviroment",
+    "science": "Science",
+    "literature": "Literature",
+    "health": "Health",
+    "business": "Business",
+    "finance": "Finance",
+    "maths": "Maths",
+    "history": "History",
+    "animals": "Animals",
+    "sports": "Sports",
+    "noKey": "No tags"
+  },
+  "auth": {
+    "title": "Welcome Back Master 🫡",
+    "email": "Email",
+    "password": "Password",
+    "login": "Login",
+    "notAccount": "Don't have an account yet?",
+    "getAccount": "Get one now",
+    "errorLogin": "Invalid email or password",
+    "serverError": "Ups, something went wrong",
+    "join": "Join Form Master",
+    "name": "Name",
+    "register": "Register",
+    "haveAccount": "Already have an account?",
+    "loginHere": "Login here",
+    "invalidEmail": "Invalid email",
+    "invalidPassword": "The the password should be at least 8 characters",
+    "invalidName": "Invalid name",
+    "passwordDoesNotMatch": "Incorrect password",
+    "userNotExists": "User does not exist",
+    "userAlreadyExists": "Email already in use",
+    "passwordIsNotTheSame": "Passwords do not match",
+    "userBlocked": "Sorry bro you are blocked",
+    "loginWithGithub": "GitHub",
+    "orLoginWith": "Or login with"
+  },
+  "createForm": {
+    "invalidQuestions": "Questions are not valid"
+  },
+  "formCard": {
+    "answer": "Answer",
+    "by": "By",
+    "editForm": "Edit Form",
+    "seeAnswers": "Answers"
+  },
+  "dashboardTabs": {
+    "myForms": "My Forms",
+    "myAnswers": "My Answers",
+    "joinUs": "Join Us",
+    "issues": "Issues"
+  },
+  "myFormsTable": {
+    "formName": "Form",
+    "topic": "Topic",
+    "questions": "Questions",
+    "likes": "Likes",
+    "totalAnswers": "Total Answers",
+    "newForm": "New",
+    "seeAnswers": "Answers"
+  },
+  "createFormTabs": {
+    "generalSettings": "General Settings",
+    "setQuestions": "Set Questions"
+  },
+  "generalSettings": {
+    "title": "Title",
+    "topic": "Topic",
+    "description": "Description",
+    "tags": "Tags",
+    "addImage": "Add image",
+    "makeFormPublic": "Make this form public",
+    "searchBy": "Search by",
+    "assignedTo": "Assigned to",
+    "setQuestions": "Set Questions",
+    "dropImage": "Drop an image or",
+    "clickHere": "click here",
+    "toSelectFromYourDevice": "to select from your device(png, jpg, jpeg, webp)",
+    "name": "Name",
+    "email": "Email",
+    "addTopic": "Add a topic",
+    "searchUsers": "Search Users",
+    "selectUsers": "Select Users",
+    "fieldRequired": "This field is required",
+    "searchPlaceholder": "Search Users",
+    "tooltip": "This field supports markdown",
+    "changeImage": "Change Image",
+    "updateForm": "Update Form"
+  },
+  "setQuestions": {
+    "addQuestion": "Add question",
+    "updateQuestions": "Update Questions",
+    "createForm": "Create Form",
+    "questionName": "Question Name",
+    "questionType": "Question Type",
+    "description": "Description",
+    "options": "Options",
+    "addOption": "Add Option",
+    "displayInTable": "Display in your form table",
+    "short": "Short",
+    "long": "Long",
+    "numeric": "Numeric",
+    "single": "Single",
+    "multiple": "Multiple",
+    "option": "Option"
+  },
+  "modalFilledForms": {
+    "title": "Filled Forms",
+    "userName": "User Name",
+    "filledAt": "Filled At"
+  },
+  "myFilledFormsTable": {
+    "formName": "Form Name",
+    "topic": "Topic",
+    "filledAt": "Filled At"
+  },
+  "popularFormsTable": {
+    "answers": "Answers",
+    "by": "By",
+    "answer": "Answer"
+  },
+  "updateFormButton": {
+    "updateForm": "Update Form"
+  },
+  "commentsSection": {
+    "comments": "Comments",
+    "addComment": "Add Comment"
+  },
+  "formSection": {
+    "sendCopy": "Send me a copy of my answers",
+    "likeForm": "Did you like this form?",
+    "submitForm": "Submit Form"
+  },
+  "adminPanel": {
+    "adminTable": "Admin Table",
+    "switchRole": "Switch Role",
+    "forms": "Forms",
+    "id": "ID",
+    "name": "Name",
+    "email": "Email",
+    "role": "Role",
+    "status": "Status"
+  },
+  "joinUs": {
+    "title": "Join Our Clients in Salesforce 💖",
+    "invalidName": "Invalid name",
+    "invalidPhone": "Invalid phone",
+    "invalidCountry": "Invalid country",
+    "invalidState": "Invalid state",
+    "invalidPostalCode": "Invalid postal code",
+    "invalidCity": "Invalid city",
+    "invalidStreet": "Invalid street",
+    "invalidIndustry": "Invalid industry",
+    "name": "Name",
+    "phone": "Phone",
+    "street": "Street",
+    "city": "City",
+    "state": "State",
+    "postalCode": "Postal Code",
+    "country": "Country",
+    "industry": "Industry",
+    "join": "Join Us 😎",
+    "invalidEmail": "Invalid email",
+    "welcome": "Welcome to FormMaster clients 💖",
+    "error": "Ups, something went wrong, try again later",
+    "offer": "You will recived special offers and discounts",
+    "AlreadyRegistered": "You are already registered with us in Salesforce 🎉"
+  },
+  "issueModal": {
+    "title": "Issue Report",
+    "description": "Describe the issue",
+    "priority": "Priority",
+    "High": "High",
+    "Average": "Average",
+    "Low": "Low",
+    "form": "Form, is applicable",
+    "invalidPriority": "Priority is required",
+    "invalidForm": "Form is required",
+    "error": "Ups, something went wrong, try again later",
+    "success": "Thank you for your report",
+    "summary": "Summary",
+    "submit": "Report",
+    "cancel": "Cancel",
+    "invalidSummary": "Summary is required",
+    "invalidDescription": "Description is required"
+  },
+  "IssuePage": {
+    "visit": "Visit Issue in Jira",
+    "title": "Issues",
+    "noIssues": "You haven't reported any issue"
+  },
+  "landingPage": {
+    "hero": {
+      "badge": "Google Forms with Superpowers 💪",
+      "title": "Create Powerful",
+      "titleHighlight": "Forms",
+      "titleEnd": "That Actually Work",
+      "subtitle": "Build reusable form templates, get real-time analytics, and manage responses with enterprise-grade features. The modern form builder for teams that ship.",
+      "ctaButton": "Start building",
+      "socialProof": {
+        "noSetup": "No complex setup",
+        "enterpriseReady": "Enterprise-ready",
+        "multiLanguage": "Multi-language"
+      },
+      "floatingElement": "Powerful forms"
+    },
+    "features": {
+      "badge": "Powerful Features",
+      "title": "Everything you need to build",
+      "titleHighlight": "amazing forms",
+      "subtitle": "From simple surveys to complex data collection, FormMaster provides enterprise-grade features in an intuitive package that teams love to use.",
+      "cta": {
+        "text": "Ready to experience the next generation of form builders?",
+        "button": "Start Building Forms"
+      },
+      "items": {
+        "templates": {
+          "title": "Template-Based System",
+          "description": "Create reusable question templates with multiple input types - text, numbers, checkboxes, and multiple choice."
+        },
+        "analytics": {
+          "title": "Real-time Analytics",
+          "description": "Get instant insights with beautiful charts, aggregated results, and comprehensive data visualization."
+        },
+        "accessControl": {
+          "title": "Advanced Access Control",
+          "description": "Manage permissions with public forms, restricted access, and comprehensive admin controls."
+        },
+        "search": {
+          "title": "Full-text Search",
+          "description": "Find any form instantly by content, tags, authors, or any text within your forms and responses."
+        },
+        "dragDrop": {
+          "title": "Drag & Drop Interface",
+          "description": "Reorder questions visually with an intuitive interface that makes form building effortless."
+        },
+        "i18n": {
+          "title": "Internationalization",
+          "description": "Built-in support for English and Spanish with easy localization for global teams."
+        },
+        "email": {
+          "title": "Email Notifications",
+          "description": "Automatic email copies of responses sent to users, keeping everyone in the loop."
+        },
+        "social": {
+          "title": "Social Features",
+          "description": "Comments, likes, and social interactions make forms more engaging and collaborative."
+        },
+        "mobile": {
+          "title": "Mobile Responsive",
+          "description": "Perfect experience across all devices - desktop, tablet, and mobile optimized."
+        },
+        "auth": {
+          "title": "GitHub & Discord Auth",
+          "description": "Seamless social authentication - no complex signups, just connect and start building."
+        },
+        "performance": {
+          "title": "Lightning Fast",
+          "description": "Built with modern tech stack for blazing fast performance and instant loading."
+        },
+        "enterprise": {
+          "title": "Enterprise Ready",
+          "description": "Scalable architecture with MySQL, Cloudflare R2, and AWS infrastructure."
+        }
+      }
+    },
+    "howItWorks": {
+      "badge": "How It Works",
+      "title": "From idea to insights in",
+      "titleHighlight": "3 simple steps",
+      "subtitle": "FormMaster makes it incredibly easy to go from concept to collecting valuable data. No technical skills required, just your creativity.",
+      "demo": {
+        "title": "Try the Form Builder",
+        "subtitle": "Experience our intuitive drag-and-drop form builder. Add questions, customize types, and see how easy it is to create professional forms."
+      },
+      "steps": {
+        "create": {
+          "title": "Create Your Template",
+          "description": "Start with our drag-and-drop builder. Add questions, customize styling, and set up validation rules. Save as a reusable template."
+        },
+        "share": {
+          "title": "Share & Collect",
+          "description": "Share your form via link or embed. Set access controls, enable social auth, and watch responses come in real-time."
+        },
+        "analyze": {
+          "title": "Analyze & Insights",
+          "description": "Get instant analytics with beautiful charts. Export data, track trends, and make data-driven decisions effortlessly."
+        }
+      }
+    }
+  }
 }

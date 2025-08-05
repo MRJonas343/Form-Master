@@ -2,7 +2,7 @@ import { ForceLogOut } from "@/components/ForceLogOut";
 
 export default function page() {
 	return (
-		<div className="flex w-full mt-10 justify-center text-center text-3xl font-semibold">
+		<div className="mt-10 flex w-full justify-center text-center font-semibold text-3xl">
 			Sorry bro you are blocked 😭<ForceLogOut />
 		</div>
 	);

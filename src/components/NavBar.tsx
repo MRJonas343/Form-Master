@@ -65,10 +65,10 @@ export const NavBar: FC = ({
 				</NavbarContent>
 
 				<NavbarContent className="hidden sm:flex gap-4" justify="center">
-					<NavbarItem isActive={pathname === "/"}>
+					<NavbarItem isActive={pathname === "/latest-forms"}>
 						<Link
-							color={pathname === "/" ? "primary" : "foreground"}
-							href="/"
+							color={pathname === "/latest-forms" ? "primary" : "foreground"}
+							href="/latest-forms"
 							aria-current="page"
 						>
 							{t("latest")}

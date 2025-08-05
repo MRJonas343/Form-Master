@@ -1,9 +1,18 @@
+import { redirect } from "next/navigation";
+import { tabs } from "@/constants/CloudTags";
 import { getFormsByTag } from "@/services/forms/getFormsByTag";
-import { TagPage } from "../components/TagPage";
+import { TagPage } from "../latest-forms/components/TagPage";
 
 const Page = async (props: { params: Promise<{ tag: string }> }) => {
 	const params = await props.params;
 	const { tag } = params;
+
+	const validTags = tabs
+		.map((tab) => tab.value)
+		.filter((value) => value !== "noKey");
+	const isValidTag = validTags.includes(tag);
+
+	if (!isValidTag) redirect("/latest-forms");
 
 	const { forms } = await getFormsByTag(1, 10, tag);
 

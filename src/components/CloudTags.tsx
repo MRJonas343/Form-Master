@@ -13,19 +13,19 @@ export const CloudTags = () => {
 	const tab = pathname.split("/")[1];
 
 	return (
-		<div className="w-[95%] mx-auto justify-start max-w-[1250px] lg:mx-auto flex mt-2 lg:mt-2 overflow-x-auto scrollBarCloudTags">
+		<div className="scrollBarCloudTags mx-auto mt-2 flex w-[95%] max-w-[1250px] justify-start overflow-x-auto lg:mx-auto lg:mt-2">
 			<Tabs
-				selectedKey={tab ?? null}
+				aria-label="Dynamic tabs"
 				className={`max-w-[1250px] ${tab === "noKey" && "hidden"}`}
 				color="primary"
+				selectedKey={tab ?? null}
 				variant="light"
-				aria-label="Dynamic tabs"
 			>
 				{tabs.map((item) => (
 					<Tab
-						key={item.value}
 						className={item.value === "noKey" ? "hidden" : ""}
 						href={`/${item.value}`}
+						key={item.value}
 						title={
 							<div className="flex items-center space-x-2">
 								{item.icon}

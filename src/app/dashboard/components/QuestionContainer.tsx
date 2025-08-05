@@ -42,58 +42,58 @@ export const QuestionContainer: FC<QuestionElementProps> = ({
 	const t = useTranslations("setQuestions");
 
 	return (
-		<div ref={setNodeRef} style={style} key={id}>
+		<div key={id} ref={setNodeRef} style={style}>
 			<Card className="p-3 sm:p-5">
 				<div className="flex w-full pb-2 sm:pb-3">
-					<div className="w-[51%] flex justify-end">
+					<div className="flex w-[51%] justify-end">
 						<button
 							{...attributes}
 							{...listeners}
 							className={` ${isCursorGrabbing ? "cursor-grabbing" : "cursor-grab"}`}
 						>
 							<MdOutlineDragIndicator
-								className="cursor-grab rotate-90"
+								className="rotate-90 cursor-grab"
 								size={25}
 							/>
 						</button>
 					</div>
-					<div className="w-[49%] flex justify-end pr-2">
+					<div className="flex w-[49%] justify-end pr-2">
 						<Button
-							variant="flat"
 							color="danger"
-							size="sm"
 							isIconOnly
 							onClick={() => deleteQuestion(id)}
+							size="sm"
+							variant="flat"
 						>
 							<FaTrash size={13} />
 						</Button>
 					</div>
 				</div>
 
-				<div className="sm:flex gap-4">
+				<div className="gap-4 sm:flex">
 					<Input
-						isRequired
-						radius="sm"
-						variant="bordered"
 						className="w-full"
+						isRequired
 						label={t("questionName")}
-						value={questionName}
 						onValueChange={(value) =>
 							onQuestionChange(id, "questionName", value)
 						}
+						radius="sm"
+						value={questionName}
+						variant="bordered"
 					/>
 					<Select
-						isRequired
-						isDisabled={disableType}
-						radius="sm"
+						className="mt-3 w-full sm:mt-0"
 						defaultSelectedKeys={[questionType]}
+						isDisabled={disableType}
+						isRequired
 						label={t("questionType")}
-						variant="bordered"
-						selectionMode="single"
-						className="w-full mt-3 sm:mt-0"
 						onSelectionChange={(value) =>
 							onQuestionChange(id, "questionType", value.anchorKey ?? "short")
 						}
+						radius="sm"
+						selectionMode="single"
+						variant="bordered"
 					>
 						<SelectItem key="short">{t("short")}</SelectItem>
 						<SelectItem key="long">{t("long")}</SelectItem>
@@ -105,30 +105,30 @@ export const QuestionContainer: FC<QuestionElementProps> = ({
 				<div className={`${questionType === "multiple" && "md:flex md:gap-3"}`}>
 					<div className={`${questionType === "multiple" && "md:w-[50%]"}`}>
 						<Textarea
-							size="sm"
-							radius="sm"
-							variant="bordered"
+							className="mt-3 w-full"
 							label={t("description")}
-							className="w-full mt-3"
-							value={description}
 							onValueChange={(value) =>
 								onQuestionChange(id, "description", value)
 							}
+							radius="sm"
+							size="sm"
+							value={description}
+							variant="bordered"
 						/>
 					</div>
 					<div className="md:w-[50%]">
 						{questionType === "multiple" && (
-							<div className="flex flex-col pt-2 ">
-								<div className="flex justify-between items-center pb-2">
+							<div className="flex flex-col pt-2">
+								<div className="flex items-center justify-between pb-2">
 									<p className="pl-1 text-small">{t("options")}</p>
 									<div className="flex pr-3">
 										<Button
-											variant="flat"
 											color="primary"
-											size="sm"
-											isIconOnly
 											isDisabled={disableType}
+											isIconOnly
 											onClick={() => onOptionsChange(id, [...options, ""])}
+											size="sm"
+											variant="flat"
 										>
 											<IoMdAddCircleOutline size={20} />
 										</Button>
@@ -137,39 +137,39 @@ export const QuestionContainer: FC<QuestionElementProps> = ({
 								<div className="grid grid-cols-2 gap-3">
 									{options.map((option, index) => (
 										<Input
+											className="w-full"
+											endContent={
+												<Button
+													color="danger"
+													isIconOnly
+													onClick={() =>
+														onOptionsChange(
+															id,
+															options.filter((_, i) => i !== index)
+														)
+													}
+													size="sm"
+													variant="flat"
+												>
+													<FaTrash size={13} />
+												</Button>
+											}
 											isDisabled={disableType}
 											key={`option-${id}-${
 												// biome-ignore lint/suspicious/noArrayIndexKey: <Neded for nextui>
 												index
 											}`}
-											size="sm"
-											radius="sm"
-											variant="bordered"
-											className="w-full"
 											label={`${t("option")} ${index + 1}`}
-											value={option}
 											onValueChange={(value) =>
 												onOptionsChange(
 													id,
-													options.map((_, i) => (i === index ? value : _)),
+													options.map((_, i) => (i === index ? value : _))
 												)
 											}
-											endContent={
-												<Button
-													variant="flat"
-													color="danger"
-													size="sm"
-													isIconOnly
-													onClick={() =>
-														onOptionsChange(
-															id,
-															options.filter((_, i) => i !== index),
-														)
-													}
-												>
-													<FaTrash size={13} />
-												</Button>
-											}
+											radius="sm"
+											size="sm"
+											value={option}
+											variant="bordered"
 										/>
 									))}
 								</div>
@@ -179,10 +179,10 @@ export const QuestionContainer: FC<QuestionElementProps> = ({
 				</div>
 
 				<Checkbox
-					radius="sm"
 					className="mt-2"
 					isSelected={displayInTable}
 					onValueChange={(e) => onQuestionChange(id, "displayInTable", e)}
+					radius="sm"
 				>
 					{t("displayInTable")}
 				</Checkbox>

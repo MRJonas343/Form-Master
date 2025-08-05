@@ -11,7 +11,7 @@ export const NewForm = () => {
 
 	return (
 		<>
-			<div className="w-full flex flex-row lg:max-w-[1280px] sm:mx-auto px-5">
+			<div className="flex w-full flex-row px-5 sm:mx-auto lg:max-w-[1280px]">
 				<CreateFormTabs selectedKey={selectedTab} />
 			</div>
 

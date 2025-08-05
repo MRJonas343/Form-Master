@@ -31,7 +31,7 @@ export const LoginForm = () => {
 	const onSubmit = async (data: UserCredentials) => {
 		setIsSubmitting(true);
 		const status = await authorize(data.email, data.password);
-		handleStatus(status, t, "/dashboard");
+		handleStatus(status, t, "/latest-forms");
 		setIsSubmitting(false);
 		reset();
 	};

@@ -30,7 +30,7 @@ export const RegisterForm = () => {
 	const onSubmit = async (data: User) => {
 		setIsSubmitting(true);
 		const status = await createUser(data.name, data.email, data.password ?? "");
-		handleStatus(status, t, "/dashboard");
+		handleStatus(status, t, "/latest-forms");
 		setIsSubmitting(false);
 		reset();
 	};

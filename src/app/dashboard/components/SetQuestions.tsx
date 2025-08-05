@@ -48,8 +48,8 @@ export const SetQuestions: FC<SetQuestionsProps> = ({ formId }) => {
 		}
 
 		const status = await setNewFormQuestions(
-			Number.parseInt(formId),
-			questions,
+			Number.parseInt(formId, 10),
+			questions
 		);
 		toast.success("Form is successfully created");
 		handleStatus(status, t, "/dashboard");
@@ -58,12 +58,12 @@ export const SetQuestions: FC<SetQuestionsProps> = ({ formId }) => {
 
 	return (
 		<>
-			<div className="mt-4 flex flex-col w-[90%] sm:w-[95%] mx-auto max-w-[1240px]">
-				<section className="sm:mt-4 flex flex-col gap-3 mb-20">
+			<div className="mx-auto mt-4 flex w-[90%] max-w-[1240px] flex-col sm:w-[95%]">
+				<section className="mb-20 flex flex-col gap-3 sm:mt-4">
 					<DndContext
-						sensors={sensors}
-						onDragEnd={(e) => changeQuestionsPositions(e, setQuestions)}
 						modifiers={[restrictToVerticalAxis, restrictToParentElement]}
+						onDragEnd={(e) => changeQuestionsPositions(e, setQuestions)}
+						sensors={sensors}
 					>
 						<SortableContext
 							items={questions}
@@ -71,45 +71,45 @@ export const SetQuestions: FC<SetQuestionsProps> = ({ formId }) => {
 						>
 							{questions.map((question) => (
 								<QuestionContainer
-									id={question.id}
-									key={question.id}
-									description={question.description}
-									questionName={question.questionName}
-									onQuestionChange={(id, type, value) =>
-										changeControlledInputs(id, type, value, setQuestions)
-									}
 									deleteQuestion={(id) =>
 										deleteControlledQuestion(id, setQuestions)
 									}
-									questionType={question.questionType}
+									description={question.description}
 									displayInTable={question.displayInTable}
-									options={question.options}
+									id={question.id}
+									key={question.id}
 									onOptionsChange={(id, newOptions) =>
 										changeMultipleQuestionInputs(id, newOptions, setQuestions)
 									}
+									onQuestionChange={(id, type, value) =>
+										changeControlledInputs(id, type, value, setQuestions)
+									}
+									options={question.options}
+									questionName={question.questionName}
+									questionType={question.questionType}
 								/>
 							))}
 						</SortableContext>
 					</DndContext>
 				</section>
 			</div>
-			<div className="z-10 fixed bottom-0 w-full flex p-4 justify-center backdrop-blur-xl gap-4">
+			<div className="fixed bottom-0 z-10 flex w-full justify-center gap-4 p-4 backdrop-blur-xl">
 				<Button
-					variant="flat"
-					color="primary"
-					radius="sm"
 					className="font-semibold"
+					color="primary"
 					onClick={() => createControlledInput(questions, setQuestions)}
+					radius="sm"
+					variant="flat"
 				>
 					{t("addQuestion")}
 				</Button>
 				<Button
-					isLoading={isSubmitting}
-					variant="shadow"
-					color="primary"
-					radius="sm"
 					className="font-semibold"
+					color="primary"
+					isLoading={isSubmitting}
 					onClick={createNewForm}
+					radius="sm"
+					variant="shadow"
 				>
 					{t("createForm")}
 				</Button>

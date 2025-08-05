@@ -5,7 +5,7 @@ const page = async () => {
 	const popularForms = await getPopularForms();
 
 	return (
-		<div className="flex h-[85vh] items-center">
+		<div className="flex h-[70vh]">
 			<PopularFormsTable popularForms={popularForms} />
 		</div>
 	);

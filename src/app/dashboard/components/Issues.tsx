@@ -20,15 +20,15 @@ export const Issues = ({ tickets }: IssuesProps) => {
 
 	return (
 		<>
-			<h1 className="text-center text-2xl font-bold mt-4">{t("title")}</h1>
-			<section className="grid place-items-center gap-4 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 w-[95%] mx-auto md:mt-7 mt-3 max-w-[1300px]">
+			<h1 className="mt-4 text-center font-bold text-2xl">{t("title")}</h1>
+			<section className="mx-auto mt-3 grid w-[95%] max-w-[1300px] grid-cols-1 place-items-center gap-4 md:mt-7 md:grid-cols-2 xl:grid-cols-3">
 				{tickets.issues.length > 0 ? (
 					tickets.issues.map((issue) => (
-						<Card key={issue.id} className="w-[400px]">
+						<Card className="w-[400px]" key={issue.id}>
 							<CardHeader className="flex gap-3">
 								<div className="flex flex-col">
 									<p className="text-md">Issue : {issue.fields.summary}</p>
-									<p className="text-small text-gray-400">
+									<p className="text-gray-400 text-small">
 										Status : {issue.fields.status.name}
 									</p>
 								</div>
@@ -40,9 +40,9 @@ export const Issues = ({ tickets }: IssuesProps) => {
 							<Divider />
 							<CardFooter>
 								<Link
+									href={`${process.env.NEXT_PUBLIC_JIRA_DOMAIN}/browse/${issue.key}`}
 									isExternal
 									showAnchorIcon
-									href={`${process.env.NEXT_PUBLIC_JIRA_DOMAIN}/browse/${issue.key}`}
 								>
 									{t("visit")}
 								</Link>

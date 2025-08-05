@@ -3,7 +3,7 @@ import { tabs } from "@/constants/CloudTags";
 import { getFormsByTag } from "@/services/forms/getFormsByTag";
 import { TagPage } from "../latest-forms/components/TagPage";
 
-const Page = async (props: { params: Promise<{ tag: string }> }) => {
+const page = async (props: { params: Promise<{ tag: string }> }) => {
 	const params = await props.params;
 	const { tag } = params;
 
@@ -23,4 +23,4 @@ const Page = async (props: { params: Promise<{ tag: string }> }) => {
 	);
 };
 
-export default Page;
+export default page;

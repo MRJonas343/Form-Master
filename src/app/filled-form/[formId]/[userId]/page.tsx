@@ -14,15 +14,16 @@ const page = async (props: {
 	const userId = session.user?.id ?? "";
 
 	const form = await getFilledForm(
-		Number.parseInt(params.formId),
-		params.userId,
+		Number.parseInt(params.formId, 10),
+		params.userId
 	);
 
-	if (session.user.role === "user") {
-		if (form.form?.author_id !== userId) {
-			if (userId !== params.userId) return redirect("/");
-		}
-	}
+	if (
+		session.user.role === "user" &&
+		form.form?.author_id !== userId &&
+		userId !== params.userId
+	)
+		return redirect("/");
 
 	return (
 		<>

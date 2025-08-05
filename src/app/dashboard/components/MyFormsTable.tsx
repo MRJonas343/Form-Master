@@ -40,108 +40,108 @@ export const MyFormsTable: FC<MyFormsTableProps> = ({ forms }) => {
 	const deleteForm = async (formId: number) => {
 		const result = await deleteFormAction(formId);
 
-		//@ts-ignore
+		//@ts-expect-error
 		setItems(forms.filter((form) => form.formId !== formId));
 		if (result === "SUCCESS") toast.success("Form deleted successfully");
 	};
 
 	return (
 		<>
-			<div className="mt-4 sm:mt-0 w-full sm:w-[95%] justify-end flex max-w-[1280px] mx-auto px-5 sm:justify-end gap-2">
+			<div className="mx-auto mt-4 flex w-full max-w-[1280px] justify-end gap-2 px-5 sm:mt-0 sm:w-[95%] sm:justify-end">
 				<Button
-					variant="shadow"
 					color="primary"
-					radius="sm"
 					isIconOnly
 					onPress={() => router.push("/dashboard/new-form")}
+					radius="sm"
+					variant="shadow"
 				>
 					<MdAdd size={28} />
 				</Button>
 				<Button
-					variant="bordered"
-					radius="sm"
 					color="primary"
 					isIconOnly
 					onPress={() =>
 						formIdRef.current !== 0 && formIdRef.current && onOpen()
 					}
+					radius="sm"
+					variant="bordered"
 				>
 					<LuFileSpreadsheet size={20} />
 				</Button>
 				<Button
-					variant="bordered"
 					color="primary"
-					radius="sm"
 					isIconOnly
 					onPress={() =>
 						formIdRef.current !== 0 &&
 						formIdRef.current &&
 						router.push(`/dashboard/results/${formIdRef.current}`)
 					}
+					radius="sm"
+					variant="bordered"
 				>
 					<GoGraph size={20} />
 				</Button>
 				<Button
-					variant="bordered"
 					color="primary"
-					radius="sm"
 					isIconOnly
 					onClick={() => {
 						formIdRef.current !== 0 &&
 							formIdRef.current &&
 							router.push(`/dashboard/edit-form/${formIdRef.current}`);
 					}}
+					radius="sm"
+					variant="bordered"
 				>
 					<MdEdit size={20} />
 				</Button>
 
 				<Button
-					variant="bordered"
 					color="danger"
-					radius="sm"
 					isIconOnly
 					onPress={() => deleteForm(formIdRef.current)}
+					radius="sm"
+					variant="bordered"
 				>
 					<MdDelete size={20} />
 				</Button>
 			</div>
-			<div className="w-full flex justify-center mt-5">
+			<div className="mt-5 flex w-full justify-center">
 				<Table
 					aria-label="Admin Table"
+					className="w-[95%] max-w-[1280px]"
+					color="primary"
 					onSelectionChange={(keys) => {
-						//@ts-ignore
+						//@ts-expect-error
 						formIdRef.current = [...keys][0];
 					}}
-					radius="md"
-					color="primary"
-					selectionMode="single"
-					className="w-[95%] max-w-[1280px]"
-					sortDescriptor={list.sortDescriptor}
 					onSortChange={list.sort}
+					radius="md"
+					selectionMode="single"
+					sortDescriptor={list.sortDescriptor}
 				>
 					<TableHeader columns={MyFormsColumns}>
-						<TableColumn allowsSorting key="formName" className="lg:text-lg">
+						<TableColumn allowsSorting className="lg:text-lg" key="formName">
 							{t("formName")}
 						</TableColumn>
-						<TableColumn allowsSorting key="topic" className="lg:text-lg">
+						<TableColumn allowsSorting className="lg:text-lg" key="topic">
 							{t("topic")}
 						</TableColumn>
-						<TableColumn allowsSorting key="questions" className="lg:text-lg">
+						<TableColumn allowsSorting className="lg:text-lg" key="questions">
 							{t("questions")}
 						</TableColumn>
 					</TableHeader>
 					<TableBody
 						emptyContent="No forms found"
-						items={list.items}
 						isLoading={isLoading}
-						loadingContent={<Spinner size="lg" label="Loading..." />}
+						items={list.items}
+						loadingContent={<Spinner label="Loading..." size="lg" />}
 					>
 						{(item) => (
 							<TableRow key={item.formId as React.Key}>
 								{(columnKey) => (
 									<TableCell className="lg:text-lg">
 										{columnKey === "questions" ? (
-											<ul className="list-disc list-inside">
+											<ul className="list-inside list-disc">
 												{/* @ts-ignore */}
 												{item.questions?.map((question) => (
 													<li key={question}>

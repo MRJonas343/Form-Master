@@ -7,7 +7,7 @@ import { RegisterForm } from "./components";
 
 export const metadata = registerMetaData;
 
-const page = async () => {
+export default async function Page() {
 	const session = await auth();
 
 	const t = await getTranslations("auth");
@@ -25,5 +25,4 @@ const page = async () => {
 			</section>
 		</main>
 	);
-};
-export default page;
+}

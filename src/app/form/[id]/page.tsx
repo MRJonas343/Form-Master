@@ -12,7 +12,7 @@ export default async function FormPage(props: {
 	params: Promise<{ id: string }>;
 }) {
 	const params = await props.params;
-	const formId = Number.parseInt(params.id);
+	const formId = Number.parseInt(params.id, 10);
 	const session = await auth();
 
 	let isReadOnly = true;
@@ -32,10 +32,10 @@ export default async function FormPage(props: {
 			<>
 				<NavBar />
 				<FormComponent
+					comments={comments}
+					formGeneralData={formGeneralData}
 					isReadOnly={true}
 					questions={questions}
-					formGeneralData={formGeneralData}
-					comments={comments}
 				/>
 			</>
 		);
@@ -56,7 +56,7 @@ export default async function FormPage(props: {
 		} else {
 			const hasPermission = await checkPermission(
 				formId,
-				session.user.id ?? "",
+				session.user.id ?? ""
 			);
 			if (!hasPermission) isReadOnly = true;
 		}
@@ -66,10 +66,10 @@ export default async function FormPage(props: {
 		<>
 			<NavBar />
 			<FormComponent
+				comments={comments}
+				formGeneralData={formGeneralData}
 				isReadOnly={isReadOnly}
 				questions={questions}
-				formGeneralData={formGeneralData}
-				comments={comments}
 			/>
 		</>
 	);

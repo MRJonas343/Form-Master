@@ -55,7 +55,7 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 			changeTab,
 			dispatch,
 			state,
-			session,
+			session
 		);
 	};
 
@@ -66,34 +66,34 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 
 	return (
 		<form
+			className="mx-auto mt-4 flex w-[90%] max-w-[1240px] flex-col gap-3 sm:w-[95%]"
 			onSubmit={handleSubmit(onSubmit)}
-			className="mt-4 flex flex-col gap-3 w-[90%] sm:w-[95%] mx-auto max-w-[1240px]"
 		>
 			<div className="md:flex md:gap-8">
 				<Input
 					autoFocus
-					radius="sm"
-					isInvalid={Boolean(errors.title)}
-					errorMessage={t("fieldRequired")}
-					variant="bordered"
 					className="w-full"
+					errorMessage={t("fieldRequired")}
+					isInvalid={Boolean(errors.title)}
 					label={t("title")}
+					radius="sm"
+					variant="bordered"
 					{...register("title", {
 						required: true,
 					})}
 				/>
 				<Select
-					radius="sm"
-					label={t("topic")}
-					variant="bordered"
+					className="mt-3 w-full md:mt-0"
+					errorMessage={t("fieldRequired")}
 					isInvalid={Boolean(errors.topic)}
-					selectedKeys={state.topicsState}
+					label={t("topic")}
 					onSelectionChange={(topics) =>
 						dispatch({ type: "SET_TOPICS", payload: topics })
 					}
-					errorMessage={t("fieldRequired")}
+					radius="sm"
+					selectedKeys={state.topicsState}
 					selectionMode="single"
-					className="w-full mt-3 md:mt-0"
+					variant="bordered"
 					{...register("topic", {
 						required: true,
 					})}
@@ -104,28 +104,23 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 				</Select>
 				{
 					<Input
+						className={`mt-3 w-full md:mt-0 ${!state.topicsState.has("Other") && "hidden"}`}
+						errorMessage={t("fieldRequired")}
+						isInvalid={Boolean(errors.otherTopic)}
+						//@ts-expect-error
+						isRequired={state.topicsState.has("Other")}
+						label={t("addTopic")}
 						radius="sm"
 						variant="bordered"
-						label={t("addTopic")}
-						//@ts-ignore
-						className={`w-full mt-3 md:mt-0 ${!state.topicsState.has("Other") && "hidden"}`}
-						//@ts-ignore
-						isRequired={state.topicsState.has("Other")}
-						isInvalid={Boolean(errors.otherTopic)}
-						errorMessage={t("fieldRequired")}
 						{...register("otherTopic", {
-							//@ts-ignore
+							//@ts-expect-error
 							required: state.topicsState.has("Other"),
 						})}
 					/>
 				}
 			</div>
 			<Textarea
-				radius="sm"
-				variant="bordered"
-				label={t("description")}
 				className="w-full"
-				errorMessage={t("fieldRequired")}
 				endContent={
 					<Tooltip
 						content={<p className="p-2">This field supports markdown</p>}
@@ -135,17 +130,21 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 						</Button>
 					</Tooltip>
 				}
+				errorMessage={t("fieldRequired")}
+				label={t("description")}
+				radius="sm"
+				variant="bordered"
 				{...register("description", { required: true })}
 			>
 				Description
 			</Textarea>
 
 			<Select
-				radius="sm"
-				label={t("tags")}
-				variant="bordered"
-				selectionMode="multiple"
 				className="w-full"
+				label={t("tags")}
+				radius="sm"
+				selectionMode="multiple"
+				variant="bordered"
 				{...register("tags")}
 			>
 				{tabs.map((tag) => (
@@ -154,14 +153,14 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 			</Select>
 			<div
 				{...getRootProps({ className: "dropzone" })}
-				className="border-2 p-3 border-default-200 rounded-md cursor-pointer"
+				className="cursor-pointer rounded-md border-2 border-default-200 p-3"
 			>
 				<label className="text-default-500">{t("addImage")}</label>
-				<input type="file" className="w-full" {...getInputProps()} />
+				<input className="w-full" type="file" {...getInputProps()} />
 
 				<p className="text-default-500">
 					{t("dropImage")}{" "}
-					<span className="text-blue-600 font-semibold cursor-pointer">
+					<span className="cursor-pointer font-semibold text-blue-600">
 						{t("clickHere")}
 					</span>{" "}
 					{t("toSelectFromYourDevice")}
@@ -169,30 +168,30 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 				<ul>{state.image?.name}</ul>
 			</div>
 			<Checkbox
-				radius="sm"
 				className=""
 				isSelected={state.isFormPublic}
 				onValueChange={(isFormPublic) =>
 					dispatch({ type: "SET_FORM_PUBLIC", payload: isFormPublic })
 				}
+				radius="sm"
 				{...register("isPublic")}
 			>
 				{t("makeFormPublic")}
 			</Checkbox>
 			{!state.isFormPublic && (
 				<>
-					<div className="flex mt-1 gap-3">
+					<div className="mt-1 flex gap-3">
 						<Select
-							label={t("searchBy")}
-							radius="sm"
-							size="sm"
-							variant="bordered"
-							selectionMode="single"
 							className="w-48"
-							selectedKeys={state.searchingBy}
+							label={t("searchBy")}
 							onSelectionChange={(searchingBy) =>
 								dispatch({ type: "SET_SEARCHING_BY", payload: searchingBy })
 							}
+							radius="sm"
+							selectedKeys={state.searchingBy}
+							selectionMode="single"
+							size="sm"
+							variant="bordered"
 						>
 							<SelectItem key="username">{t("name")}</SelectItem>
 							<SelectItem key="email">{t("email")}</SelectItem>
@@ -200,45 +199,45 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 						<Autocomplete
 							aria-label="autocomplete"
 							aria-labelledby="autocomplete-label"
-							radius="sm"
-							size="lg"
-							isClearable
-							startContent={<FaSearch />}
-							placeholder={t("searchPlaceholder")}
 							className="w-full"
-							variant="bordered"
 							inputValue={state.inputValue}
+							isClearable
+							onInputChange={(value) => handleSearchInputChange(value)}
 							onSelectionChange={(value) =>
 								selectUser(value as string, state, dispatch)
 							}
-							onInputChange={(value) => handleSearchInputChange(value)}
+							placeholder={t("searchPlaceholder")}
+							radius="sm"
+							size="lg"
+							startContent={<FaSearch />}
+							variant="bordered"
 						>
 							{state.users.map((user) => (
 								<AutocompleteItem
 									key={user.id}
 									textValue={`${user.name} ${user.email}`}
 								>
-									<User name={user.name} description={user.email} />
+									<User description={user.email} name={user.name} />
 								</AutocompleteItem>
 							))}
 						</Autocomplete>
 					</div>
 
-					<div className="border-2 min-h-24 gap-2 p-4 w-full rounded-lg border-default-200 flex flex-col items-start sm:flex-wrap sm:flex-row sm:gap-4">
+					<div className="flex min-h-24 w-full flex-col items-start gap-2 rounded-lg border-2 border-default-200 p-4 sm:flex-row sm:flex-wrap sm:gap-4">
 						{state.selectedUsers.map((user) => (
 							<div
+								className="mb-1 flex items-start rounded-lg border-2 border-default-200 p-2"
 								key={user.id}
-								className="flex items-start mb-1 border-default-200 border-2 rounded-lg p-2"
 							>
 								<User
-									name={user.name}
-									description={user.email}
 									className="min-w-56 justify-start"
+									description={user.email}
+									name={user.name}
 								/>
-								<Button isIconOnly variant="light" color="danger">
+								<Button color="danger" isIconOnly variant="light">
 									<IoCloseCircleSharp
-										size={24}
 										onClick={() => deleteSelectedUser(user.id, state, dispatch)}
+										size={24}
 									/>
 								</Button>
 							</div>
@@ -247,11 +246,11 @@ export const GeneralSettings: FC<GeneralSettingsProps> = ({
 				</>
 			)}
 			<Button
-				isLoading={state.isSubmitting}
 				className="mb-10 font-semibold"
-				type="submit"
 				color="primary"
+				isLoading={state.isSubmitting}
 				radius="sm"
+				type="submit"
 				variant="shadow"
 			>
 				{t("setQuestions")}

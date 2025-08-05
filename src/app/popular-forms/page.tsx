@@ -1,7 +1,7 @@
 import { getPopularForms } from "@/services/forms/getPopularForms";
 import { PopularFormsTable } from "./components";
 
-const page = async () => {
+export default async function Page() {
 	const popularForms = await getPopularForms();
 
 	return (
@@ -9,5 +9,4 @@ const page = async () => {
 			<PopularFormsTable popularForms={popularForms} />
 		</div>
 	);
-};
-export default page;
+}

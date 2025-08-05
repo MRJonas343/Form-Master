@@ -11,7 +11,9 @@ export default function MainPageLayout({
 	return (
 		<>
 			<NavBar />
-			<h1 className="text-3xl font-bold text-center mt-10 mb-10">Popular Forms</h1>
+			<h1 className="mt-10 mb-10 text-center font-bold text-3xl">
+				Popular Forms
+			</h1>
 			{children}
 			<Snackbar />
 		</>

@@ -5,8 +5,6 @@ import type { FilledForm, UserForms } from "@/interfaces";
 import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
 import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
 import { DashboardTabs, MyFilledForm, MyFormsTable } from ".";
-import { Issues } from "./Issues";
-import { JoinUsTab } from "./JoinUsTab";
 
 interface DashboardProps {
 	userForms: UserForms[];
@@ -15,31 +13,10 @@ interface DashboardProps {
 	tickets: IssuesFromJira;
 }
 
-export const Dashboard = ({
-	userForms,
-	filledForms,
-	contacts,
-	tickets,
-}: DashboardProps) => {
+export const Dashboard = ({ userForms, filledForms }: DashboardProps) => {
 	const [tab, setTab] = useState("my-forms");
 
 	const changeTab = (selectedTab: string) => setTab(selectedTab);
-
-	const renderTabContent = () => {
-		if (tab === "my-forms") {
-			return <MyFormsTable forms={userForms} />;
-		}
-
-		if (tab === "join-us") {
-			return <JoinUsTab data={contacts} />;
-		}
-
-		if (tab === "my-answers") {
-			return <MyFilledForm filledForms={filledForms} />;
-		}
-
-		return <Issues tickets={tickets} />;
-	};
 
 	return (
 		<>
@@ -49,7 +26,8 @@ export const Dashboard = ({
 					selectedKey={tab}
 				/>
 			</div>
-			{renderTabContent()}
+			{tab === "my-forms" && <MyFormsTable forms={userForms} />}
+			{tab === "my-answers" && <MyFilledForm filledForms={filledForms} />}
 		</>
 	);
 };

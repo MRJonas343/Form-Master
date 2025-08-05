@@ -33,18 +33,18 @@ const MainPage = ({ cardsData }: { cardsData: FormCardProps[] }) => {
 
 	return (
 		<>
-			<div className="w-full flex lg:justify-end lg:flex mt-2 lg:max-w-[1280px] lg:mx-auto">
+			<div className="mt-2 flex w-full lg:mx-auto lg:flex lg:max-w-[1280px] lg:justify-end">
 				<SearchInput
-					value={state.fullTextSearch}
 					setValue={handleInputChange}
+					value={state.fullTextSearch}
 				/>
 			</div>
 			<CloudTags />
-			<div className="mt-5 w-screen flex justify-center">
+			<div className="mt-5 flex w-screen justify-center">
 				<CardsGrid cardsData={state.cards} />
 			</div>
-			<div ref={ref} className="h-10" />
-			<div className="w-full flex justify-center">
+			<div className="h-10" ref={ref} />
+			<div className="flex w-full justify-center">
 				{state.loading && <Spinner size="lg" />}
 			</div>
 		</>

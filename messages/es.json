@@ -376,5 +376,230 @@
         }
       }
     }
+  },
+  "legal": {
+    "cookiePolicy": {
+      "title": "Política de Cookies",
+      "lastUpdated": "Última actualización: Diciembre 2024",
+      "sections": {
+        "whatAreCookies": {
+          "title": "1. Qué son las Cookies",
+          "content": "Las cookies son pequeños archivos de texto que se almacenan en tu computadora o dispositivo móvil cuando visitas un sitio web. Ayudan a los sitios web a recordar información sobre tu visita, lo que puede hacer que sea más fácil volver a visitar el sitio y hacerlo más útil para ti."
+        },
+        "howWeUseCookies": {
+          "title": "2. Cómo Usamos las Cookies",
+          "content": "FormMaster usa cookies para mejorar tu experiencia y proporcionar funcionalidad esencial:",
+          "list": [
+            "Autenticación y seguridad",
+            "Preferencias y configuraciones del usuario",
+            "Monitoreo de rendimiento y análisis",
+            "Funcionalidad de características y experiencia de usuario"
+          ]
+        },
+        "typesOfCookies": {
+          "title": "3. Tipos de Cookies que Usamos",
+          "essential": {
+            "title": "Cookies Esenciales",
+            "content": "Estas cookies son necesarias para que el sitio web funcione y no se pueden desactivar en nuestros sistemas. Generalmente solo se configuran en respuesta a acciones realizadas por ti que equivalen a una solicitud de servicios.",
+            "list": [
+              "Cookies de autenticación de sesión",
+              "Seguridad y prevención de fraudes",
+              "Cookies de balanceador de carga"
+            ]
+          },
+          "functional": {
+            "title": "Cookies Funcionales",
+            "content": "Estas cookies permiten al sitio web proporcionar funcionalidad mejorada y personalización basada en tus interacciones.",
+            "list": [
+              "Preferencias del usuario (tema, idioma)",
+              "Almacenamiento temporal de datos de formulario",
+              "Estado de la interfaz y configuraciones"
+            ]
+          },
+          "analytics": {
+            "title": "Cookies de Análisis",
+            "content": "Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web al recopilar y reportar información de forma anónima.",
+            "list": [
+              "Seguimiento de vistas de página",
+              "Análisis de comportamiento del usuario",
+              "Monitoreo de rendimiento"
+            ]
+          }
+        },
+        "thirdPartyCookies": {
+          "title": "4. Cookies de Terceros",
+          "content": "Podemos usar servicios de terceros que configuran sus propias cookies para proporcionar funcionalidad o análisis:",
+          "list": [
+            "NextAuth.js para autenticación",
+            "Cloudflare para seguridad y rendimiento",
+            "GitHub OAuth para inicio de sesión social"
+          ]
+        },
+        "managingCookies": {
+          "title": "5. Gestión de Cookies",
+          "content": "La mayoría de los navegadores web te permiten controlar las cookies a través de sus preferencias de configuración. Sin embargo, si limitas la capacidad de los sitios web para configurar cookies, puedes empeorar tu experiencia general de usuario.",
+          "browserSettings": {
+            "title": "Configuraciones del Navegador",
+            "content": "Puedes controlar y/o eliminar cookies como desees. Puedes eliminar todas las cookies que ya están en tu computadora y puedes configurar la mayoría de los navegadores para evitar que se coloquen."
+          }
+        },
+        "cookieRetention": {
+          "title": "6. Retención de Cookies",
+          "content": "Diferentes tipos de cookies tienen diferentes duraciones:",
+          "list": [
+            "Cookies de sesión: Se eliminan cuando cierras tu navegador",
+            "Cookies persistentes: Permanecen por un período establecido (generalmente 30 días a 1 año)",
+            "Cookies de autenticación: Duran hasta que cierres sesión"
+          ]
+        },
+        "updates": {
+          "title": "7. Actualizaciones de Esta Política",
+          "content": "Podemos actualizar esta Política de Cookies de vez en cuando para reflejar cambios en nuestras prácticas o por otras razones operacionales, legales o regulatorias. Te notificaremos de cualquier cambio material."
+        },
+        "contact": {
+          "title": "8. Contáctanos",
+          "content": "Si tienes alguna pregunta sobre nuestro uso de cookies, por favor contáctanos en:",
+          "email": "angeljonasrosales@gmail.com"
+        }
+      }
+    },
+    "termsOfService": {
+      "title": "Términos de Servicio",
+      "lastUpdated": "Última actualización: Diciembre 2024",
+      "sections": {
+        "acceptance": {
+          "title": "1. Aceptación de Términos",
+          "content": "Al acceder y usar FormMaster, aceptas y acuerdas estar sujeto a los términos y disposiciones de este acuerdo. Si no estás de acuerdo con lo anterior, por favor no uses este servicio."
+        },
+        "description": {
+          "title": "2. Descripción del Servicio",
+          "content": "FormMaster es una plataforma web de construcción de formularios que permite a los usuarios crear, compartir y gestionar formularios y recopilar respuestas. El servicio incluye características como:",
+          "list": [
+            "Herramientas de creación y personalización de formularios",
+            "Recopilación y gestión de respuestas",
+            "Análisis de datos y reportes",
+            "Autenticación de usuario y controles de acceso",
+            "Capacidades de integración"
+          ]
+        },
+        "userAccounts": {
+          "title": "3. Cuentas de Usuario y Registro",
+          "content": "Para usar ciertas características de nuestro servicio, debes registrarte y crear una cuenta. Acuerdas:",
+          "list": [
+            "Proporcionar información de registro precisa y completa",
+            "Mantener tus credenciales de inicio de sesión seguras y confidenciales",
+            "Notificarnos inmediatamente de cualquier uso no autorizado",
+            "Asumir la responsabilidad de todas las actividades bajo tu cuenta"
+          ]
+        },
+        "acceptableUse": {
+          "title": "4. Política de Uso Aceptable",
+          "content": "Acuerdas no usar FormMaster para:",
+          "list": [
+            "Violar cualquier ley o regulación aplicable",
+            "Infringir derechos de propiedad intelectual",
+            "Recopilar información personal sensible sin consentimiento",
+            "Distribuir spam, malware o contenido dañino",
+            "Hacerse pasar por otros o tergiversarte",
+            "Interferir con o interrumpir nuestros servicios"
+          ]
+        },
+        "contentOwnership": {
+          "title": "5. Propiedad de Contenido y Datos",
+          "content": "Conservas la propiedad de todo el contenido y datos que creas o subes a FormMaster. Al usar nuestro servicio, nos otorgas una licencia limitada para procesar, almacenar y mostrar tu contenido según sea necesario para proporcionar el servicio."
+        },
+        "serviceAvailability": {
+          "title": "6. Disponibilidad del Servicio",
+          "content": "Aunque nos esforzamos por mantener alta disponibilidad, no garantizamos que nuestro servicio esté disponible el 100% del tiempo. Podemos experimentar tiempo de inactividad por mantenimiento, actualizaciones o circunstancias imprevistas."
+        },
+        "limitationOfLiability": {
+          "title": "7. Limitación de Responsabilidad",
+          "content": "FormMaster no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo, incluyendo sin limitación, pérdida de ganancias, datos, uso, buena voluntad u otras pérdidas intangibles."
+        },
+        "termination": {
+          "title": "8. Terminación",
+          "content": "Podemos terminar o suspender tu cuenta y acceso al servicio inmediatamente, sin previo aviso, por conducta que creemos que viola estos Términos de Servicio o es dañina para otros usuarios, nosotros o terceros."
+        },
+        "changes": {
+          "title": "9. Cambios en los Términos",
+          "content": "Nos reservamos el derecho de modificar o reemplazar estos Términos en cualquier momento. Si una revisión es material, trataremos de proporcionar al menos 30 días de aviso antes de que los nuevos términos entren en vigor."
+        },
+        "contact": {
+          "title": "10. Información de Contacto",
+          "content": "Si tienes alguna pregunta sobre estos Términos de Servicio, por favor contáctanos en:",
+          "email": "angeljonasrosales@gmail.com"
+        }
+      }
+    },
+    "privacyPolicy": {
+      "title": "Política de Privacidad",
+      "lastUpdated": "Última actualización: Diciembre 2024",
+      "sections": {
+        "informationWeCollect": {
+          "title": "1. Información que Recopilamos",
+          "content": "Cuando usas FormMaster, recopilamos información que nos proporcionas directamente, como cuando creas una cuenta, construyes formularios o contactas a nuestro equipo de soporte.",
+          "list": [
+            "Información de cuenta (nombre, dirección de email, contraseña)",
+            "Datos de formularios y respuestas que creas o envías",
+            "Información de perfil y preferencias",
+            "Datos de comunicación cuando nos contactas"
+          ]
+        },
+        "howWeUseInformation": {
+          "title": "2. Cómo Usamos Tu Información",
+          "content": "Usamos la información que recopilamos para proporcionar, mantener y mejorar nuestros servicios, incluyendo:",
+          "list": [
+            "Proporcionar y mantener el servicio FormMaster",
+            "Procesar y almacenar tus formularios y respuestas",
+            "Enviarte avisos técnicos y mensajes de soporte",
+            "Mejorar nuestro servicio y desarrollar nuevas características"
+          ]
+        },
+        "informationSharing": {
+          "title": "3. Compartir Información",
+          "content": "No vendemos, intercambiamos o transferimos de otra manera tu información personal a terceros sin tu consentimiento, excepto como se describe en esta política:",
+          "list": [
+            "Con tu consentimiento explícito",
+            "Para cumplir con obligaciones legales",
+            "Para proteger nuestros derechos y seguridad",
+            "Con proveedores de servicios confiables que asisten nuestras operaciones"
+          ]
+        },
+        "dataSecurity": {
+          "title": "4. Seguridad de Datos",
+          "content": "Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción. Esto incluye:",
+          "list": [
+            "Encriptación de datos en tránsito y en reposo",
+            "Evaluaciones y actualizaciones de seguridad regulares",
+            "Controles de acceso y medidas de autenticación",
+            "Infraestructura en la nube segura (AWS, Cloudflare)"
+          ]
+        },
+        "yourRights": {
+          "title": "5. Tus Derechos",
+          "content": "Tienes el derecho a:",
+          "list": [
+            "Acceder a tu información personal",
+            "Corregir información inexacta",
+            "Eliminar tu cuenta y datos",
+            "Exportar tus datos",
+            "Optar por no recibir comunicaciones"
+          ]
+        },
+        "dataRetention": {
+          "title": "6. Retención de Datos",
+          "content": "Retenemos tu información mientras tu cuenta esté activa o según sea necesario para proporcionarte servicios. Eliminaremos tu información al eliminar la cuenta, excepto donde se nos requiera retenerla por ley."
+        },
+        "changes": {
+          "title": "7. Cambios en Esta Política",
+          "content": "Podemos actualizar esta política de privacidad de vez en cuando. Te notificaremos de cualquier cambio publicando la nueva política en esta página y actualizando la fecha de \"última actualización\"."
+        },
+        "contact": {
+          "title": "8. Contáctanos",
+          "content": "Si tienes alguna pregunta sobre esta política de privacidad, por favor contáctanos en:",
+          "email": "angeljonasrosales@gmail.com"
+        }
+      }
+    }
   }
 }

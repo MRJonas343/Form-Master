@@ -1,181 +1,167 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
 	title: "Cookie Policy - FormMaster",
 	description: "FormMaster's cookie policy and usage information",
 };
 
-export default function CookiePolicyPage() {
+export default async function CookiePolicyPage() {
+	const t = await getTranslations("legal.cookiePolicy");
 	return (
 		<div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-4xl">
 				<div className="mb-8">
 					<h1 className="mb-4 font-bold text-4xl text-foreground">
-						Cookie Policy
+						{t("title")}
 					</h1>
-					<p className="text-muted-foreground">Last updated: December 2024</p>
+					<p className="text-muted-foreground">{t("lastUpdated")}</p>
 				</div>
 
 				<div className="prose prose-gray dark:prose-invert max-w-none">
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							1. What Are Cookies
+							{t("sections.whatAreCookies.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							Cookies are small text files that are stored on your computer or
-							mobile device when you visit a website. They help websites
-							remember information about your visit, which can make it easier to
-							visit the site again and make the site more useful to you.
+							{t("sections.whatAreCookies.content")}
 						</p>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							2. How We Use Cookies
+							{t("sections.howWeUseCookies.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							FormMaster uses cookies to enhance your experience and provide
-							essential functionality:
+							{t("sections.howWeUseCookies.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Authentication and security</li>
-							<li>• User preferences and settings</li>
-							<li>• Performance monitoring and analytics</li>
-							<li>• Feature functionality and user experience</li>
+							{t.raw("sections.howWeUseCookies.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							3. Types of Cookies We Use
+							{t("sections.typesOfCookies.title")}
 						</h2>
 
 						<div className="mb-6">
 							<h3 className="mb-2 font-semibold text-foreground text-xl">
-								Essential Cookies
+								{t("sections.typesOfCookies.essential.title")}
 							</h3>
 							<p className="mb-4 text-muted-foreground leading-relaxed">
-								These cookies are necessary for the website to function and
-								cannot be switched off in our systems. They are usually only set
-								in response to actions made by you which amount to a request for
-								services.
+								{t("sections.typesOfCookies.essential.content")}
 							</p>
 							<ul className="mb-4 space-y-2 text-muted-foreground">
-								<li>• Session authentication cookies</li>
-								<li>• Security and fraud prevention</li>
-								<li>• Load balancing cookies</li>
+								{t
+									.raw("sections.typesOfCookies.essential.list")
+									.map((item: string) => (
+										<li key={item}>• {item}</li>
+									))}
 							</ul>
 						</div>
 
 						<div className="mb-6">
 							<h3 className="mb-2 font-semibold text-foreground text-xl">
-								Functional Cookies
+								{t("sections.typesOfCookies.functional.title")}
 							</h3>
 							<p className="mb-4 text-muted-foreground leading-relaxed">
-								These cookies enable the website to provide enhanced
-								functionality and personalization based on your interactions.
+								{t("sections.typesOfCookies.functional.content")}
 							</p>
 							<ul className="mb-4 space-y-2 text-muted-foreground">
-								<li>• User preferences (theme, language)</li>
-								<li>• Form data temporary storage</li>
-								<li>• UI state and settings</li>
+								{t
+									.raw("sections.typesOfCookies.functional.list")
+									.map((item: string) => (
+										<li key={item}>• {item}</li>
+									))}
 							</ul>
 						</div>
 
 						<div className="mb-6">
 							<h3 className="mb-2 font-semibold text-foreground text-xl">
-								Analytics Cookies
+								{t("sections.typesOfCookies.analytics.title")}
 							</h3>
 							<p className="mb-4 text-muted-foreground leading-relaxed">
-								These cookies help us understand how visitors interact with our
-								website by collecting and reporting information anonymously.
+								{t("sections.typesOfCookies.analytics.content")}
 							</p>
 							<ul className="mb-4 space-y-2 text-muted-foreground">
-								<li>• Page view tracking</li>
-								<li>• User behavior analytics</li>
-								<li>• Performance monitoring</li>
+								{t
+									.raw("sections.typesOfCookies.analytics.list")
+									.map((item: string) => (
+										<li key={item}>• {item}</li>
+									))}
 							</ul>
 						</div>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							4. Third-Party Cookies
+							{t("sections.thirdPartyCookies.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We may use third-party services that set their own cookies to
-							provide functionality or analytics:
+							{t("sections.thirdPartyCookies.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• NextAuth.js for authentication</li>
-							<li>• Cloudflare for security and performance</li>
-							<li>• GitHub OAuth for social login</li>
+							{t.raw("sections.thirdPartyCookies.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							5. Managing Cookies
+							{t("sections.managingCookies.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							Most web browsers allow you to control cookies through their
-							settings preferences. However, if you limit the ability of
-							websites to set cookies, you may worsen your overall user
-							experience.
+							{t("sections.managingCookies.content")}
 						</p>
 
 						<div className="mb-6">
 							<h3 className="mb-2 font-semibold text-foreground text-xl">
-								Browser Settings
+								{t("sections.managingCookies.browserSettings.title")}
 							</h3>
 							<p className="mb-4 text-muted-foreground leading-relaxed">
-								You can control and/or delete cookies as you wish. You can
-								delete all cookies that are already on your computer and you can
-								set most browsers to prevent them from being placed.
+								{t("sections.managingCookies.browserSettings.content")}
 							</p>
 						</div>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							6. Cookie Retention
+							{t("sections.cookieRetention.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							Different types of cookies have different lifespans:
+							{t("sections.cookieRetention.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Session cookies: Deleted when you close your browser</li>
-							<li>
-								• Persistent cookies: Remain for a set period (usually 30 days
-								to 1 year)
-							</li>
-							<li>• Authentication cookies: Last until you log out</li>
+							{t.raw("sections.cookieRetention.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							7. Updates to This Policy
+							{t("sections.updates.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We may update this Cookie Policy from time to time to reflect
-							changes in our practices or for other operational, legal, or
-							regulatory reasons. We will notify you of any material changes.
+							{t("sections.updates.content")}
 						</p>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							8. Contact Us
+							{t("sections.contact.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							If you have any questions about our use of cookies, please contact
-							us at:{" "}
+							{t("sections.contact.content")}{" "}
 							<a
 								className="text-primary hover:underline"
-								href="mailto:angeljonasrosales@gmail.com"
+								href={`mailto:${t("sections.contact.email")}`}
 							>
-								angeljonasrosales@gmail.com
+								{t("sections.contact.email")}
 							</a>
 						</p>
 					</section>

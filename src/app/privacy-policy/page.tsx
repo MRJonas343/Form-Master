@@ -1,142 +1,127 @@
 import type { Metadata } from "next";
+import { getTranslations } from "next-intl/server";
 
 export const metadata: Metadata = {
 	title: "Privacy Policy - FormMaster",
 	description: "FormMaster's privacy policy and data protection practices",
 };
 
-export default function PrivacyPolicyPage() {
+export default async function PrivacyPolicyPage() {
+	const t = await getTranslations("legal.privacyPolicy");
 	return (
 		<div className="container mx-auto px-4 py-16 sm:px-6 lg:px-8">
 			<div className="mx-auto max-w-4xl">
 				<div className="mb-8">
 					<h1 className="mb-4 font-bold text-4xl text-foreground">
-						Privacy Policy
+						{t("title")}
 					</h1>
-					<p className="text-muted-foreground">Last updated: December 2024</p>
+					<p className="text-muted-foreground">{t("lastUpdated")}</p>
 				</div>
 
 				<div className="prose prose-gray dark:prose-invert max-w-none">
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							1. Information We Collect
+							{t("sections.informationWeCollect.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							When you use FormMaster, we collect information that you provide
-							directly to us, such as when you create an account, build forms,
-							or contact our support team.
+							{t("sections.informationWeCollect.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Account information (name, email address, password)</li>
-							<li>• Form data and responses you create or submit</li>
-							<li>• Profile information and preferences</li>
-							<li>• Communication data when you contact us</li>
+							{t
+								.raw("sections.informationWeCollect.list")
+								.map((item: string) => (
+									<li key={item}>• {item}</li>
+								))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							2. How We Use Your Information
+							{t("sections.howWeUseInformation.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We use the information we collect to provide, maintain, and
-							improve our services, including:
+							{t("sections.howWeUseInformation.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Providing and maintaining the FormMaster service</li>
-							<li>• Processing and storing your forms and responses</li>
-							<li>• Sending you technical notices and support messages</li>
-							<li>• Improving our service and developing new features</li>
+							{t
+								.raw("sections.howWeUseInformation.list")
+								.map((item: string) => (
+									<li key={item}>• {item}</li>
+								))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							3. Information Sharing
+							{t("sections.informationSharing.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We do not sell, trade, or otherwise transfer your personal
-							information to third parties without your consent, except as
-							described in this policy:
+							{t("sections.informationSharing.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• With your explicit consent</li>
-							<li>• To comply with legal obligations</li>
-							<li>• To protect our rights and safety</li>
-							<li>
-								• With trusted service providers who assist our operations
-							</li>
+							{t.raw("sections.informationSharing.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							4. Data Security
+							{t("sections.dataSecurity.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We implement appropriate security measures to protect your
-							personal information against unauthorized access, alteration,
-							disclosure, or destruction. This includes:
+							{t("sections.dataSecurity.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Encryption of data in transit and at rest</li>
-							<li>• Regular security assessments and updates</li>
-							<li>• Access controls and authentication measures</li>
-							<li>• Secure cloud infrastructure (AWS, Cloudflare)</li>
+							{t.raw("sections.dataSecurity.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							5. Your Rights
+							{t("sections.yourRights.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							You have the right to:
+							{t("sections.yourRights.content")}
 						</p>
 						<ul className="mb-4 space-y-2 text-muted-foreground">
-							<li>• Access your personal information</li>
-							<li>• Correct inaccurate information</li>
-							<li>• Delete your account and data</li>
-							<li>• Export your data</li>
-							<li>• Opt-out of communications</li>
+							{t.raw("sections.yourRights.list").map((item: string) => (
+								<li key={item}>• {item}</li>
+							))}
 						</ul>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							6. Data Retention
+							{t("sections.dataRetention.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We retain your information for as long as your account is active
-							or as needed to provide you services. We will delete your
-							information upon account deletion, except where we are required to
-							retain it by law.
+							{t("sections.dataRetention.content")}
 						</p>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							7. Changes to This Policy
+							{t("sections.changes.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							We may update this privacy policy from time to time. We will
-							notify you of any changes by posting the new policy on this page
-							and updating the "last updated" date.
+							{t("sections.changes.content")}
 						</p>
 					</section>
 
 					<section className="mb-8">
 						<h2 className="mb-4 font-semibold text-2xl text-foreground">
-							8. Contact Us
+							{t("sections.contact.title")}
 						</h2>
 						<p className="mb-4 text-muted-foreground leading-relaxed">
-							If you have any questions about this privacy policy, please
-							contact us at:{" "}
+							{t("sections.contact.content")}{" "}
 							<a
 								className="text-primary hover:underline"
-								href="mailto:angeljonasrosales@gmail.com"
+								href={`mailto:${t("sections.contact.email")}`}
 							>
-								angeljonasrosales@gmail.com
+								{t("sections.contact.email")}
 							</a>
 						</p>
 					</section>

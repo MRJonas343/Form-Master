@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/next";
 import { SessionProvider } from "next-auth/react";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
@@ -18,17 +19,18 @@ export default async function RootLayout({
 	return (
 		<SessionProvider>
 			<html
+				className="light bg-background text-foreground"
 				lang={locale}
-				className="light text-foreground bg-background"
 				suppressHydrationWarning
 			>
 				<body
-					className={`${poppinsFont.className} antialiased text-black dark:text-white overflow-x-hidden dark:bg-[#1C1B29]`}
+					className={`${poppinsFont.className} overflow-x-hidden text-black antialiased dark:bg-[#1C1B29] dark:text-white`}
 				>
 					<NextIntlClientProvider messages={messages}>
 						<Providers>
 							{children}
 							<Snackbar />
+							<Analytics />
 						</Providers>
 					</NextIntlClientProvider>
 				</body>

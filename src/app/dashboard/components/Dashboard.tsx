@@ -23,31 +23,33 @@ export const Dashboard = ({
 }: DashboardProps) => {
 	const [tab, setTab] = useState("my-forms");
 
-	const changeTab = (tab: string) => setTab(tab);
+	const changeTab = (selectedTab: string) => setTab(selectedTab);
+
+	const renderTabContent = () => {
+		if (tab === "my-forms") {
+			return <MyFormsTable forms={userForms} />;
+		}
+
+		if (tab === "join-us") {
+			return <JoinUsTab data={contacts} />;
+		}
+
+		if (tab === "my-answers") {
+			return <MyFilledForm filledForms={filledForms} />;
+		}
+
+		return <Issues tickets={tickets} />;
+	};
 
 	return (
 		<>
-			<div className="w-full flex flex-col lg:flex-row lg:max-w-[1280px] lg:mx-auto px-5">
-				<DashboardTabs selectedKey={tab} changeTab={(tab) => changeTab(tab)} />
+			<div className="flex w-full flex-col px-5 lg:mx-auto lg:max-w-[1280px] lg:flex-row">
+				<DashboardTabs
+					changeTab={(selectedTab) => changeTab(selectedTab)}
+					selectedKey={tab}
+				/>
 			</div>
-			{tab === "my-forms" ? (
-				<>
-					{" "}
-					<MyFormsTable forms={userForms} />{" "}
-				</>
-			) : tab === "join-us" ? (
-				<>
-					<JoinUsTab data={contacts} />
-				</>
-			) : tab === "my-answers" ? (
-				<>
-					<MyFilledForm filledForms={filledForms} />
-				</>
-			) : (
-				<>
-					<Issues tickets={tickets} />
-				</>
-			)}
+			{renderTabContent()}
 		</>
 	);
 };

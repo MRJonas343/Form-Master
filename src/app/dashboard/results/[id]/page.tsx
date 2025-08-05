@@ -11,14 +11,14 @@ const page = async ({ params }: { params: { id: string } }) => {
 
 	if (!session) return redirect("/login");
 
-	const form = await getFormById(Number.parseInt(params.id));
+	const form = await getFormById(Number.parseInt(params.id, 10));
 
 	if (!form) return redirect("/");
 
 	if (form.author_id !== session.user.id) return redirect("/");
 
 	const responses = (await getFormResults(
-		Number.parseInt(params.id),
+		Number.parseInt(params.id, 10)
 	)) as FormeResults[];
 
 	return (

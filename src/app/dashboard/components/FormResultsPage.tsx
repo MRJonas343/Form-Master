@@ -1,7 +1,10 @@
 "use client";
 
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
+import { Button } from "@nextui-org/button";
 import { ScrollShadow } from "@nextui-org/react";
+import { Download } from "lucide-react";
+import { CSVLink } from "react-csv";
 import { BarChart } from "@/components/BarChart";
 import { DonutChart } from "@/components/DonuChart";
 import type { FormeResults } from "@/interfaces";
@@ -10,59 +13,87 @@ import {
 	formatDataForNumericBarChart,
 	formatDataForPieChart,
 } from "../utils";
+import { prepareCSVData } from "../utils/CSV-export";
 
 export const FormResultsPage = ({ data }: { data: FormeResults[] }) => {
+	const csvData = prepareCSVData(data);
+	const csvHeaders = [
+		{ label: "Question", key: "Question" },
+		{ label: "Type", key: "Type" },
+		{ label: "Option", key: "Option" },
+		{ label: "Count", key: "Count" },
+		{ label: "Answer", key: "Answer" },
+		{ label: "Answer Index", key: "Answer Index" },
+	];
+
 	return (
-		<div className="flex flex-col w-[95%] mx-auto mb-10">
+		<div className="mx-auto mb-10 flex w-[95%] flex-col">
+			{/* Export Button */}
+			<div className="mt-5 mb-6 flex justify-start">
+				<CSVLink
+					data={csvData}
+					filename={`form-results-${new Date().toISOString().split("T")[0]}.csv`}
+					headers={csvHeaders}
+				>
+					<Button
+						color="primary"
+						radius="sm"
+						startContent={<Download size={16} />}
+						variant="shadow"
+					>
+						Export to CSV
+					</Button>
+				</CSVLink>
+			</div>
 			{data.map((questionData) => (
-				<div key={questionData.questionId} className="mt-4 mb-4">
-					<h3 className="text-lg lg:text-2xl font-semibold mb-4 text-center">
+				<div className="mt-4 mb-4" key={questionData.questionId}>
+					<h3 className="mb-4 text-center font-semibold text-lg lg:text-2xl">
 						{questionData.question}
 					</h3>
 
 					{questionData.type === "multiple" && (
-						<div className="w-full flex justify-center">
+						<div className="flex w-full justify-center">
 							<BarChart
+								categories={["Count"]}
 								className="h-80 w-full max-w-[1280px]"
 								data={formatDataForBarChart(questionData)}
 								index="option"
-								categories={["Count"]}
 								valueFormatter={(value: number) => `${value}`}
 							/>
 						</div>
 					)}
 					{questionData.type === "single" && (
-						<div className="flex flex-col w-full items-center">
-							<div className="flex gap-2 mb-4">
+						<div className="flex w-full flex-col items-center">
+							<div className="mb-4 flex gap-2">
 								<div className="flex items-center gap-2">
-									No <div className="bg-[#10b981] w-3 h-3 rounded-sm" />
+									No <div className="h-3 w-3 rounded-sm bg-[#10b981]" />
 								</div>
 								<div className="flex items-center gap-2">
-									Yes <div className="bg-[#3b82f6] w-3 h-3 rounded-sm" />
+									Yes <div className="h-3 w-3 rounded-sm bg-[#3b82f6]" />
 								</div>
 							</div>
 							<DonutChart
-								data={formatDataForPieChart(questionData)}
-								variant="pie"
 								category="name"
+								data={formatDataForPieChart(questionData)}
 								value="amount"
+								variant="pie"
 							/>
 						</div>
 					)}
 					{questionData.type === "numeric" && (
-						<div className="w-full flex justify-center">
+						<div className="flex w-full justify-center">
 							<BarChart
+								categories={["Count"]}
 								className="h-80 w-full max-w-[1280px]"
 								data={formatDataForNumericBarChart(questionData)}
 								index="number"
-								categories={["Count"]}
 								valueFormatter={(value: number) => `${value}`}
 							/>
 						</div>
 					)}
 					{questionData.type === "long" && (
-						<div className="w-full flex justify-center">
-							<ScrollShadow className=" w-[95%] h-[400px] max-w-[1280px]">
+						<div className="flex w-full justify-center">
+							<ScrollShadow className="h-[400px] w-[95%] max-w-[1280px]">
 								<Accordion variant="light">
 									{questionData.answers.map((answer, index) => {
 										return (
@@ -80,8 +111,8 @@ export const FormResultsPage = ({ data }: { data: FormeResults[] }) => {
 						</div>
 					)}
 					{questionData.type === "short" && (
-						<div className="w-full flex justify-center">
-							<ScrollShadow className=" w-[95%] h-[400px] max-w-[1280px]">
+						<div className="flex w-full justify-center">
+							<ScrollShadow className="h-[400px] w-[95%] max-w-[1280px]">
 								<Accordion variant="light">
 									{questionData.answers.map((answer, index) => {
 										return (

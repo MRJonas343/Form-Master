@@ -13,7 +13,6 @@ import {
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useTranslations } from "next-intl";
-import { FilledFormsColumns } from "@/constants";
 import { type GenericItem, useSortableList } from "@/hooks/useSortableList";
 import type { FilledForm } from "@/interfaces";
 
@@ -33,7 +32,7 @@ export const MyFilledForm = ({
 	const { data: session } = useSession();
 
 	const gotoForm = (formId: number) => {
-		if (!formId || !session?.user) return;
+		if (!(formId && session?.user)) return;
 		router.push(`/filled-form/${formId}/${session.user.id}`);
 	};
 
@@ -44,45 +43,40 @@ export const MyFilledForm = ({
 	];
 
 	return (
-		<>
-			<section className="w-full flex justify-center mt-3">
-				<Table
-					aria-label="Admin Table"
-					//@ts-ignore
-					onSelectionChange={(keys) => gotoForm([...keys][0])}
-					radius="md"
-					color="primary"
-					selectionMode="single"
-					className="w-[95%] max-w-[1280px]"
-					sortDescriptor={list.sortDescriptor}
-					onSortChange={list.sort}
+		<section className="mt-3 flex w-full justify-center">
+			<Table
+				aria-label="Admin Table"
+				className="w-[95%] max-w-[1280px]"
+				color="primary"
+				//@ts-expect-error
+				onSelectionChange={(keys) => gotoForm([...keys][0])}
+				onSortChange={list.sort}
+				radius="md"
+				selectionMode="single"
+				sortDescriptor={list.sortDescriptor}
+			>
+				<TableHeader columns={tableColumns}>
+					{(column) => (
+						<TableColumn className="lg:text-lg" key={column.key}>
+							{t(column.key)}
+						</TableColumn>
+					)}
+				</TableHeader>
+				<TableBody
+					emptyContent="No filled forms found"
+					isLoading={isLoading}
+					items={list.items}
+					loadingContent={<Spinner label="Loading..." size="lg" />}
 				>
-					<TableHeader columns={tableColumns}>
-						{(column) => (
-							<TableColumn className="lg:text-lg" key={column.key}>
-								{t(column.key)}
-							</TableColumn>
-						)}
-					</TableHeader>
-					<TableBody
-						emptyContent="No filled forms found"
-						items={list.items}
-						isLoading={isLoading}
-						loadingContent={<Spinner size="lg" label="Loading..." />}
-					>
-						{(item) => (
-							<TableRow
-								key={item.formId as React.Key}
-								className="cursor-pointer"
-							>
-								{(columnKey) => (
-									<TableCell>{getKeyValue(item, columnKey)}</TableCell>
-								)}
-							</TableRow>
-						)}
-					</TableBody>
-				</Table>
-			</section>
-		</>
+					{(item) => (
+						<TableRow className="cursor-pointer" key={item.formId as React.Key}>
+							{(columnKey) => (
+								<TableCell>{getKeyValue(item, columnKey)}</TableCell>
+							)}
+						</TableRow>
+					)}
+				</TableBody>
+			</Table>
+		</section>
 	);
 };

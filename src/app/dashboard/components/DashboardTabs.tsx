@@ -17,20 +17,18 @@ export const DashboardTabs: FC<DashboardTabsProps> = ({
 
 	return (
 		<Tabs
-			size="lg"
-			radius="sm"
-			variant="underlined"
-			defaultSelectedKey="my-forms"
 			aria-label="Options"
-			selectedKey={selectedKey}
-			onSelectionChange={(key) => changeTab(key as string)}
-			color="primary"
 			className="mt-6"
+			color="primary"
+			defaultSelectedKey="my-forms"
+			onSelectionChange={(key) => changeTab(key as string)}
+			radius="sm"
+			selectedKey={selectedKey}
+			size="lg"
+			variant="underlined"
 		>
 			<Tab key="my-forms" title={t("myForms")} />
 			<Tab key="my-answers" title={t("myAnswers")} />
-			<Tab key="join-us" title={t("joinUs")} />
-			<Tab key="issues" title={t("issues")} />
 		</Tabs>
 	);
 };

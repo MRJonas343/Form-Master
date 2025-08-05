@@ -2,7 +2,6 @@ import { redirect } from "next/navigation";
 import { auth } from "@/auth";
 import { NavBar } from "@/components";
 import type { IssuesFromJira } from "@/interfaces/IssuesFromJira";
-import type { SalesForceUser } from "@/interfaces/SalesForceAccount";
 import { getFilledFormsByUser } from "@/services/forms/getFilledForms";
 import { getUserForms } from "@/services/forms/getUserForms";
 import { searchContactByEmail } from "@/services/salesforce/searchAccount";
@@ -38,10 +37,10 @@ const page = async () => {
 		<>
 			<NavBar />
 			<Dashboard
-				userForms={userForms}
-				filledForms={filledForms}
 				contacts={contactData}
+				filledForms={filledForms}
 				tickets={tickets}
+				userForms={userForms}
 			/>
 		</>
 	);

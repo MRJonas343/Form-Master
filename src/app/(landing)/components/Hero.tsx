@@ -72,7 +72,7 @@ export const Hero = () => {
 
 						{/* Hero Image */}
 						<div className="relative animate-scale-in">
-							<div className="relative overflow-hidden rounded-2xl shadow-large">
+							<div className="relative overflow-hidden rounded-2xl">
 								<ImageContainer />
 								<div className="absolute inset-0 bg-gradient-to-tr from-primary/20 via-transparent to-transparent" />
 							</div>

@@ -1,9 +1,8 @@
+import type { FC } from "react";
 import type { NewFilledForm } from "@/interfaces";
 
-export const EmailTemplate: React.FC<Readonly<NewFilledForm>> = ({
+export const EmailTemplate: FC<Readonly<NewFilledForm>> = ({
 	form,
-	formId,
-	userId,
 	userName,
 	formName,
 }) => (

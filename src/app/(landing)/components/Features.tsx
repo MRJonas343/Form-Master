@@ -1,4 +1,4 @@
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 import {
 	BarChart3,
 	Globe,
@@ -152,8 +152,10 @@ export const Features = async () => {
 						<p className="mb-6 text-muted-foreground">{t("cta.text")}</p>
 						<div className="flex flex-col justify-center gap-4 sm:flex-row">
 							<Button
+								as={Link}
 								color="primary"
 								endContent={<Sparkles className="h-4 w-4" />}
+								href="/register"
 								variant="shadow"
 							>
 								{t("cta.button")}

@@ -308,6 +308,74 @@
           "description": "Get instant analytics with beautiful charts. Export data, track trends, and make data-driven decisions effortlessly."
         }
       }
+    },
+    "footer": {
+      "brand": {
+        "name": "FormMaster",
+        "description": "The modern form builder for teams that ship. Create powerful forms with enterprise-grade features."
+      },
+      "product": {
+        "title": "Product",
+        "features": "Features",
+        "howItWorks": "How it works"
+      },
+      "company": {
+        "title": "Company",
+        "description": "Company? Im just a single developer 😭"
+      },
+      "techStack": {
+        "title": "Built with Modern Technology"
+      },
+      "copyright": "© 2024 FormMaster. Developed by Jonas. All rights reserved.",
+      "legal": {
+        "privacy": "Privacy Policy",
+        "terms": "Terms of Service",
+        "cookies": "Cookie Policy"
+      }
+    },
+    "mockFormBuilder": {
+      "questions": {
+        "questionName": "Question Name",
+        "questionType": "Question Type",
+        "description": "Description",
+        "options": "Options",
+        "displayInTable": "Display in table",
+        "preview": "Preview:",
+        "questionNamePlaceholder": "Question name..."
+      },
+      "questionTypes": {
+        "short": "Short Text",
+        "long": "Long Text",
+        "numeric": "Numeric",
+        "single": "Single Choice",
+        "multiple": "Multiple Choice"
+      },
+      "answers": {
+        "yourAnswer": "Your answer",
+        "enterAnswer": "Enter your answer...",
+        "enterDetailedAnswer": "Enter your detailed answer...",
+        "enterNumber": "Enter a number...",
+        "yes": "Yes",
+        "checkIfApplicable": "Check if applicable"
+      },
+      "options": {
+        "option": "Option"
+      },
+      "demo": {
+        "notice": "🎯 This is a interactive demo matching your real form builder!",
+        "signUp": "Sign up to create real forms"
+      },
+      "defaultQuestions": {
+        "rating": {
+          "question": "How would you rate our service?",
+          "description": "Please select one option",
+          "options": ["Excellent", "Good", "Fair", "Poor"]
+        },
+        "feedback": {
+          "question": "What can we improve?",
+          "description": "Share your detailed feedback"
+        }
+      }
     }
   }
 }

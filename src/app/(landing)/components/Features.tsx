@@ -13,11 +13,12 @@ import {
 	Users,
 	Zap,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { Card } from "./Cards";
 
-export const Features = () => {
-	const t = useTranslations("landingPage.features");
+export const Features = async () => {
+	const t = await getTranslations("landingPage.features");
+
 	const features = [
 		{
 			icon: Layout,
@@ -148,16 +149,14 @@ export const Features = () => {
 
 					{/* Bottom CTA */}
 					<div className="mt-16 animate-fade-in text-center">
-						<p className="mb-6 text-muted-foreground">
-							Ready to experience the next generation of form builders?
-						</p>
+						<p className="mb-6 text-muted-foreground">{t("cta.text")}</p>
 						<div className="flex flex-col justify-center gap-4 sm:flex-row">
 							<Button
 								color="primary"
 								endContent={<Sparkles className="h-4 w-4" />}
 								variant="shadow"
 							>
-								Start Building Forms
+								{t("cta.button")}
 							</Button>
 						</div>
 					</div>

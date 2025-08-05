@@ -1,6 +1,9 @@
 import { Github, Mail } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export const Footer = () => {
+export const Footer = async () => {
+	const t = await getTranslations("landingPage.footer");
+
 	return (
 		<footer className="border-border border-t bg-muted/30">
 			<div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
@@ -14,12 +17,11 @@ export const Footer = () => {
 									<span className="font-bold text-lg text-white">F</span>
 								</div>
 								<span className="font-bold text-foreground text-xl">
-									FormMaster
+									{t("brand.name")}
 								</span>
 							</div>
 							<p className="text-muted-foreground text-sm leading-relaxed">
-								The modern form builder for teams that ship. Create powerful
-								forms with enterprise-grade features.
+								{t("brand.description")}
 							</p>
 							<div className="flex space-x-4">
 								<a
@@ -40,14 +42,16 @@ export const Footer = () => {
 
 						{/* Product */}
 						<div>
-							<h3 className="mb-4 font-semibold text-foreground">Product</h3>
+							<h3 className="mb-4 font-semibold text-foreground">
+								{t("product.title")}
+							</h3>
 							<ul className="space-y-2 text-sm">
 								<li>
 									<a
 										className="text-muted-foreground transition-colors hover:text-foreground"
 										href="#features"
 									>
-										Features
+										{t("product.features")}
 									</a>
 								</li>
 								<li>
@@ -55,7 +59,7 @@ export const Footer = () => {
 										className="text-muted-foreground transition-colors hover:text-foreground"
 										href="#how-it-works"
 									>
-										How it works
+										{t("product.howItWorks")}
 									</a>
 								</li>
 							</ul>
@@ -63,11 +67,13 @@ export const Footer = () => {
 
 						{/* Company */}
 						<div>
-							<h3 className="mb-4 font-semibold text-foreground">Company</h3>
+							<h3 className="mb-4 font-semibold text-foreground">
+								{t("company.title")}
+							</h3>
 							<ul className="space-y-2 text-sm">
 								<li>
 									<p className="text-muted-foreground transition-colors hover:text-foreground">
-										Company? Im just a single developer 😭
+										{t("company.description")}
 									</p>
 								</li>
 							</ul>
@@ -77,7 +83,7 @@ export const Footer = () => {
 					{/* Tech Stack */}
 					<div className="mb-8 border-border border-t pt-8">
 						<h3 className="mb-4 text-center font-semibold text-foreground">
-							Built with Modern Technology
+							{t("techStack.title")}
 						</h3>
 						<div className="flex flex-wrap justify-center gap-6 text-muted-foreground text-sm">
 							<span className="rounded-full bg-muted px-3 py-1">Next.js</span>
@@ -99,27 +105,25 @@ export const Footer = () => {
 
 					{/* Bottom Bar */}
 					<div className="flex flex-col items-center justify-between border-border border-t pt-8 text-muted-foreground text-sm md:flex-row">
-						<div className="mb-4 md:mb-0">
-							© 2024 FormMaster. Developed by Jonas. All rights reserved.
-						</div>
+						<div className="mb-4 md:mb-0">{t("copyright")}</div>
 						<div className="flex space-x-6">
 							<a
 								className="transition-colors hover:text-foreground"
 								href="/privacy-policy"
 							>
-								Privacy Policy
+								{t("legal.privacy")}
 							</a>
 							<a
 								className="transition-colors hover:text-foreground"
 								href="/terms-of-service"
 							>
-								Terms of Service
+								{t("legal.terms")}
 							</a>
 							<a
 								className="transition-colors hover:text-foreground"
 								href="/cookie-policy"
 							>
-								Cookie Policy
+								{t("legal.cookies")}
 							</a>
 						</div>
 					</div>

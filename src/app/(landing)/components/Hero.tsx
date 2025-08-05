@@ -1,10 +1,11 @@
 import { Button, Link } from "@nextui-org/react";
 import { ArrowRight, Sparkles, UserPlus } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 import { ImageContainer } from "./ImageContainer";
 
-export const Hero = () => {
-	const t = useTranslations("landingPage.hero");
+export const Hero = async () => {
+	const t = await getTranslations("landingPage.hero");
+
 	return (
 		<section className="relative overflow-hidden bg-gradient-to-br from-background via-muted/20 to-primary/5 pt-20 pb-16">
 			{/* Background Pattern */}

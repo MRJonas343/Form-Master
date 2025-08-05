@@ -55,73 +55,73 @@ export const AdminTable = ({ data }: { data: Users[] }) => {
 
 	return (
 		<>
-			<h1 className="text-center mt-6 text-xl sm:text-2xl md:text-3xl font-semibold">
+			<h1 className="mt-6 text-center font-semibold text-xl sm:text-2xl md:text-3xl">
 				{t("adminTable")} 🚀
 			</h1>
-			<div className="w-[95%] flex justify-end gap-2 mt-3 mx-auto max-w-[1280px]">
+			<div className="mx-auto mt-3 flex w-[95%] max-w-[1280px] justify-end gap-2">
 				<Button
-					radius="sm"
+					className="font-semibold"
+					color="primary"
 					onClick={() =>
 						handleSwitchUserRole(selectedIdsRef.current, data, setUsers)
 					}
-					color="primary"
+					radius="sm"
 					variant="flat"
-					className="font-semibold"
 				>
 					{t("switchRole")}
 				</Button>
 				<Button
-					radius="sm"
-					onClick={() => handleSeeForms()}
-					color="primary"
-					variant="flat"
 					className="font-semibold"
+					color="primary"
+					onClick={() => handleSeeForms()}
+					radius="sm"
+					variant="flat"
 				>
 					{t("forms")}
 				</Button>
 
 				<Button
 					color="primary"
-					variant="flat"
-					radius="sm"
+					isIconOnly
 					onClick={() =>
 						handleBlockUser(selectedIdsRef.current, data, setUsers)
 					}
-					isIconOnly
+					radius="sm"
+					variant="flat"
 				>
 					<FaLock size={16} />
 				</Button>
 				<Button
 					color="primary"
-					variant="flat"
-					radius="sm"
+					isIconOnly
 					onClick={() =>
 						handleUnlockUser(selectedIdsRef.current, data, setUsers)
 					}
-					isIconOnly
+					radius="sm"
+					variant="flat"
 				>
 					<FaUnlock size={16} />
 				</Button>
 
 				<Button
-					radius="sm"
+					color="danger"
+					isIconOnly
 					onClick={() =>
 						handleDeleteUser(selectedIdsRef.current, data, setUsers)
 					}
-					color="danger"
+					radius="sm"
 					variant="flat"
-					isIconOnly
 				>
 					<MdDelete size={20} />
 				</Button>
 			</div>
-			<div className="w-full flex justify-center mt-5">
+			<div className="mt-5 flex w-full justify-center">
 				<Table
-					className="w-[95%] max-w-[1280px]"
 					aria-label="Admin Table"
+					className="w-[95%] max-w-[1280px]"
+					color="primary"
 					onSelectionChange={handleSelectionChange}
 					radius="lg"
-					color="primary"
 					selectionMode="multiple"
 				>
 					<TableHeader columns={columns}>

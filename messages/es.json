@@ -307,6 +307,74 @@
           "description": "Obtén análisis instantáneos con gráficos hermosos. Exporta datos, rastrea tendencias y toma decisiones basadas en datos sin esfuerzo."
         }
       }
+    },
+    "footer": {
+      "brand": {
+        "name": "FormMaster",
+        "description": "El constructor de formularios moderno para equipos que entregan. Crea formularios poderosos con características de nivel empresarial."
+      },
+      "product": {
+        "title": "Producto",
+        "features": "Características",
+        "howItWorks": "Cómo funciona"
+      },
+      "company": {
+        "title": "Empresa",
+        "description": "¿Empresa? Solo soy un desarrollador solitario 😭"
+      },
+      "techStack": {
+        "title": "Construido con Tecnología Moderna"
+      },
+      "copyright": "© 2024 FormMaster. Desarrollado por Jonas. Todos los derechos reservados.",
+      "legal": {
+        "privacy": "Política de Privacidad",
+        "terms": "Términos de Servicio",
+        "cookies": "Política de Cookies"
+      }
+    },
+    "mockFormBuilder": {
+      "questions": {
+        "questionName": "Nombre de la Pregunta",
+        "questionType": "Tipo de Pregunta",
+        "description": "Descripción",
+        "options": "Opciones",
+        "displayInTable": "Mostrar en tabla",
+        "preview": "Vista previa:",
+        "questionNamePlaceholder": "Nombre de la pregunta..."
+      },
+      "questionTypes": {
+        "short": "Texto Corto",
+        "long": "Texto Largo",
+        "numeric": "Numérico",
+        "single": "Opción Única",
+        "multiple": "Opción Múltiple"
+      },
+      "answers": {
+        "yourAnswer": "Tu respuesta",
+        "enterAnswer": "Ingresa tu respuesta...",
+        "enterDetailedAnswer": "Ingresa tu respuesta detallada...",
+        "enterNumber": "Ingresa un número...",
+        "yes": "Sí",
+        "checkIfApplicable": "Marca si aplica"
+      },
+      "options": {
+        "option": "Opción"
+      },
+      "demo": {
+        "notice": "🎯 ¡Esta es una demo interactiva que coincide con tu constructor de formularios real!",
+        "signUp": "Regístrate para crear formularios reales"
+      },
+      "defaultQuestions": {
+        "rating": {
+          "question": "¿Cómo calificarías nuestro servicio?",
+          "description": "Por favor selecciona una opción",
+          "options": ["Excelente", "Bueno", "Regular", "Malo"]
+        },
+        "feedback": {
+          "question": "¿Qué podemos mejorar?",
+          "description": "Comparte tu retroalimentación detallada"
+        }
+      }
     }
   }
 }

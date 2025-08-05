@@ -1,4 +1,4 @@
-import type { NewQuestion, QuestionFieldProps } from ".";
+import type { QuestionFieldProps } from ".";
 
 export interface NewFilledForm {
 	form: QuestionFieldProps[];

@@ -5,6 +5,6 @@ export const hashPassword = async (password: string) => {
 	return hashSync(password, salt);
 };
 
-export const comparePassword = async (password: string, hash: string) => {
+export const comparePassword = (password: string, hash: string) => {
 	return compare(password, hash);
 };

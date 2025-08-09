@@ -3,6 +3,7 @@
 import { Accordion, AccordionItem } from "@nextui-org/accordion";
 import { Button } from "@nextui-org/button";
 import { ScrollShadow } from "@nextui-org/react";
+
 import { Download } from "lucide-react";
 import { CSVLink } from "react-csv";
 import { BarChart } from "@/components";
@@ -74,7 +75,7 @@ export const FormResultsPage = ({ data }: { data: FormeResults[] }) => {
 							</div>
 							<DonutChart
 								category="name"
-								data={formatDataForPieChart(questionData)}
+								data={formatDataForPieChart(questionData, data)}
 								value="amount"
 								variant="pie"
 							/>

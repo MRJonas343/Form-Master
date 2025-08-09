@@ -1,4 +1,4 @@
-import { eq, sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
 import { db } from "@/db";
 import { answers, options, questions } from "@/db/schemas";
 
@@ -42,7 +42,7 @@ async function getFormResponses(formId: number) {
 				options: optionsText,
 				answers: answerValues,
 			};
-		}),
+		})
 	);
 
 	return responses;

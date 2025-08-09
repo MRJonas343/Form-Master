@@ -47,7 +47,7 @@ function deepEqual<T>(obj1: T, obj2: T): boolean {
 	if (keys1.length !== keys2.length) return false;
 
 	for (const key of keys1) {
-		if (!keys2.includes(key) || !deepEqual(obj1[key], obj2[key])) return false;
+		if (!(keys2.includes(key) && deepEqual(obj1[key], obj2[key]))) return false;
 	}
 
 	return true;
@@ -59,7 +59,7 @@ const renderShape = (
 	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 	activeBar: any | undefined,
 	activeLegend: string | undefined,
-	layout: string,
+	layout: string
 ) => {
 	const { fillOpacity, name, payload, value } = props;
 	let { x, width, y, height } = props;
@@ -74,9 +74,6 @@ const renderShape = (
 
 	return (
 		<rect
-			x={x}
-			y={y}
-			width={width}
 			height={height}
 			opacity={
 				activeBar || (activeLegend && activeLegend !== name)
@@ -85,6 +82,9 @@ const renderShape = (
 						: 0.3
 					: fillOpacity
 			}
+			width={width}
+			x={x}
+			y={y}
 		/>
 	);
 };
@@ -113,7 +113,7 @@ const LegendItem = ({
 				"group inline-flex flex-nowrap items-center gap-1.5 whitespace-nowrap rounded px-2 py-1 transition",
 				hasOnValueChange
 					? "cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-800"
-					: "cursor-default",
+					: "cursor-default"
 			)}
 			onClick={(e) => {
 				e.stopPropagation();
@@ -121,12 +121,12 @@ const LegendItem = ({
 			}}
 		>
 			<span
+				aria-hidden={true}
 				className={cx(
 					"size-2 shrink-0 rounded-sm",
 					getColorClassName(color, "bg"),
-					activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
+					activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100"
 				)}
-				aria-hidden={true}
 			/>
 			<p
 				className={cx(
@@ -136,7 +136,7 @@ const LegendItem = ({
 					"text-gray-700 dark:text-gray-300",
 					hasOnValueChange &&
 						"group-hover:text-gray-900 dark:group-hover:text-gray-50",
-					activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100",
+					activeLegend && activeLegend !== name ? "opacity-40" : "opacity-100"
 				)}
 			>
 				{name}
@@ -176,13 +176,12 @@ const ScrollButton = ({ icon, onClick, disabled }: ScrollButtonProps) => {
 
 	return (
 		<button
-			type="button"
 			className={cx(
 				// base
 				"group inline-flex size-5 items-center truncate rounded transition",
 				disabled
 					? "cursor-not-allowed text-gray-400 dark:text-gray-600"
-					: "cursor-pointer text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-50",
+					: "cursor-pointer text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-300 dark:hover:bg-gray-800 dark:hover:text-gray-50"
 			)}
 			disabled={disabled}
 			onClick={(e) => {
@@ -197,8 +196,9 @@ const ScrollButton = ({ icon, onClick, disabled }: ScrollButtonProps) => {
 				e.stopPropagation();
 				setIsPressed(false);
 			}}
+			type="button"
 		>
-			<Icon className="size-full" aria-hidden="true" />
+			<Icon aria-hidden="true" className="size-full" />
 		</button>
 	);
 };
@@ -263,7 +263,7 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 				}, 400);
 			}
 		},
-		[enableLegendSlider, checkScroll],
+		[enableLegendSlider, checkScroll]
 	);
 
 	React.useEffect(() => {
@@ -313,33 +313,33 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 
 	return (
 		<ol
-			ref={ref}
 			className={cx("relative overflow-hidden", className)}
+			ref={ref}
 			{...other}
 		>
 			<div
-				ref={scrollableRef}
-				// biome-ignore lint/a11y/noNoninteractiveTabindex: <explanation>
-				tabIndex={0}
 				className={cx(
 					"flex h-full",
 					enableLegendSlider
 						? hasScroll?.right || hasScroll?.left
-							? "snap-mandatory items-center overflow-auto pl-4 pr-12 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+							? "snap-mandatory items-center overflow-auto pr-12 pl-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
 							: ""
-						: "flex-wrap",
+						: "flex-wrap"
 				)}
+				// biome-ignore lint/a11y/noNoninteractiveTabindex: <explanation>
+				ref={scrollableRef}
+				tabIndex={0}
 			>
 				{categories.map((category, index) => (
 					<LegendItem
+						activeLegend={activeLegend}
+						color={colors[index] as AvailableChartColorsKeys}
 						key={`item-${
 							// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 							index
 						}`}
 						name={category}
-						color={colors[index] as AvailableChartColorsKeys}
 						onClick={onClickLegendItem}
-						activeLegend={activeLegend}
 					/>
 				))}
 			</div>
@@ -348,26 +348,26 @@ const Legend = React.forwardRef<HTMLOListElement, LegendProps>((props, ref) => {
 					<div
 						className={cx(
 							// base
-							"absolute bottom-0 right-0 top-0 flex h-full items-center justify-center pr-1",
+							"absolute top-0 right-0 bottom-0 flex h-full items-center justify-center pr-1",
 							// background color
-							"bg-white dark:bg-gray-950",
+							"bg-white dark:bg-gray-950"
 						)}
 					>
 						<ScrollButton
+							disabled={!hasScroll?.left}
 							icon={RiArrowLeftSLine}
 							onClick={() => {
 								setIsKeyDowned(null);
 								scrollToTest("left");
 							}}
-							disabled={!hasScroll?.left}
 						/>
 						<ScrollButton
+							disabled={!hasScroll?.right}
 							icon={RiArrowRightSLine}
 							onClick={() => {
 								setIsKeyDowned(null);
 								scrollToTest("right");
 							}}
-							disabled={!hasScroll?.right}
 						/>
 					</div>
 				</>
@@ -387,7 +387,7 @@ const ChartLegend = (
 	onClick?: (category: string, color: string) => void,
 	enableLegendSlider?: boolean,
 	legendPosition?: "left" | "center" | "right",
-	yAxisWidth?: number,
+	yAxisWidth?: number
 ) => {
 	const legendRef = React.useRef<HTMLDivElement>(null);
 
@@ -405,27 +405,27 @@ const ChartLegend = (
 
 	return (
 		<div
-			style={{ paddingLeft: paddingLeft }}
-			ref={legendRef}
 			className={cx(
 				"flex items-center",
 				{ "justify-center": legendPosition === "center" },
 				{
 					"justify-start": legendPosition === "left",
 				},
-				{ "justify-end": legendPosition === "right" },
+				{ "justify-end": legendPosition === "right" }
 			)}
+			ref={legendRef}
+			style={{ paddingLeft }}
 		>
 			<Legend
 				// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-				categories={filteredPayload.map((entry: any) => entry.value)}
-				// biome-ignore lint/suspicious/noExplicitAny: <explanation>
-				colors={filteredPayload.map((entry: any) =>
-					categoryColors.get(entry.value),
-				)}
-				onClickLegendItem={onClick}
 				activeLegend={activeLegend}
+				// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+				categories={filteredPayload.map((entry: any) => entry.value)}
+				colors={filteredPayload.map((entry: any) =>
+					categoryColors.get(entry.value)
+				)}
 				enableLegendSlider={enableLegendSlider}
+				onClickLegendItem={onClick}
 			/>
 		</div>
 	);
@@ -467,16 +467,16 @@ const ChartTooltip = ({
 					// border color
 					"border-gray-200 dark:border-gray-800",
 					// background color
-					"bg-white dark:bg-gray-950",
+					"bg-white dark:bg-gray-950"
 				)}
 			>
-				<div className={cx("border-b border-inherit px-4 py-2")}>
+				<div className={cx("border-inherit border-b px-4 py-2")}>
 					<p
 						className={cx(
 							// base
 							"font-medium",
 							// text color
-							"text-gray-900 dark:text-gray-50",
+							"text-gray-900 dark:text-gray-50"
 						)}
 					>
 						{label}
@@ -485,18 +485,18 @@ const ChartTooltip = ({
 				<div className={cx("space-y-1 px-4 py-2")}>
 					{payload.map(({ value, category, color }, index) => (
 						<div
+							className="flex items-center justify-between space-x-8"
 							key={`id-${
 								// biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
 								index
 							}`}
-							className="flex items-center justify-between space-x-8"
 						>
 							<div className="flex items-center space-x-2">
 								<span
 									aria-hidden="true"
 									className={cx(
 										"size-2 shrink-0 rounded-sm",
-										getColorClassName(color, "bg"),
+										getColorClassName(color, "bg")
 									)}
 								/>
 								<p
@@ -504,7 +504,7 @@ const ChartTooltip = ({
 										// base
 										"whitespace-nowrap text-right",
 										// text color
-										"text-gray-700 dark:text-gray-300",
+										"text-gray-700 dark:text-gray-300"
 									)}
 								>
 									{category}
@@ -515,7 +515,7 @@ const ChartTooltip = ({
 									// base
 									"whitespace-nowrap text-right font-medium tabular-nums",
 									// text color
-									"text-gray-900 dark:text-gray-50",
+									"text-gray-900 dark:text-gray-50"
 								)}
 							>
 								{valueFormatter(value)}
@@ -540,7 +540,7 @@ type BaseEventProps = {
 type BarChartEventProps = BaseEventProps | null | undefined;
 
 interface BarChartProps extends React.HTMLAttributes<HTMLDivElement> {
-	// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+	// biome-ignore lint/suspicious/noExplicitAny: <>
 	data: Record<string, any>[];
 	index: string;
 	categories: string[];
@@ -607,15 +607,15 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 		} = props;
 		const CustomTooltip = customTooltip;
 		const paddingValue =
-			(!showXAxis && !showYAxis) || (startEndOnly && !showYAxis) ? 0 : 20;
+			!(showXAxis || showYAxis) || (startEndOnly && !showYAxis) ? 0 : 20;
 		const [legendHeight, setLegendHeight] = React.useState(60);
 		const [activeLegend, setActiveLegend] = React.useState<string | undefined>(
-			undefined,
+			undefined
 		);
 		const categoryColors = constructCategoryColors(categories, colors);
 		// biome-ignore lint/suspicious/noExplicitAny: <explanation>
 		const [activeBar, setActiveBar] = React.useState<any | undefined>(
-			undefined,
+			undefined
 		);
 		const yAxisDomain = getYAxisDomain(autoMinValue, minValue, maxValue);
 		const hasOnValueChange = !!onValueChange;
@@ -667,14 +667,22 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 
 		return (
 			<div
-				ref={forwardedRef}
 				className={cx("h-80 w-full", className)}
+				ref={forwardedRef}
 				tremor-id="tremor-raw"
 				{...other}
 			>
 				<ResponsiveContainer>
 					<RechartsBarChart
+						barCategoryGap={barCategoryGap}
 						data={data}
+						layout={layout}
+						margin={{
+							bottom: xAxisLabel ? 30 : undefined,
+							left: yAxisLabel ? 20 : undefined,
+							right: yAxisLabel ? 5 : undefined,
+							top: 5,
+						}}
 						onClick={
 							hasOnValueChange && (activeLegend || activeBar)
 								? () => {
@@ -684,41 +692,33 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 									}
 								: undefined
 						}
-						margin={{
-							bottom: xAxisLabel ? 30 : undefined,
-							left: yAxisLabel ? 20 : undefined,
-							right: yAxisLabel ? 5 : undefined,
-							top: 5,
-						}}
 						stackOffset={type === "percent" ? "expand" : undefined}
-						layout={layout}
-						barCategoryGap={barCategoryGap}
 					>
 						{showGridLines ? (
 							<CartesianGrid
-								className={cx("stroke-gray-200 stroke-1 dark:stroke-gray-800")}
+								className={cx("stroke-1 stroke-gray-200 dark:stroke-gray-800")}
 								horizontal={layout !== "vertical"}
 								vertical={layout === "vertical"}
 							/>
 						) : null}
 						<XAxis
-							hide={!showXAxis}
-							tick={{
-								transform:
-									layout !== "vertical" ? "translate(0, 6)" : undefined,
-							}}
-							fill=""
-							stroke=""
+							axisLine={false}
 							className={cx(
 								// base
 								"text-xs",
 								// text fill
 								"fill-gray-500 dark:fill-gray-500",
-								{ "mt-4": layout !== "vertical" },
+								{ "mt-4": layout !== "vertical" }
 							)}
-							tickLine={false}
-							axisLine={false}
+							fill=""
+							hide={!showXAxis}
 							minTickGap={tickGap}
+							stroke=""
+							tick={{
+								transform:
+									layout !== "vertical" ? "translate(0, 6)" : undefined,
+							}}
+							tickLine={false}
 							{...(layout !== "vertical"
 								? {
 										padding: {
@@ -736,45 +736,45 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 										domain: yAxisDomain as AxisDomain,
 										tickFormatter:
 											type === "percent" ? valueToPercent : valueFormatter,
-										allowDecimals: allowDecimals,
+										allowDecimals,
 									})}
 						>
 							{xAxisLabel && (
 								<Label
-									position="insideBottom"
+									className="fill-gray-800 font-medium text-sm dark:fill-gray-200"
 									offset={-20}
-									className="fill-gray-800 text-sm font-medium dark:fill-gray-200"
+									position="insideBottom"
 								>
 									{xAxisLabel}
 								</Label>
 							)}
 						</XAxis>
 						<YAxis
-							width={yAxisWidth}
-							hide={!showYAxis}
 							axisLine={false}
-							tickLine={false}
-							fill=""
-							stroke=""
 							className={cx(
 								// base
 								"text-xs",
 								// text fill
-								"fill-gray-500 dark:fill-gray-500",
+								"fill-gray-500 dark:fill-gray-500"
 							)}
+							fill=""
+							hide={!showYAxis}
+							stroke=""
 							tick={{
 								transform:
 									layout !== "vertical"
 										? "translate(-3, 0)"
 										: "translate(0, 0)",
 							}}
+							tickLine={false}
+							width={yAxisWidth}
 							{...(layout !== "vertical"
 								? {
 										type: "number",
 										domain: yAxisDomain as AxisDomain,
 										tickFormatter:
 											type === "percent" ? valueToPercent : valueFormatter,
-										allowDecimals: allowDecimals,
+										allowDecimals,
 									}
 								: {
 										dataKey: index,
@@ -787,35 +787,27 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 						>
 							{yAxisLabel && (
 								<Label
+									angle={-90}
+									className="fill-gray-800 font-medium text-sm dark:fill-gray-200"
+									offset={-15}
 									position="insideLeft"
 									style={{ textAnchor: "middle" }}
-									angle={-90}
-									offset={-15}
-									className="fill-gray-800 text-sm font-medium dark:fill-gray-200"
 								>
 									{yAxisLabel}
 								</Label>
 							)}
 						</YAxis>
 						<Tooltip
-							wrapperStyle={{ outline: "none" }}
-							isAnimationActive={true}
 							animationDuration={100}
-							cursor={{ fill: "#d1d5db", opacity: "0.15" }}
-							offset={20}
-							position={{
-								y: layout === "horizontal" ? 0 : undefined,
-								x: layout === "horizontal" ? undefined : yAxisWidth + 20,
-							}}
 							content={({ active, payload, label }) => {
 								const cleanPayload: TooltipProps["payload"] = payload
-									? // biome-ignore lint/suspicious/noExplicitAny: <explanation>
+									? // biome-ignore lint/suspicious/noExplicitAny: <>
 										payload.map((item: any) => ({
 											category: item.dataKey,
 											value: item.value,
 											index: item.payload[index],
 											color: categoryColors.get(
-												item.dataKey,
+												item.dataKey
 											) as AvailableChartColorsKeys,
 											type: item.type,
 											payload: item.payload,
@@ -827,33 +819,43 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 									(active !== prevActiveRef.current ||
 										label !== prevLabelRef.current)
 								) {
-									tooltipCallback({ active, payload: cleanPayload, label });
+									tooltipCallback({
+										active,
+										payload: cleanPayload,
+										label: String(label ?? ""),
+									});
 									prevActiveRef.current = active;
-									prevLabelRef.current = label;
+									prevLabelRef.current = String(label ?? "");
 								}
 
 								return showTooltip && active ? (
 									CustomTooltip ? (
 										<CustomTooltip
 											active={active}
+											label={String(label ?? "")}
 											payload={cleanPayload}
-											label={label}
 										/>
 									) : (
 										<ChartTooltip
 											active={active}
+											label={String(label ?? "")}
 											payload={cleanPayload}
-											label={label}
 											valueFormatter={valueFormatter}
 										/>
 									)
 								) : null;
 							}}
+							cursor={{ fill: "#d1d5db", opacity: "0.15" }}
+							isAnimationActive={true}
+							offset={20}
+							position={{
+								y: layout === "horizontal" ? 0 : undefined,
+								x: layout === "horizontal" ? undefined : yAxisWidth + 20,
+							}}
+							wrapperStyle={{ outline: "none" }}
 						/>
 						{showLegend ? (
 							<RechartsLegend
-								verticalAlign="top"
-								height={legendHeight}
 								content={({ payload }) =>
 									ChartLegend(
 										{ payload },
@@ -866,9 +868,11 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 											: undefined,
 										enableLegendSlider,
 										legendPosition,
-										yAxisWidth,
+										yAxisWidth
 									)
 								}
+								height={legendHeight}
+								verticalAlign="top"
 							/>
 						) : null}
 						{categories.map((category) => (
@@ -876,29 +880,29 @@ const BarChart = React.forwardRef<HTMLDivElement, BarChartProps>(
 								className={cx(
 									getColorClassName(
 										categoryColors.get(category) as AvailableChartColorsKeys,
-										"fill",
+										"fill"
 									),
-									onValueChange ? "cursor-pointer" : "",
+									onValueChange ? "cursor-pointer" : ""
 								)}
+								dataKey={category}
+								fill=""
+								isAnimationActive={false}
 								key={category}
 								name={category}
-								type="linear"
-								dataKey={category}
-								stackId={stacked ? "stack" : undefined}
-								isAnimationActive={false}
-								fill=""
-								// biome-ignore lint/suspicious/noExplicitAny: <explanation>
+								onClick={onBarClick}
+								// biome-ignore lint/suspicious/noExplicitAny: <>
 								shape={(props: any) =>
 									renderShape(props, activeBar, activeLegend, layout)
 								}
-								onClick={onBarClick}
+								stackId={stacked ? "stack" : undefined}
+								type="linear"
 							/>
 						))}
 					</RechartsBarChart>
 				</ResponsiveContainer>
 			</div>
 		);
-	},
+	}
 );
 
 BarChart.displayName = "BarChart";

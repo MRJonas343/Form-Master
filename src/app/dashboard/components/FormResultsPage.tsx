@@ -5,7 +5,7 @@ import { Button } from "@nextui-org/button";
 import { ScrollShadow } from "@nextui-org/react";
 import { Download } from "lucide-react";
 import { CSVLink } from "react-csv";
-import { BarChart } from "@/components/BarChart";
+import { BarChart } from "@/components";
 import { DonutChart } from "@/components/DonuChart";
 import type { FormeResults } from "@/interfaces";
 import {

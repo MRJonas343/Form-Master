@@ -1,10 +1,14 @@
+export * from "./BarChart";
 export * from "./CardsGrid";
 export * from "./CloudTags";
 export * from "./CommentsSection";
 export * from "./CustomHearthIcon";
+
 export * from "./EmailTemplate";
+export * from "./ForceLogOut";
 export * from "./FormCard";
 export * from "./FormMasterLogo";
+export * from "./IssueModal";
 export * from "./LanguageSelect";
 export * from "./LocalSwitcherSelect";
 export * from "./MarkdownRenderArea";

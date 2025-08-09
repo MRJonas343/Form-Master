@@ -1,0 +1,35 @@
+[01:15:55.284] Running build in Washington, D.C., USA (East) – iad1
+[01:15:55.285] Build machine configuration: 2 cores, 8 GB
+[01:15:55.322] Cloning github.com/MRJonas343/Form-Master (Branch: master, Commit: b4c2350)
+[01:15:55.694] Cloning completed: 372.000ms
+[01:16:02.229] Restored build cache from previous deployment (53qJRaBVeeYQLiVoz1B14zadLoa4)
+[01:16:08.417] Running "vercel build"
+[01:16:09.156] Vercel CLI 44.7.3
+[01:16:09.505] Installing dependencies...
+[01:16:09.582] bun install v1.2.19 (aad3abea)
+[01:16:14.120]
+[01:16:14.120] + @dnd-kit/modifiers@9.0.0
+[01:16:14.120] + @dnd-kit/sortable@10.0.0
+[01:16:14.120] + next@15.4.6
+[01:16:14.120] + react@19.1.1
+[01:16:14.120] + react-dom@19.1.1
+[01:16:14.120]
+[01:16:14.120] 20 packages installed [4.60s]
+[01:16:14.149] Detected Next.js version: 15.4.6
+[01:16:14.154] Running "bun run build"
+[01:16:14.162] $ next build
+[01:16:15.149]    ▲ Next.js 15.4.6
+[01:16:15.150]
+[01:16:15.357]    Creating an optimized production build ...
+[01:17:50.621]  ✓ Compiled successfully in 94s
+[01:17:50.641]    Linting and checking validity of types ...
+[01:18:08.389] Failed to compile.
+[01:18:08.390]
+[01:18:08.403] src/app/admin/form/[id]/page.tsx
+[01:18:08.403] Type error: Type '{ params: { id: string; }; }' does not satisfy the constraint 'PageProps'.
+[01:18:08.403]   Types of property 'params' are incompatible.
+[01:18:08.403]     Type '{ id: string; }' is missing the following properties from type 'Promise<any>': then, catch, finally, [Symbol.toStringTag]
+[01:18:08.403]
+[01:18:08.463] Next.js build worker exited with code: 1 and signal: null
+[01:18:08.594] error: script "build" exited with code 1
+[01:18:08.603] Error: Command "bun run build" exited with 1

@@ -4,7 +4,8 @@ import { NavBar } from "@/components";
 import { getAllFormsByUserId } from "@/services/forms/getAllFormsByUserId";
 import { FormsPage } from "../../components";
 
-export default async function page({ params }: { params: { id: string } }) {
+export default async function page(props: { params: Promise<{ id: string }> }) {
+	const params = await props.params;
 	const session = await auth();
 
 	if (!session) return redirect("/login");

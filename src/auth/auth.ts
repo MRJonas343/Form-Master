@@ -18,9 +18,12 @@ const adapter = DrizzleAdapter(db, {
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
 	secret: process.env.AUTH_SECRET ?? "",
-	adapter: adapter,
+	adapter,
 	pages: {
 		signIn: "/login",
+	},
+	experimental: {
+		enableWebAuthn: false,
 	},
 	providers: [
 		GitHub({
@@ -39,7 +42,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 				email: {},
 				password: {},
 			},
-			authorize: async (credentials) => {
+			authorize: (credentials) => {
 				const validatedUser = validateUser.safeParse(credentials);
 
 				if (!validatedUser.success) return null;
@@ -57,7 +60,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 	],
 
 	callbacks: {
-		async jwt({ token, user, account }) {
+		jwt({ token, user, account }) {
 			if (account?.provider === "credentials") {
 				token.credentials = true;
 				token.id = user.id;
@@ -66,14 +69,19 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 			return token;
 		},
 		async session({ session }) {
-			const user = await userRepository.findUserById(session.user.id);
+			try {
+				const user = await userRepository.findUserById(session.user.id);
 
-			Object.assign(session.user, {
-				role: user?.role,
-				status: user?.status,
-			});
+				Object.assign(session.user, {
+					role: user?.role,
+					status: user?.status,
+				});
 
-			return session;
+				return session;
+			} catch {
+				// Silent error handling - return session without modifications
+				return session;
+			}
 		},
 	},
 	jwt: {
@@ -84,7 +92,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 				if (!params.token.sub) throw new Error("No user ID found in token");
 
 				const createdSession = await adapter?.createSession?.({
-					sessionToken: sessionToken,
+					sessionToken,
 					userId: params.token.sub.toString(),
 					expires: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000),
 				});

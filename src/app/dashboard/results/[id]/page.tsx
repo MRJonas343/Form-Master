@@ -6,7 +6,8 @@ import { getFormById } from "@/services/forms/getFormById";
 import { getFormResults } from "@/services/forms/getFormResults";
 import { FormResultsPage } from "../../components";
 
-const page = async ({ params }: { params: { id: string } }) => {
+const page = async (props: { params: Promise<{ id: string }> }) => {
+	const params = await props.params;
 	const session = await auth();
 
 	if (!session) return redirect("/login");

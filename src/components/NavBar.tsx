@@ -43,10 +43,10 @@ export const NavBar: FC = ({
 	return (
 		<>
 			<Navbar
-				position={position ?? "sticky"}
 				isBordered
-				onMenuOpenChange={setIsMenuOpen}
 				maxWidth="xl"
+				onMenuOpenChange={setIsMenuOpen}
+				position={position ?? "sticky"}
 			>
 				<NavbarContent>
 					<NavbarMenuToggle
@@ -56,29 +56,29 @@ export const NavBar: FC = ({
 					<NavbarBrand>
 						<FormMasterLogo className="hidden md:block" />
 						<Link
-							href="/"
-							className="font-bold text-inherit pl-3 cursor-pointer"
+							className="cursor-pointer pl-3 font-bold text-inherit"
+							href={session ? "/latest-forms" : "/"}
 						>
 							Form Master
 						</Link>
 					</NavbarBrand>
 				</NavbarContent>
 
-				<NavbarContent className="hidden sm:flex gap-4" justify="center">
+				<NavbarContent className="hidden gap-4 sm:flex" justify="center">
 					<NavbarItem isActive={pathname === "/latest-forms"}>
 						<Link
+							aria-current="page"
 							color={pathname === "/latest-forms" ? "primary" : "foreground"}
 							href="/latest-forms"
-							aria-current="page"
 						>
 							{t("latest")}
 						</Link>
 					</NavbarItem>
 					<NavbarItem isActive={pathname === "/popular-forms"}>
 						<Link
+							aria-current="page"
 							color={pathname === "/popular-forms" ? "primary" : "foreground"}
 							href="/popular-forms"
-							aria-current="page"
 						>
 							{t("popular")}
 						</Link>
@@ -87,13 +87,13 @@ export const NavBar: FC = ({
 
 				<NavbarContent justify="end">
 					<NavbarItem
-						className="hidden lg:flex font-semibold"
+						className="hidden font-semibold lg:flex"
 						isActive={pathname === "/login"}
 					>
 						{!session && (
 							<Link
-								href="/login"
 								color={pathname === "/login" ? "primary" : "foreground"}
+								href="/login"
 							>
 								{t("login")}
 							</Link>
@@ -103,56 +103,56 @@ export const NavBar: FC = ({
 					<NavbarItem>
 						<Button
 							as={Link}
+							className={`font-semibold ${pathname === "/my-forms" && "hidden"}`}
 							color="primary"
 							href={session ? "/dashboard" : "/register"}
-							className={`font-semibold ${pathname === "/my-forms" && "hidden"}`}
-							variant="shadow"
 							radius="sm"
+							variant="shadow"
 						>
 							{session ? t("myForms") : t("join")}
 						</Button>
 					</NavbarItem>
 					<Popover placement="bottom">
 						<PopoverTrigger className="hidden sm:flex">
-							<Button isIconOnly className="bg-transparent">
+							<Button className="bg-transparent" isIconOnly>
 								<IoSettingsOutline size={30} />
 							</Button>
 						</PopoverTrigger>
 						<PopoverContent>
 							<div
-								className={`px-1 py-2 flex items-center ${!session ? "flex-row" : "flex-col"}`}
+								className={`flex items-center px-1 py-2 ${session ? "flex-col" : "flex-row"}`}
 							>
 								<SwitchTheme size="lg" />
 
 								<div className="pb-2" />
 								<LanguageSwitcher />
 								<Button
-									hidden={!session}
-									size="md"
 									className={`mt-2 w-full ${!session && "hidden"}`}
-									variant="bordered"
-									radius="sm"
-									onClick={onOpen}
 									endContent={<FaBug size={14} />}
+									hidden={!session}
+									onClick={onOpen}
+									radius="sm"
+									size="md"
+									variant="bordered"
 								>
 									Issue
 								</Button>
 								<Button
-									hidden={session?.user.role !== "admin"}
 									as={Link}
-									href="/admin/panel"
-									size="md"
 									className={`mt-2 w-full ${session?.user.role !== "admin" && "hidden"}`}
-									variant="bordered"
+									hidden={session?.user.role !== "admin"}
+									href="/admin/panel"
 									radius="sm"
+									size="md"
+									variant="bordered"
 								>
 									Admin
 								</Button>
 								<Button
+									className={`mt-2 w-full p-0 font-normal text-mediun text-red-700 ${!session && "hidden"}`}
+									onClick={() => handleLogOut()}
 									radius="sm"
 									variant="bordered"
-									className={`text-mediun p-0 font-normal text-red-700 w-full mt-2 ${!session && "hidden"}`}
-									onClick={() => handleLogOut()}
 								>
 									{t("logOut")}
 								</Button>
@@ -162,36 +162,39 @@ export const NavBar: FC = ({
 				</NavbarContent>
 				<NavbarMenu>
 					<NavbarMenuItem
-						isActive={pathname === "/login"}
 						hidden={Boolean(session)}
+						isActive={pathname === "/login"}
 					>
 						<Link
-							href="/login"
 							color={pathname === "/login" ? "primary" : "foreground"}
+							href="/login"
 						>
 							{t("login")}
 						</Link>
 					</NavbarMenuItem>
-					<NavbarMenuItem isActive={pathname === "/"}>
-						<Link href="/" color={pathname === "/" ? "primary" : "foreground"}>
+					<NavbarMenuItem isActive={pathname === "/latest-forms"}>
+						<Link
+							color={pathname === "/latest-forms" ? "primary" : "foreground"}
+							href="/latest-forms"
+						>
 							{t("latest")}
 						</Link>
 					</NavbarMenuItem>
 					<NavbarMenuItem isActive={pathname === "/popular-forms"}>
 						<Link
-							href="/popular-forms"
 							color={pathname === "/popular-forms" ? "primary" : "foreground"}
+							href="/popular-forms"
 						>
 							{t("popular")}
 						</Link>
 					</NavbarMenuItem>
 					<NavbarMenuItem
-						isActive={pathname === "/admin/panel"}
 						hidden={session?.user.role !== "admin"}
+						isActive={pathname === "/admin/panel"}
 					>
 						<Link
-							href="/admin/panel"
 							color={pathname === "/admin/panel" ? "primary" : "foreground"}
+							href="/admin/panel"
 						>
 							Admin
 						</Link>
@@ -199,7 +202,7 @@ export const NavBar: FC = ({
 
 					<NavbarMenuItem hidden={!session}>
 						<Button
-							className="pb-2 mx-0 bg-transparent pl-0 text-red-700 font-normal text-medium "
+							className="mx-0 bg-transparent pb-2 pl-0 font-normal text-medium text-red-700"
 							onClick={() => handleLogOut()}
 						>
 							{t("logOut")}
@@ -213,9 +216,9 @@ export const NavBar: FC = ({
 			</Navbar>
 			<IssueModal
 				isOpen={isOpen}
-				onOpenChange={onOpenChange}
-				onOpen={onOpen}
 				onClose={onClose}
+				onOpen={onOpen}
+				onOpenChange={onOpenChange}
 			/>
 		</>
 	);
